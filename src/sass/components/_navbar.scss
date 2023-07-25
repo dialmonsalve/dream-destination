@@ -1,0 +1,16 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.navbar {
+  display: flex;
+  padding: 1rem;
+  background-color:  v.$color-primary-darker;
+
+  &__nav {
+    @include m.navbar();
+
+    &-link {
+      @include m.navbar-link();
+    }
+  }
+}

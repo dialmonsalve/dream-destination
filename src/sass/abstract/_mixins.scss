@@ -1,0 +1,203 @@
+@use './variables' as v;
+
+//!MEDIA QUERY MANAGER
+/*
+*0	-	600px   		  : 	Phone
+*600	-	900px   	  :		Table portrait
+*900 -	1200px  		:		Table landscape
+*[1200 -	1800px] 	: 	is where our normal system apply
+*1800px + 				  :	 	Big desktop
+
+*$breakpoint  
+*- phone
+*- tab-port
+*- tab-land
+*- big-desktop
+
+!em == 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint ==phone {
+    @media(max-width: 37.5em) {
+      @content
+    }
+
+    ; //! 600px
+  }
+
+  @if $breakpoint ==tab-port {
+    @media(max-width: 56.25em) {
+      @content
+    }
+
+    ; //! 900px
+  }
+
+  @if $breakpoint ==tab-land {
+    @media(max-width: 75em) {
+      @content
+    }
+
+    ; //! 1200px
+  }
+
+  @if $breakpoint ==big-desktop {
+    @media(min-width: 112.5em) {
+      @content
+    }
+
+    ; //! 1800px
+  }
+}
+
+//! Navbar
+
+@mixin navbar() {
+  display: flex;
+  padding: 0 0.3rem;
+  margin-right: 2rem;
+}
+
+@mixin navbar-link() {
+  padding: 1.8rem 1.5rem;
+  font-size: v.$font-size;
+  color: v.$color-white;
+  border-radius: 1rem;
+
+  &:link,
+  &:visited {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all .4s;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: v.$color-primary-light;
+  }
+
+  &:active {
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4) inset;
+  }
+}
+
+
+
+
+
+
+
+
+//! SIDEBAR 
+@mixin sidebar () {
+  height: 98vh;
+  box-shadow: 4px 4px 4px rgba($color: #000000, $alpha: 0.6);
+  border-radius: 1rem;
+  background-color: #2c2727;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  display: flex;
+  position: absolute;
+  z-index: 1;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
+
+//! Button with background
+@mixin btnColor($color, $hasAnimation: true) {
+  border: 0;
+  color: v.$color-white;
+  background-color: $color;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1.5px;
+  border: 2px solid $color;
+
+  @if $hasAnimation {
+    @include hoverAnimations($color);
+  }
+}
+
+//! Button without background
+@mixin outlined($color, $hasAnimation: true) {
+  background-color: transparent;
+  font-weight: 600;
+  border: 2px solid $color;
+  color: $color;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+
+  @if $hasAnimation {
+    @include hoverAnimations($color);
+  }
+}
+
+//! Little beat in buttons
+@mixin hoverAnimations($color) {
+
+  &:hover {
+    background-color: rgba($color: $color, $alpha: 0.8);
+    color: v.$color-white;
+    border: 2px solid $color;
+
+    &::after {
+      transform: scaleX(1.6) scaleY(1.8);
+      background-color: $color;
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3) inset;
+  }
+}
+
+//! Generic input
+@mixin input() {
+  border-radius: 0.5rem;
+  border: 2px solid rgb(233, 233, 233);
+  outline: 2px solid rgb(233, 233, 233);
+  padding: 0.7rem;
+
+  @include respond(phone) {
+    width: 10rem;
+  }
+}
+
+//! Modal
+@mixin showModal($transform) {
+  opacity: 1;
+  visibility: visible;
+  transform: $transform;
+}
+
+@mixin typeModal ($url) {
+  animation: spin .2s linear forwards 1.2s;
+  background-image: $url;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 8rem;
+  position: sticky;
+
+  @include respond(phone) {
+    padding: 7rem;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}

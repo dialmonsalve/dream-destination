@@ -1,0 +1,27 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
+
+.form-control {
+
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 .8rem;
+
+  &--label {
+    padding: 1rem 0;
+    font-size: v.$font-size + 0.6rem;
+    color: v.$color-white;
+    text-transform: uppercase;
+    margin-right: 2rem;
+  }
+
+  &--input {
+
+    &,
+    &:link,
+    &:visited {
+      @include m.input();
+    }
+  }
+}

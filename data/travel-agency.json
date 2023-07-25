@@ -1,0 +1,112 @@
+{
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel A",
+      "city": "Ciudad A",
+      "description": "Un bonito hotel en la ciudad A",
+      "active": false,
+      "habitaciones": [
+        {
+          "id": 201,
+          "tipo": "Individual",
+          "costoBase": 100,
+          "impuestos": 10,
+          "isAvailable": true,
+          "capacidad": 1
+        },
+        {
+          "id": 202,
+          "tipo": "Doble",
+          "costoBase": 150,
+          "impuestos": 15,
+          "isAvailable": true,
+          "capacidad": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Hotel B",
+      "city": "Ciudad B",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": false,
+      "habitaciones": [
+        {
+          "id": 301,
+          "tipo": "Individual",
+          "costoBase": 120,
+          "impuestos": 12,
+          "isAvailable": true,
+          "capacidad": 1
+        },
+        {
+          "id": 302,
+          "tipo": "Doble",
+          "costoBase": 180,
+          "impuestos": 18,
+          "isAvailable": true,
+          "capacidad": 2
+        },
+        {
+          "id": 303,
+          "tipo": "Suite",
+          "costoBase": 250,
+          "impuestos": 20,
+          "isAvailable": false,
+          "capacidad": 4
+        }
+      ]
+    }
+  ],
+  "reservas": [
+    {
+      "id": "reserva1",
+      "usuarioId": "usuario1",
+      "hotelId": "hotel1",
+      "habitacionId": "habitacion1",
+      "fechaInicio": "2023-08-01",
+      "fechaFin": "2023-08-05",
+      "precioBase": 400,
+      "impuestos": 50,
+      "total": 450,
+      "contacto": "Pedro Perez"
+    },
+    {
+      "id": "reserva2",
+      "usuarioId": "usuario2",
+      "hotelId": "hotel2",
+      "habitacionId": "habitacion4",
+      "fechaInicio": "2023-09-10",
+      "fechaFin": "2023-09-15",
+      "precioBase": 900,
+      "impuestos": 72,
+      "total": 972,
+      "contacto": "Maria Chavez"
+    }
+  ],
+  "pasajeros": [
+    {
+      "id":1,
+      "name": "Pepe",
+      "apellido":"Mojica",
+      "fecha de nacimiento":"1981-22-12",
+      "genero":"male",
+      "tipo de documento":"dni",
+      "documento":71565656,
+      "email": "pepe@eltoro.com",
+      "password":"1234567",
+      "telefono":6598595955
+    }
+  ],
+  "staff":[
+    {
+      "id":1,
+      "name": "diego",
+      "apellido":"monsalve",
+      "email": "dial@eltoro.com",
+      "password":"1234567",
+      "telefono":6598585655
+    }
+  ]
+}

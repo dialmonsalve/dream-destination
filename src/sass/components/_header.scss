@@ -1,0 +1,69 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: v.$color-primary-dark;
+  align-items: center;
+
+  &__brand {
+    padding: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  &__user {
+    display: flex;
+
+    &--search {
+      border-right: 3px solid v.$color-primary-light;
+    }
+
+    &--search-img {
+      padding: 1rem;
+      width: 80%;
+      border-radius: 1rem;
+
+      &:hover {
+        background-color: v.$color-primary-light;
+      }
+
+      &:active {
+        background-color: v.$color-primary-light;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2) inset;
+      }
+    }
+
+    &--nav {
+
+      @include m.navbar();
+      border-right: 3px solid v.$color-primary-light;
+
+      // &-item {
+      //   position: relative;
+      //   cursor: pointer;
+      // }
+
+      &-link {
+        @include m.navbar-link();
+      }
+    }
+
+    &--avatar {
+      margin-right: 3rem;
+    }
+
+    &--avatar-img {
+      width: 130%;
+      border-radius: 5rem;
+
+      &:hover {
+        background-color: v.$color-primary-light;
+      }
+    }
+  }
+}
+
+.div{
+
+}

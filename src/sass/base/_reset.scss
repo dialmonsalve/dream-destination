@@ -1,0 +1,48 @@
+@use "../abstract/mixins" as m;
+@use "../abstract/variables" as v;
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	// *This defines what 1rem is
+	font-size: 62.5%; // ? 1rem = 10px; 10px/16px = 62.5%
+
+	@include m.respond(tab-land) {
+		//width <1200
+		font-size: 56.25%; // ? 1rem = 9px; 9px/16px = 56.25%
+	}
+
+	@include m.respond(tab-port) {
+		//width <900
+		font-size: 50%; // ? 1rem = 8px; 8px/16px = 50%
+	}
+
+	@include m.respond(big-desktop) {
+		font-size: 75%; // ? 1rem = 12px; 12px/16px = 75%
+
+	}
+}
+
+body {
+	box-sizing: border-box;
+	background-color:v.$color-primary;
+	overflow: hidden;
+
+	margin: 0;
+	font-family: v.$font-family;
+  
+	@include m.respond(tab-port) {
+		padding: 0
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}

@@ -1,0 +1,54 @@
+@use "../abstract/variables" as v;
+
+li {
+	list-style: none;
+	text-transform: uppercase;
+}
+
+a {	
+	text-decoration: none;
+	cursor: pointer;
+}
+
+button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+input[type="submit"] {
+	cursor: pointer;
+	border: none;
+	border-radius: 0.5rem;
+	color: white;
+	text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	font-size:1.6rem;
+}
+
+input[type="date"] {
+	font-size:1.3rem;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size:1.8rem;
+  cursor: pointer;
+	text-transform: uppercase;
+}
+
+.active {
+	background-color: v.$color-primary-light;
+}
