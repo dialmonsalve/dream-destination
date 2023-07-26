@@ -2,22 +2,21 @@ interface PropsNav {
   id: number;
   name: string;
   href: string;
-
 }
 
-export const navLinks:PropsNav[] = [
+export const navLinks: PropsNav[] = [
   // {
   //   id: 1,
   //   name: "flights",
   //   href: ''
   // },
   {
-    id: 2,
+    id: 1,
     name: "hotels",
     href: '/hotels'
   },
   {
-    id: 3,
+    id: 2,
     name: "bookings",
     href: '/bookings'
   },
@@ -43,5 +42,20 @@ export const headerLinks = [
     id: 3,
     name: "help",
     href: '#'
+  },
+  {
+    id: 4,
+    name: "create account",
+    href: '/create-account'
+  },
+  {
+    id: 5,
+    name: "login",
+    href: '/login'
+  },
+  {
+    id: 6,
+    name: "logout",
+    href: '/logout'
   },
 ]

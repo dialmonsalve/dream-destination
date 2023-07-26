@@ -2,14 +2,14 @@
 @use "../abstract/mixins" as m;
 
 .header {
+  align-items: center;
+  background-color: v.$color-primary-dark;
   display: flex;
   justify-content: space-between;
-  background-color: v.$color-primary-dark;
-  align-items: center;
 
   &__brand {
-    padding: 0.5rem;
     margin-left: 1rem;
+    padding: 0.5rem;
   }
 
   &__user {
@@ -20,9 +20,9 @@
     }
 
     &--search-img {
+      border-radius: 1rem;
       padding: 1rem;
       width: 80%;
-      border-radius: 1rem;
 
       &:hover {
         background-color: v.$color-primary-light;
@@ -62,8 +62,4 @@
       }
     }
   }
-}
-
-.div{
-
 }

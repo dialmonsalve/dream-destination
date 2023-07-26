@@ -2,18 +2,16 @@
 @use '../abstract/mixins' as m;
 
 .form-control {
-
-
   display: flex;
   flex-direction: column;
-  margin: 0 .8rem;
+  margin: 1rem .8rem;
 
   &--label {
-    padding: 1rem 0;
-    font-size: v.$font-size + 0.6rem;
     color: v.$color-white;
-    text-transform: uppercase;
+    font-size: v.$font-size + 0.2rem;
     margin-right: 2rem;
+    padding: 1rem 0;
+    text-transform: uppercase;
   }
 
   &--input {
@@ -23,5 +21,11 @@
     &:visited {
       @include m.input();
     }
+  }
+
+  &--select {
+    @include m.input();
+    color: rgb(138, 130, 130);
+    font-weight: 700;
   }
 }

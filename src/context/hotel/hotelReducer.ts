@@ -1,6 +1,5 @@
 import { HotelState } from './HotelProvider';
 
-
 type HotelActionType = 
   | { type: '[Hotel] - Get hotels', payload:Hotel[] }
 

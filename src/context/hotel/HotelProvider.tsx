@@ -10,7 +10,6 @@ export interface HotelState {
   hotels: Hotel[];
 }
 
-
 const HOTEL_INITIAL_STATE: HotelState = {
   hotels: [],
 }
@@ -18,8 +17,6 @@ const HOTEL_INITIAL_STATE: HotelState = {
 export const HotelProvider = ({ children }: Props) => {
 
   const [state, dispatch] = useReducer(hotelReducer, HOTEL_INITIAL_STATE);
-
-  const { hotels } = state
 
   useEffect(() => {
     getHotels()
@@ -39,7 +36,6 @@ export const HotelProvider = ({ children }: Props) => {
   return (
     <HotelContext.Provider value={{
       ...state,
-      hotels
     }}>
       {children}
     </HotelContext.Provider>

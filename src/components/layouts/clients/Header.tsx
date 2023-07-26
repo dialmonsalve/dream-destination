@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import { headerLinks } from '../../../utils/navItems';
 
 
@@ -6,14 +7,14 @@ export const Header = () => {
   return (
     <header className='header'>
       <Link className='header__brand' to='/'>
-        <img src='/brand.svg' alt='dream-destination' />
+        <img src='/assets/brand.svg' alt='dream-destination' />
       </Link>
 
       <div className='header__user' >
 
         <div className='header__user--search'>
           <Link to='#'>
-            <img className='header__user--search-img' src='/icon-search.svg' alt='icon-search' />
+            <img className='header__user--search-img' src='/assets/icon-search.svg' alt='icon-search' />
           </Link>
         </div>
 
@@ -29,7 +30,7 @@ export const Header = () => {
 
         <div className='header__user--avatar' >
           <Link to='#'>
-            <img className='header__user--avatar-img' src='/avatar.svg' alt='avatar' />
+            <img className='header__user--avatar-img' src='/assets/avatar.svg' alt='avatar' />
           </Link>
         </div>
       </div>

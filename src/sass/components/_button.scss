@@ -1,16 +1,17 @@
+@forward '../abstract/animations';
+@use '../abstract/mixins' as m;
 @use '../abstract/variables' as v;
-@use '../abstract/mixins.scss' as m;
 
 .btn {
   
   &,
   &:link,
   &:visited {    
+    border-radius: 1rem;
     font-weight: 500;
     line-height: 1;
     position: relative;
     transition: all .1s ease-in-out;
-    border-radius: 1rem;
   }
 
   &:focus,
@@ -20,13 +21,13 @@
 
   &::after {
     content: "";
-    height: 100%;
-    width: 100%;
     border-radius: 10rem;
+    height: 100%;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
     transition: all .4s;
+    width: 100%;
   }
 
   &--animated {
@@ -79,18 +80,5 @@
   &--large {
     font-size: 2.2rem;
     padding: 1.2rem 1.7rem;
-  }
-
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
   }
 }

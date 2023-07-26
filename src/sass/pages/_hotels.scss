@@ -1,0 +1,29 @@
+@use '../abstract/variables'as v;
+
+.content {
+ 
+  &__background {
+    display: flex;
+    flex-direction: column;
+    height: 35rem;
+    margin: 0 auto;
+
+
+    &--title{
+      color:v.$color-primary-darker;
+      font-size: 3.5rem;
+      margin: 2rem 0 ;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &--form{
+      align-items: center;
+      background-color: v.$color-green-light;
+      border-radius: 1rem;
+      display: flex;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  }
+}

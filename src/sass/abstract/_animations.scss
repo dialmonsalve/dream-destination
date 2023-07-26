@@ -1,0 +1,56 @@
+//! Buttons
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+//! Spinner
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+//! Sidebar
+@keyframes sidebarAnimationLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(100px);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes sidebarAnimationRight {
+  0% {
+    transform: translateX(-88%);
+  }
+
+  50% {
+    transform: translateX(20%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,26 @@
+@use '../abstract/variables' as v;
+
+.new-account {
+  display: flex;
+
+  &__container{
+    margin: 3rem auto;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    background-color: v.$color-primary-darker;
+
+    &--title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: v.$color-white;
+    }
+  
+    &--form {      
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);      
+    }
+  }
+
+}

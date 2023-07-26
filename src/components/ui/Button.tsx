@@ -1,5 +1,4 @@
 interface ButtonProps {
-
   backgroundColor?: 'blue' | 'red' | 'green' | 'primary-dark';
   hasBackground?: boolean;
   isAnimated?: boolean;
@@ -7,7 +6,6 @@ interface ButtonProps {
   margin?: string
   size?: 'small' | 'medium' | 'large';
   type?: 'button' | 'submit';
-  width?: number;
   onClick?: () => void;
 }
 
@@ -19,7 +17,6 @@ export const Button = ({
   margin = '0px',
   size = 'medium',
   type = 'button',
-  width,
   ...props
 }: ButtonProps) => {
 
@@ -30,7 +27,7 @@ export const Button = ({
     <button
       type={type}
       className={`btn ${bg} btn--${size} ${animated}`}
-      style={{ margin, width: `${width!}%` }}
+      style={{ margin }}
       {...props}
     >
       {label}

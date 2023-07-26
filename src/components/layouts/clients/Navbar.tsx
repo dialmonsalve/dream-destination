@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import { navLinks } from '../../../utils/navItems';
 
 interface NavbarProps {
