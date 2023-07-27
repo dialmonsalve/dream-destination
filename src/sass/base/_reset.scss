@@ -31,8 +31,8 @@ html {
 
 body {
 	box-sizing: border-box;
-	background-color:rgba(101, 96, 96, 0.275);
-	// overflow: hidden;
+	background-color:rgba(131, 127, 127, 0.587);
+	overflow: auto;
 
 	margin: 0;
 	font-family: v.$font-family;
@@ -45,4 +45,5 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
+	overflow: auto;
 }

@@ -1,17 +1,18 @@
 @use '../abstract/variables'as v;
 
-.content {
+.content-client {
+
  
   &__background {
     display: flex;
     flex-direction: column;
-    height: 35rem;
+    height: 25rem;
     margin: 0 auto;
 
 
     &--title{
       color:v.$color-primary-darker;
-      font-size: 3.5rem;
+      font-size: v.$font-size + 2rem;
       margin: 2rem 0 ;
       text-align: center;
       text-transform: uppercase;
@@ -25,5 +26,24 @@
       margin: 0 auto;
       padding: 2rem;
     }
+  }
+}
+
+.client-hotels {
+  padding: 2rem 20rem;
+
+  &__title {
+    color:v.$color-primary-darker;
+    text-transform: uppercase;
+    font-size: v.$font-size + 1rem;
+    text-align: center;
+  }
+
+  &__cards {
+    display: grid;
+    gap: 3rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 2rem;
   }
 }

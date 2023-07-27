@@ -9,14 +9,15 @@ import HotelsPage from '../pages/hotels';
 import LoginPage from '../pages/login';
 import NotFoundPage from '../pages/notFoundPage';
 
-import { Layout } from '../components/layouts/clients';
+import { ClientLayout } from '../components/layouts/clients';
+import NewHotelPage from '../pages/api/createHotel';
 
 
 const routes: RouteObject[] = [
 
   {
     path: '/',
-    element: <Layout />,
+    element: <ClientLayout />,
     errorElement: <NotFoundPage />,
     children: [
       {
@@ -25,11 +26,11 @@ const routes: RouteObject[] = [
       },
       {
         path: 'bookings',
-        element: <BookingsPage />
+        element: <BookingsPage isStaff={false}/>
       },
       {
         path: 'hotels',
-        element: <HotelsPage />
+        element: <HotelsPage isStaff={false} />
       },
       {
         path: 'create-account',
@@ -44,14 +45,24 @@ const routes: RouteObject[] = [
   {
     path: 'api',
     element: <ApiHomePage />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path:'hotels',
-        element: <HotelsPage />
+        children:[
+          {
+            index:true,
+            element: <HotelsPage isStaff />,
+          },
+          {
+            path:'create',
+            element:<NewHotelPage/>
+          }
+        ]
       },
       {
         path:'bookings',
-        element: <BookingsPage />
+        element: <BookingsPage isStaff />
       }
 
     ]

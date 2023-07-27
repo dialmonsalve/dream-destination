@@ -1,17 +1,14 @@
 
-import { ReactNode } from 'react';
+import { useState } from 'react';
+import { AnchorTag } from '../../ui/AnchorTag';
 
 interface Props {
-  children?: ReactNode;
   width?: number
 }
 
-export const Sidebar = ({ width = 300, children, }: Props) => {
+export const Sidebar = ({ width = 300 }: Props) => {
 
-  // const { onToggleSidebar, toggleSidebar } = useHandlerAnimations()
-
-  const toggleSidebar = true
-  // const toggleSidebar = false
+  const [toggleSidebar, setToggleSidebar] = useState(false)
 
   return (
     <>
@@ -20,11 +17,24 @@ export const Sidebar = ({ width = 300, children, }: Props) => {
         style={{ width }}
       >
         <ul className='sidebar__container'>
-          {children}
+          <AnchorTag
+            href="/api/hotels"
+            label="hotels"
+            itemClassName={`item`}
+            linkClassName={`item__link`}
+            onClick={() => setToggleSidebar(!toggleSidebar)}
+          />
+          <AnchorTag
+            href="/api/bookings"
+            label="bookings"
+            itemClassName={`item`}
+            linkClassName={`item__link`}  /* item__link--medium */
+            onClick={() => setToggleSidebar(!toggleSidebar)}
+          />
         </ul>
         <div
           className={`menu ${toggleSidebar ? '' : 'menu-hide'}`}
-          // onClick={onToggleSidebar}
+          onClick={() => setToggleSidebar(!toggleSidebar)}
           style={{ left: `calc(-2rem + ${width}px)` }}
         >
         </div>

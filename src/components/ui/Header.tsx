@@ -1,9 +1,13 @@
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
-import { headerLinks } from '../../../utils/navItems';
+interface HeaderProps {
+  children: ReactNode | ReactNode[],
+  isClient: boolean
+}
 
 
-export const Header = () => {
+export const Header = ({ children, isClient }: HeaderProps) => {
   return (
     <header className='header'>
       <Link className='header__brand' to='/'>
@@ -13,19 +17,16 @@ export const Header = () => {
       <div className='header__user' >
 
         <div className='header__user--search'>
-          <Link to='#'>
-            <img className='header__user--search-img' src='/assets/icon-search.svg' alt='icon-search' />
-          </Link>
+          {
+            isClient &&
+            <Link to='#'>
+              <img className='header__user--search-img' src='/assets/icon-search.svg' alt='icon-search' />
+            </Link>
+          }
         </div>
 
         <ul className='header__user--nav' >
-          {
-            headerLinks.map(link => (
-              <li className='header__user--nav-item' key={link.id} >
-                <Link className='header__user--nav-link' to={link.href}>{link.name}</Link>
-              </li>
-            ))
-          }
+          {children}
         </ul>
 
         <div className='header__user--avatar' >

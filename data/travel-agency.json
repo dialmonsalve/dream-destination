@@ -5,7 +5,7 @@
       "name": "Hotel A",
       "city": "Ciudad A",
       "description": "Un bonito hotel en la ciudad A",
-      "active": false,
+      "active": true,
       "habitaciones": [
         {
           "id": 201,
@@ -13,7 +13,8 @@
           "costoBase": 100,
           "impuestos": 10,
           "isAvailable": true,
-          "capacidad": 1
+          "capacidad": 1,
+          "description":"Vista al mar"
         },
         {
           "id": 202,
@@ -21,7 +22,8 @@
           "costoBase": 150,
           "impuestos": 15,
           "isAvailable": true,
-          "capacidad": 2
+          "capacidad": 2,
+          "description":"segundo piso"
         }
       ]
     },

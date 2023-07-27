@@ -1,18 +1,10 @@
-import { Sidebar } from "../../components/layouts/staff/Sidebar";
-import { AnchorTag } from "../../components/ui/AnchorTag";
+
+import { StaffLayout } from "../../components/layouts/staff/StaffLayout";
+
 
 function ApiHomePage() {
   return (
-    <Sidebar>
-      <AnchorTag
-        href="/api/hotels"
-        label="hotels"        
-      />
-      <AnchorTag
-        href="/api/bookings"
-        label="bookings"
-      />
-    </Sidebar>
+      <StaffLayout/>
   )
 }
 

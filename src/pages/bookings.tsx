@@ -1,7 +1,13 @@
+import { ClientBookings } from "../components/ui/clients/ClientBookings";
+import { StaffBooking } from "../components/ui/staff/StaffBooking";
 
-function BookingsPage() {
+interface BookingPageProps {
+  isStaff: boolean
+}
+function BookingsPage({isStaff}:BookingPageProps) {
+
   return (
-    <div>bookings</div>
+    isStaff ? <StaffBooking /> : <ClientBookings />
   )
 }
 

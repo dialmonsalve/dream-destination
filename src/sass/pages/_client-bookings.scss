@@ -1,0 +1,50 @@
+@use '../abstract/variables' as v;
+
+.client-bookings {
+  padding: 2rem 20rem;
+
+  &__title {
+    color: v.$color-primary-darker;
+    text-transform: uppercase;
+    font-size: v.$font-size + 1rem;
+    text-align: center;
+  }
+
+  &__cards {
+    display: grid;
+    gap: 3rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 2rem;
+  }
+}
+
+.card-booking {
+  border-bottom: 1px solid black;
+}
+
+.card {
+  &__head {
+    border-bottom: 1px solid v.$color-primary-light;
+  }
+
+  &__body{
+
+    &--client span {
+      font-weight: 100;
+      color:v.$color-primary-light;
+    }
+
+    &--booking {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid v.$color-primary-light;
+      width: 120%;
+    }
+    &--room span {
+      font-weight: 100;
+    }
+  
+  }
+
+}
+

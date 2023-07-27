@@ -6,6 +6,7 @@ interface ButtonProps {
   margin?: string
   size?: 'small' | 'medium' | 'large';
   type?: 'button' | 'submit';
+  color?: string
   onClick?: () => void;
 }
 
@@ -17,6 +18,7 @@ export const Button = ({
   margin = '0px',
   size = 'medium',
   type = 'button',
+  color,
   ...props
 }: ButtonProps) => {
 
@@ -27,7 +29,7 @@ export const Button = ({
     <button
       type={type}
       className={`btn ${bg} btn--${size} ${animated}`}
-      style={{ margin }}
+      style={{ margin, color }}
       {...props}
     >
       {label}

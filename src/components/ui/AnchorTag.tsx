@@ -4,17 +4,19 @@ interface AnchorTagProps {
   href: string;
   label: string;
   onClick?: () => void;
+  itemClassName:string
+  linkClassName:string
 }
-export const AnchorTag = ({ href, label, ...props }: AnchorTagProps) => {
+export const AnchorTag = ({ href, label,itemClassName,linkClassName, ...props }: AnchorTagProps) => {
 
   // const { onToggleSidebar } = useHandlerAnimations()
 
   return (
-    <li className={`item item--active`}
+    <li className={itemClassName}
       {...props}
     >
       <NavLink
-        className={`item__link item__link--medium `}
+        className={linkClassName}
         to={href}
         // onClick={onToggleSidebar}
         {...props}

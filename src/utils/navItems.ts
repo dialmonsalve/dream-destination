@@ -27,21 +27,21 @@ export const navLinks: PropsNav[] = [
   // },
 ]
 
-export const headerLinks = [
+export const headerLinks: PropsNav[] = [
   {
     id: 1,
     name: "companies",
-    href: '#'
+    href: '/companies',
   },
   {
     id: 2,
     name: "discover",
-    href: '#'
+    href: '/discover'
   },
   {
     id: 3,
     name: "help",
-    href: '#'
+    href: '/help'
   },
   {
     id: 4,
