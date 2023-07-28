@@ -3,7 +3,7 @@
 ## Proyecto creado para smart talent.
 
 
-1. Instalar dependencias:  
+1. Instalar dependencias
 
 - ```npm install ```
 
@@ -16,3 +16,30 @@
 4. Correr Dream destination
 
 - ```npm run dev```
+
+5. Ruta para usuarios
+- http://localhost:5173
+
+6. Rutas para el staff de la app
+- http://localhost:5173/api
+
+- Listar hoteles:
+  http://localhost:5173/api/hotels
+
+- Crear Hoteles
+  http://localhost:5173/api/hotels/create
+
+- Editar Hoteles
+  http://localhost:5173/api/hotels/:id
+
+- Detalle de un hotel
+  http://localhost:5173/api/hotels/detail/:id
+
+- Crear habitaciones
+  http://localhost:5173/api/hotels/:id/rooms/create
+
+- Login:
+  http://localhost:5173/login
+
+- Crear cuenta
+  http://localhost:5173/create-account
