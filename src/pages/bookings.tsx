@@ -1,5 +1,5 @@
-import { ClientBookings } from "../components/ui/clients/ClientBookings";
-import { StaffBooking } from "../components/ui/staff/StaffBooking";
+import { ClientBookings } from '../components/ui/clients/ClientBookings';
+import { StaffBooking } from '../components/ui/staff/StaffBooking';
 
 interface BookingPageProps {
   isStaff: boolean

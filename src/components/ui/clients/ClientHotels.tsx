@@ -1,6 +1,6 @@
-import { Button } from "../Button"
-import { HotelCard } from "../card/HotelCard"
-import { FormControl } from "../FormControl"
+import { Button } from '../Button';
+import { HotelCard } from '../card/HotelCard';
+import { FormControl } from '../FormControl';
 
 
 export const ClientHotels = () => {
@@ -41,26 +41,10 @@ export const ClientHotels = () => {
       </div>
 
       <div className='client-hotels' >
-        <h2 className="client-hotels__title" >Hotels</h2>
-        <div className="client-hotels__cards" >
-          <HotelCard >
+        <h2 className='client-hotels__title' >Hotels</h2>
+        <div className='client-hotels__cards' >
+          <HotelCard />
 
-          </HotelCard>
-          <HotelCard >
-
-          </HotelCard>
-          <HotelCard >
-
-          </HotelCard>
-          <HotelCard >
-
-          </HotelCard>
-          <HotelCard >
-
-          </HotelCard>
-          <HotelCard >
-
-          </HotelCard>
         </div>
       </div>
     </div>

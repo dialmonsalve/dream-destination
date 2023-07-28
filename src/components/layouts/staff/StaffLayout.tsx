@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom"
-import { AnchorTag } from "../../ui/AnchorTag"
-import { Header } from "../../ui/Header"
-import { Sidebar } from "./Sidebar"
+import { Outlet } from 'react-router-dom'
+import { AnchorTag } from '../../ui/AnchorTag'
+import { Header } from '../../ui/Header'
+import { Sidebar } from './Sidebar'
 
 export const StaffLayout = () => {
 

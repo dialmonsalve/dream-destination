@@ -6,8 +6,14 @@
   padding: 1rem;
   background-color:  v.$color-primary-darker;
 
+  
+
   &__nav {
     @include m.navbar();
+
+    @include m.respond(tab-port) {
+      flex-direction: column
+    }
 
     &-link {
       @include m.navbar-link();

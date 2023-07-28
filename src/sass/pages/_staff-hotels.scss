@@ -1,15 +1,29 @@
 @use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
 
 .staff-hotels {
   padding: 5rem;
   max-height: 80vh;
   overflow-y: auto;
 
+
+  @include m.respond(tab-port) {
+    max-height: 70vh;
+    margin: 0 auto;
+    padding: 8rem;
+  }
+
   &__title {
-    text-align: center;
+    // text-align: center;
     color: v.$color-primary-darker;
     font-size: v.$font-size + 3rem;
     margin-bottom: 1rem;
+
+    @include m.respond(tab-port) {
+      margin-bottom: 3rem;
+
+
+    }
   }
 
   &__table {
@@ -17,9 +31,16 @@
     border: 1px solid #000;
     border-spacing: 0;
     color: gray;
-    cursor: pointer;
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
+
+    @include m.respond(tab-port) {
+      max-height: 70vh;
+      overflow-x: scroll;
+      width: 100%;
+      margin-top: 3rem;
+    }
+
   }
 
   th {
@@ -46,4 +67,47 @@
 
 td {
   padding: 1rem;
+}
+
+.detail-hotel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5rem;
+  overflow-y: auto;
+  height: 85vh;
+
+  @include m.respond(phone) {
+    height: 65vh;
+    margin-left: 4rem;
+  }
+
+  &__table-detail-rooms {
+    margin-top: 5rem;
+    border: 1px solid #000;
+    border-spacing: 0;
+    color: gray;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+
+    @include m.respond(phone) {
+      margin-left: 28rem;
+    }
+
+    th {
+      text-align: center;
+      border-collapse: collapse;
+      padding: 1rem;
+      color: white;
+      background-color: rgb(61, 54, 54);
+      text-transform: uppercase;
+    }
+
+    tr {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      transition: all .2s;
+      text-align: center;
+      color: v.$color-primary-darker;
+    }
+  }
 }

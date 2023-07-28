@@ -82,3 +82,23 @@
     padding: 1.2rem 1.7rem;
   }
 }
+
+.disabled {
+  background-color: gray;
+  cursor: auto;
+  border:  gray;
+  
+  &:hover {
+    background-color: gray;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    border:  gray;
+  }
+
+  &::after {
+    content: "";
+    border-radius: 0rem;
+    height: 0;
+    top: 0;
+    width: 0;
+  }
+}

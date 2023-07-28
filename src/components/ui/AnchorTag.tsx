@@ -9,8 +9,6 @@ interface AnchorTagProps {
 }
 export const AnchorTag = ({ href, label,itemClassName,linkClassName, ...props }: AnchorTagProps) => {
 
-  // const { onToggleSidebar } = useHandlerAnimations()
-
   return (
     <li className={itemClassName}
       {...props}
@@ -18,7 +16,6 @@ export const AnchorTag = ({ href, label,itemClassName,linkClassName, ...props }:
       <NavLink
         className={linkClassName}
         to={href}
-        // onClick={onToggleSidebar}
         {...props}
       >
         {label}

@@ -7,22 +7,58 @@
   display: flex;
   justify-content: space-between;
 
+  @include m.respond(tab-port) {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  @include m.respond(phone) {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    
+  }
+
   &__brand {
     margin-left: 3rem;
     padding: 0.5rem;
+
+    @include m.respond(tab-port) {
+      margin: 0 auto;
+    }
   }
 
   &__user {
     display: flex;
 
+    @include m.respond(phone) {
+      flex-direction: column-reverse;
+      margin: 2rem auto;
+    }
+
     &--search {
       border-right: 3px solid v.$color-primary-light;
+
+      @include m.respond(tab-port) {
+        border-right: none;
+        display: none;
+      }
+
+      @include m.respond(phone) {
+        border-right: none;
+      }
     }
 
     &--search-img {
       border-radius: 1rem;
       padding: 1rem;
       width: 80%;
+
+      @include m.respond(phone) {
+        width: 20%;
+      }
 
       &:hover {
         background-color: v.$color-primary-light;
@@ -39,10 +75,14 @@
       @include m.navbar();
       border-right: 3px solid v.$color-primary-light;
 
-      // &-item {
-      //   position: relative;
-      //   cursor: pointer;
-      // }
+      @include m.respond(tab-port) {
+        border-right: none;        
+      }
+
+      @include m.respond(phone) {
+        flex-direction: column;
+        
+      }
 
       &-link {
         @include m.navbar-link();
@@ -56,6 +96,11 @@
     &--avatar-img {
       width: 130%;
       border-radius: 5rem;
+
+      @include m.respond(phone) {
+        width: 20%;
+        margin-left: 3rem;
+      }
 
       &:hover {
         background-color: v.$color-primary-light;

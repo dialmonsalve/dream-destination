@@ -1,114 +1,501 @@
 {
   "hotels": [
     {
-      "id": 1,
-      "name": "Hotel A",
-      "city": "Ciudad A",
-      "description": "Un bonito hotel en la ciudad A",
-      "active": true,
-      "habitaciones": [
-        {
-          "id": 201,
-          "tipo": "Individual",
-          "costoBase": 100,
-          "impuestos": 10,
-          "isAvailable": true,
-          "capacidad": 1,
-          "description":"Vista al mar"
-        },
-        {
-          "id": 202,
-          "tipo": "Doble",
-          "costoBase": 150,
-          "impuestos": 15,
-          "isAvailable": true,
-          "capacidad": 2,
-          "description":"segundo piso"
-        }
-      ]
-    },
-    {
       "id": 2,
-      "name": "Hotel B",
-      "city": "Ciudad B",
-      "description": "Un lujoso hotel en la ciudad B",
-      "active": false,
-      "habitaciones": [
+      "name": "Hotel A",
+      "city": "Medellin",
+      "description": "Abeauty hotel",
+      "active": true,
+      "rooms": [
         {
-          "id": 301,
-          "tipo": "Individual",
-          "costoBase": 120,
-          "impuestos": 12,
-          "isAvailable": true,
-          "capacidad": 1
-        },
-        {
-          "id": 302,
-          "tipo": "Doble",
-          "costoBase": 180,
-          "impuestos": 18,
-          "isAvailable": true,
-          "capacidad": 2
-        },
-        {
-          "id": 303,
-          "tipo": "Suite",
-          "costoBase": 250,
-          "impuestos": 20,
-          "isAvailable": false,
-          "capacidad": 4
+          "id": 1,
+          "": "A25",
+          "numberRoom": "string",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
         }
       ]
-    }
-  ],
-  "reservas": [
-    {
-      "id": "reserva1",
-      "usuarioId": "usuario1",
-      "hotelId": "hotel1",
-      "habitacionId": "habitacion1",
-      "fechaInicio": "2023-08-01",
-      "fechaFin": "2023-08-05",
-      "precioBase": 400,
-      "impuestos": 50,
-      "total": 450,
-      "contacto": "Pedro Perez"
     },
     {
-      "id": "reserva2",
-      "usuarioId": "usuario2",
-      "hotelId": "hotel2",
-      "habitacionId": "habitacion4",
-      "fechaInicio": "2023-09-10",
-      "fechaFin": "2023-09-15",
-      "precioBase": 900,
-      "impuestos": 72,
-      "total": 972,
-      "contacto": "Maria Chavez"
+      "id": 3,
+      "name": "Hotel A",
+      "city": "Medellin",
+      "description": "string",
+      "active": false,
+      "rooms": [
+        {
+          "id": 1,
+          "numberRoom": "A25",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        },
+        {
+          "id": 2,
+          "numberRoom": "A26",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Hotel A",
+      "city": "Medellin",
+      "description": "string",
+      "active": true,
+      "rooms": [
+        {
+          "id": 1,
+          "numberRoom": "string",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Hotel A",
+      "city": "Medellin",
+      "description": "string",
+      "active": false,
+      "rooms": [
+        {
+          "id": 1,
+          "numberRoom": "string",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Hotel A",
+      "city": "Medellin",
+      "description": "string",
+      "active": true,
+      "rooms": [
+        {
+          "id": 1,
+          "numberRoom": "string",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Hotel A",
+      "city": "Cali",
+      "description": "string",
+      "active": false,
+      "rooms": [
+        {
+          "id": 1,
+          "numberRoom": "string",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Hotel A",
+      "city": "Panamá",
+      "description": "string",
+      "active": true,
+      "rooms": [
+        {
+          "id": 1,
+          "numberRoom": "string",
+          "roomType": "RoomType",
+          "basisCost": "number",
+          "taxes": "number",
+          "isAvailable": "boolean",
+          "capacity": "number",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 25
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 29
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 30
+    },
+    {
+      "name": "Diego",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [
+        {
+          "basisCost": "250",
+          "capacity": "5",
+          "numberRoom": "A524",
+          "roomType": "SINGLE",
+          "taxes": "23",
+          "description": "",
+          "id": 2
+        },
+        {
+          "basisCost": "50",
+          "capacity": "2",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "3",
+          "description": "",
+          "id": 4
+        },
+        {
+          "basisCost": "520",
+          "capacity": "32",
+          "numberRoom": "A524",
+          "roomType": "SINGLE",
+          "taxes": "25",
+          "description": "",
+          "id": 5
+        },
+        {
+          "basisCost": "3",
+          "capacity": "02",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "280",
+          "description": "",
+          "id": 6
+        },
+        {
+          "basisCost": "520",
+          "capacity": "2",
+          "numberRoom": "A524",
+          "roomType": "SINGLE",
+          "taxes": "12",
+          "description": "8",
+          "id": 8
+        },
+        {
+          "basisCost": "85",
+          "capacity": "2",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "1",
+          "description": "",
+          "id": 12
+        },
+        {
+          "basisCost": "45",
+          "capacity": "3",
+          "numberRoom": "A524",
+          "roomType": "SINGLE",
+          "taxes": "12",
+          "description": "",
+          "id": 14
+        },
+        {
+          "basisCost": "85",
+          "capacity": "1",
+          "numberRoom": "A524",
+          "roomType": "SINGLE",
+          "taxes": "13",
+          "description": "",
+          "id": 15
+        }
+      ],
+      "id": 36
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "A beautifull place",
+      "active": true,
+      "rooms": [
+        {
+          "basisCost": "520",
+          "capacity": "4",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "35",
+          "description": "",
+          "id": 1
+        }
+      ],
+      "id": 37,
+      "basisCost": "500",
+      "capacity": "5",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "25"
     }
   ],
+  "reservas": [],
   "pasajeros": [
     {
-      "id":1,
+      "id": 1,
       "name": "Pepe",
-      "apellido":"Mojica",
-      "fecha de nacimiento":"1981-22-12",
-      "genero":"male",
-      "tipo de documento":"dni",
-      "documento":71565656,
+      "lastName": "Mojica",
+      "birthDate": "1981-22-12",
+      "genre": "male",
+      "documentType": "dni",
+      "document": 71565656,
       "email": "pepe@eltoro.com",
-      "password":"1234567",
-      "telefono":6598595955
+      "password": "1234567",
+      "phone": 6598595955
     }
   ],
-  "staff":[
+  "staff": [
     {
-      "id":1,
+      "id": 1,
       "name": "diego",
-      "apellido":"monsalve",
+      "lastName": "monsalve",
       "email": "dial@eltoro.com",
-      "password":"1234567",
-      "telefono":6598585655
+      "password": "1234567",
+      "phone": 6598585655
+    }
+  ],
+  "rooms": [
+    {
+      "basisCost": "520",
+      "capacity": "4",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "35",
+      "description": "",
+      "id": 1
+    },
+    {
+      "basisCost": "250",
+      "capacity": "5",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "23",
+      "description": "",
+      "id": 2
+    },
+    {
+      "basisCost": "225",
+      "capacity": "3",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "40",
+      "description": "",
+      "id": 3
+    },
+    {
+      "basisCost": "50",
+      "capacity": "2",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "3",
+      "description": "",
+      "id": 4
+    },
+    {
+      "basisCost": "520",
+      "capacity": "32",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "25",
+      "description": "",
+      "id": 5
+    },
+    {
+      "basisCost": "3",
+      "capacity": "02",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "280",
+      "description": "",
+      "id": 6
+    },
+    {
+      "basisCost": "50",
+      "capacity": "5",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "12",
+      "description": "",
+      "id": 7
+    },
+    {
+      "basisCost": "520",
+      "capacity": "2",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "12",
+      "description": "8",
+      "id": 8
+    },
+    {
+      "basisCost": "12",
+      "capacity": "1",
+      "numberRoom": "A523",
+      "roomType": "sadas",
+      "taxes": "5",
+      "description": "",
+      "id": 9
+    },
+    {
+      "basisCost": "85",
+      "capacity": "03",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "12",
+      "description": "",
+      "id": 10
+    },
+    {
+      "basisCost": "50",
+      "capacity": "12",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "1",
+      "description": "",
+      "id": 11
+    },
+    {
+      "basisCost": "85",
+      "capacity": "2",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "1",
+      "description": "",
+      "id": 12
+    },
+    {
+      "basisCost": "85",
+      "capacity": "2",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "2",
+      "description": "",
+      "id": 13
+    },
+    {
+      "basisCost": "45",
+      "capacity": "3",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "12",
+      "description": "",
+      "id": 14
+    },
+    {
+      "basisCost": "85",
+      "capacity": "1",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "13",
+      "description": "",
+      "id": 15
+    },
+    {
+      "basisCost": "905",
+      "capacity": "2",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "12",
+      "description": "",
+      "id": 16
+    },
+    {
+      "basisCost": "85",
+      "capacity": "1",
+      "numberRoom": "A523",
+      "roomType": "sadas",
+      "taxes": "5222",
+      "description": "",
+      "id": 17
+    },
+    {
+      "basisCost": "1",
+      "capacity": "1",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "1",
+      "description": "",
+      "id": 18
+    },
+    {
+      "basisCost": "500000",
+      "capacity": "5888888",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "133333",
+      "description": "",
+      "id": 19
+    },
+    {
+      "basisCost": "85",
+      "capacity": "1",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "1",
+      "description": "",
+      "id": 20
+    },
+    {
+      "basisCost": "3",
+      "capacity": "13",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "50",
+      "description": "",
+      "id": 21
+    },
+    {
+      "basisCost": "4",
+      "capacity": "12",
+      "numberRoom": "A525",
+      "roomType": "SINGLE",
+      "taxes": "65",
+      "description": "",
+      "id": 22
     }
   ]
 }

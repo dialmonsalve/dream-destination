@@ -1,12 +1,20 @@
 @use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
 
 .create-hotel {
   display: flex;
   overflow: auto;
   max-height: 75vh;
 
-  &__container {    
+  
+
+  &__container {
     margin: 3rem auto;
+
+    @include m.respond(phone) {
+     margin-left: 5rem;
+
+    }
 
     &--title {
       text-align: center;
@@ -18,17 +26,20 @@
 
   }
 
-  &__form {
+  &__form,
+  .hotel-created {
     display: flex;
     flex-direction: column;
     background-color: v.$color-primary-darker;
     padding: 3rem;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-    border-radius: 1rem; 
-    
+    border-radius: 1rem;
 
 
-    &--hotel{
+
+
+
+    &--hotel {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       margin-bottom: 2rem;
@@ -36,20 +47,79 @@
 
     &--title {
       color: white;
-      
+
     }
-    &--rooms{
+
+    &--rooms {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       flex-wrap: wrap;
       margin-bottom: 1rem;
-      // background-color: v.$color-primary-darker;
     }
 
     &--buttons {
       display: flex;
       justify-content: flex-end;
       margin-top: 2rem;
+    }
+  }
+}
+
+.hotel-created {
+  margin-top: 1rem;
+
+  &--title,
+  &--subtitle,
+  &--content {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: 100;
+  }
+
+  &--title {
+    font-size: v.$font-size + 2rem;
+  }
+
+  &--subtitle {
+    font-size: v.$font-size + 0.5rem;
+  }
+
+  &--content {
+    font-size: v.$font-size + 1rem;
+
+    span {
+      color: v.$color-primary;
+    }
+  }
+}
+
+.hotel-info {
+  background-color: v.$color-primary-darker;
+  margin: 2rem 20rem;
+  padding: 4rem;
+  border-radius: 1rem;
+
+  &--title,
+  &--subtitle,
+  &--content {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: 100;
+  }
+
+  &--title {
+    font-size: v.$font-size + 2rem;
+  }
+
+  &--subtitle {
+    font-size: v.$font-size + 0.5rem;
+  }
+
+  &--content {
+    font-size: v.$font-size + 1rem;
+
+    span {
+      color: v.$color-primary;
     }
   }
 }

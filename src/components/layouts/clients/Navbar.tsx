@@ -1,14 +1,10 @@
-import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { navLinks } from '../../../utils/navItems';
 
-interface NavbarProps {
-  children?: ReactNode
-}
 
-
-export const Navbar = ({ children }: NavbarProps) => {
+export const Navbar = () => {
+  
   return (
     <nav className='navbar'>
       <ul className='navbar__nav' >

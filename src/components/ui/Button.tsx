@@ -7,6 +7,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   type?: 'button' | 'submit';
   color?: string
+  disabled?:boolean
   onClick?: () => void;
 }
 
@@ -19,17 +20,21 @@ export const Button = ({
   size = 'medium',
   type = 'button',
   color,
+  disabled,
   ...props
 }: ButtonProps) => {
 
   const bg = `btn--${hasBackground ? backgroundColor : `outlined-${backgroundColor}`}`;
   const animated = isAnimated ? 'btn--animated' : '';
 
+  const isDisabled = disabled ? 'disabled': ''
+
   return (
     <button
       type={type}
-      className={`btn ${bg} btn--${size} ${animated}`}
+      className={`btn ${bg} btn--${size} ${animated} ${isDisabled}`}
       style={{ margin, color }}
+      disabled={disabled}
       {...props}
     >
       {label}

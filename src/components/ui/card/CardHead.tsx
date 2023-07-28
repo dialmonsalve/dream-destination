@@ -1,7 +1,6 @@
 
 import { ReactNode } from 'react';
 
-
 interface CardHeadProps {
   children?: ReactNode | ReactNode[]
 }

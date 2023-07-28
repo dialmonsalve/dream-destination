@@ -1,0 +1,65 @@
+.container-spinner {
+  position: relative;
+  left: 50%;
+
+  &__needle {
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+    position: absolute;
+    background-image: url('/animations/spinner-frame.svg');
+    background-size: 1rem;
+    left: 2.5%;
+  }
+
+  &__spinner {
+    background-image: url('/animations/spinner.svg');
+    background-repeat: no-repeat;
+    padding: 3.1rem;
+    background-size: 6rem;
+    position: absolute;
+    top: 1.1rem;
+    animation: spin 1.5s linear infinite 0.5s;
+
+  }
+
+  &__half-spinner {
+    background-image: url('/animations/half-rounded.svg');
+    background-repeat: no-repeat;
+    padding: 2.5rem;
+    background-size: 5rem;
+    position: absolute;
+    top: 1.8rem;
+    animation: left-right .8s linear infinite 0.5s;
+    
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes left-right {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(100deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

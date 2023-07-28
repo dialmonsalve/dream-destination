@@ -27,16 +27,11 @@ input[type="submit"] {
 	text-transform: uppercase;
 }
 
-// input[type="text"],
-// input[type="email"],
-// input[type="password"] {
-// 	font-size:1.6rem;
-// }
-
-// input[type="date"] {
-// 	font-size:1.3rem;
-// }
-
+.h2 {
+	color: v.$color-primary-darker;
+	padding: 2rem;
+	margin-top: 1rem;
+}
 select {
 	appearance: none;
   background-color: transparent;

@@ -18,15 +18,15 @@ export const Sidebar = ({ width = 300 }: Props) => {
       >
         <ul className='sidebar__container'>
           <AnchorTag
-            href="/api/hotels"
-            label="hotels"
+            href='/api/hotels'
+            label='hotels'
             itemClassName={`item`}
             linkClassName={`item__link`}
             onClick={() => setToggleSidebar(!toggleSidebar)}
           />
           <AnchorTag
-            href="/api/bookings"
-            label="bookings"
+            href='/api/bookings'
+            label='bookings'
             itemClassName={`item`}
             linkClassName={`item__link`}  /* item__link--medium */
             onClick={() => setToggleSidebar(!toggleSidebar)}

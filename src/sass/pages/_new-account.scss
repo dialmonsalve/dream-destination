@@ -1,14 +1,22 @@
 @use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
 
 .new-account {
   display: flex;
 
-  &__container{
+  &__container {
     margin: 3rem auto;
     padding: 3rem;
     border-radius: 1rem;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
     background-color: v.$color-primary-darker;
+
+    @include m.respond(phone) {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+    }
 
     &--title {
       text-align: center;
@@ -16,10 +24,14 @@
       margin-bottom: 1rem;
       color: v.$color-white;
     }
-  
-    &--form {      
+
+    &--form {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);      
+      grid-template-columns: repeat(2, 1fr);
+
+      @include m.respond(phone) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 }

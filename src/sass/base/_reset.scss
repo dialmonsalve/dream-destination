@@ -37,9 +37,6 @@ body {
 	margin: 0;
 	font-family: v.$font-family;
   
-	@include m.respond(tab-port) {
-		padding: 0
-	}
 }
 
 .container {

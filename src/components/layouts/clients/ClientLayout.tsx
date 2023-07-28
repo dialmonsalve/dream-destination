@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
-import { Footer, Header, Navbar } from '.';
+import { Footer,  Navbar } from '.';
+import { Header } from '../../ui/Header';
 import { AnchorTag } from '../../ui/AnchorTag';
 
 
 export const ClientLayout = () => {
+  
   return (
     <div className=''>
       <Header

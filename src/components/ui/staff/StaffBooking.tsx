@@ -1,8 +1,8 @@
 
 export const StaffBooking = () => {
   return (
-    <div className="staff-hotels">
-      <h1 className="staff-hotels__title" >Bookings</h1>
+    <div className='staff-hotels'>
+      <h1 className='staff-hotels__title' >Bookings</h1>
       <table className='staff-hotels__table' >
         <thead>
           <tr>

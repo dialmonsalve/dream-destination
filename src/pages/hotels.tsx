@@ -1,16 +1,13 @@
 
 import { ClientHotels } from '../components/ui/clients/ClientHotels';
 
-import { StaffHotels } from '../components/ui/staff/StaffHotels';
-// import { useHotels } from '../hooks/useHotels';
+import { StaffHotels } from './api/hotel/hotels';
 
 interface HotelPageProps {
-  isStaff: boolean
+  isStaff?: boolean
 }
 
 function HotelPage({ isStaff }: HotelPageProps) {
-
-  // ! const { hotels } = useHotels();
 
   return (
     isStaff ? <StaffHotels /> : <ClientHotels />
