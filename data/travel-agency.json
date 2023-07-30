@@ -17,6 +17,82 @@
           "isAvailable": "boolean",
           "capacity": "number",
           "description": "string"
+        },
+        {
+          "basisCost": "3",
+          "capacity": "1",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "2",
+          "description": "",
+          "id": 23
+        },
+        {
+          "basisCost": "3",
+          "capacity": "3",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "3",
+          "description": "",
+          "id": 24
+        },
+        {
+          "basisCost": 0,
+          "capacity": 0,
+          "numberRoom": "",
+          "roomType": "",
+          "taxes": 0,
+          "description": "",
+          "id": 25
+        },
+        {
+          "basisCost": "0",
+          "capacity": "2",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "2",
+          "description": "",
+          "id": 26
+        },
+        {
+          "basisCost": "3",
+          "capacity": "2",
+          "numberRoom": "A524",
+          "roomType": "SINGLE",
+          "taxes": "3",
+          "description": "",
+          "isAvailable": true,
+          "id": 27
+        },
+        {
+          "basisCost": "3",
+          "capacity": "0",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "3",
+          "description": "",
+          "isAvailable": true,
+          "id": 28
+        },
+        {
+          "basisCost": "2",
+          "capacity": "1",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "1",
+          "description": "",
+          "isAvailable": true,
+          "id": 29
+        },
+        {
+          "basisCost": "2",
+          "capacity": "2",
+          "numberRoom": "A523",
+          "roomType": "SINGLE",
+          "taxes": "1",
+          "description": "A beautifull place",
+          "isAvailable": true,
+          "id": 30
         }
       ]
     },
@@ -156,7 +232,7 @@
       "name": "Laptop Diamond M2",
       "city": "Panamá",
       "description": "",
-      "active": true,
+      "active": false,
       "rooms": [],
       "id": 29
     },
@@ -271,6 +347,62 @@
       "numberRoom": "A523",
       "roomType": "SINGLE",
       "taxes": "25"
+    },
+    {
+      "name": "Alejandro",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 38
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": true,
+      "rooms": [],
+      "id": 39
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": true,
+      "rooms": [],
+      "id": 40
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 41
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "fdd",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 42
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 43
+    },
+    {
+      "name": "Tv 42 inches",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 44
     }
   ],
   "reservas": [],
@@ -496,6 +628,82 @@
       "taxes": "65",
       "description": "",
       "id": 22
+    },
+    {
+      "basisCost": "3",
+      "capacity": "1",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "2",
+      "description": "",
+      "id": 23
+    },
+    {
+      "basisCost": "3",
+      "capacity": "3",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "3",
+      "description": "",
+      "id": 24
+    },
+    {
+      "basisCost": 0,
+      "capacity": 0,
+      "numberRoom": "",
+      "roomType": "",
+      "taxes": 0,
+      "description": "",
+      "id": 25
+    },
+    {
+      "basisCost": "0",
+      "capacity": "2",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "2",
+      "description": "",
+      "id": 26
+    },
+    {
+      "basisCost": "3",
+      "capacity": "2",
+      "numberRoom": "A524",
+      "roomType": "SINGLE",
+      "taxes": "3",
+      "description": "",
+      "isAvailable": true,
+      "id": 27
+    },
+    {
+      "basisCost": "3",
+      "capacity": "0",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "3",
+      "description": "",
+      "isAvailable": true,
+      "id": 28
+    },
+    {
+      "basisCost": "2",
+      "capacity": "1",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "1",
+      "description": "",
+      "isAvailable": true,
+      "id": 29
+    },
+    {
+      "basisCost": "2",
+      "capacity": "2",
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": "1",
+      "description": "A beautifull place",
+      "isAvailable": true,
+      "id": 30
     }
   ]
 }

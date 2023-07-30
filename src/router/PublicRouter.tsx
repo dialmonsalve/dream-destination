@@ -14,6 +14,7 @@ import EditHotelPage from '../pages/api/hotel/editHotelPage';
 import DetailHotelPage from '../pages/api/hotel/detailHotelPage';
 import CreateRooms from '../pages/api/rooms/createRooms';
 import ExamplePage from '../pages/examplePage';
+import { FormPage } from '../Copy/formPage';
 
 
 const routes: RouteObject[] = [
@@ -59,6 +60,10 @@ const routes: RouteObject[] = [
         path: 'logout',
         element: <ExamplePage />
       },
+      {
+        path: 'form',
+        element: <FormPage/>
+      }
     ]
   },
   {

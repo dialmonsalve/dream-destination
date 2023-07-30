@@ -1,12 +1,13 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../Button'
-import { useValidationSchema } from '../../../hooks/useValidations'
+import { validationSchema } from '../../../utils/validationSchema'
 import { useForm } from '../../../hooks/useForm'
 import { InitialForm, Room } from '../../../interfaces/types'
 import { FormControl } from '../FormControl'
 import { ReactNode, useState } from 'react'
 import { ErrorMessage } from '../ErrorMessage'
 import { useHotels } from '../../../hooks/useHotels'
+import { formValidator } from '../../../utils/formValidator'
 
 
 interface ResumeHotelProps {
@@ -97,53 +98,43 @@ const newRoomForm: NewRoomForm = {
   description: '',
 
 }
-
-interface FormValidationResult {
-  [key: string]: string[];
-}
-
 const RoomComponent = () => {
 
 
-  const { newRoomSchema } = useValidationSchema();
-  const { formState, formValidation, isFormSubmitted, onFieldChange, onFormSubmitted, onResetForm, onEndSubmitted } = useForm(newRoomForm, newRoomSchema);
+  const { newRoomValidationSchema } = validationSchema();
+  const { formState, isFormSubmitted, isTouched, handleBlur, onFieldChange, areFieldsValid, handleResetForm } = useForm(newRoomForm);
 
   const { updateHotelWithRoom } = useHotels();
   const navigate = useNavigate()
 
   const { id } = useParams();
-
-  const { basisCost, capacity, numberRoom, roomType, taxes, description } = formState as NewRoomForm;
-  const { capacityValid, basisCostValid, numberRoomValid, taxesValid, roomTypeValid, descriptionValid } = formValidation as FormValidationResult;
-
-  const isFormValid = !!capacityValid || !!basisCostValid || !!numberRoomValid || !!taxesValid || !!roomTypeValid || !!descriptionValid
-
   if (id === undefined) return;
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const errors = formValidator().getErrors(formState, newRoomValidationSchema);
+
+  const { basisCost, capacity, numberRoom, roomType, taxes, description } = formState;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const newRoom: Room = {
-      basisCost,
-      capacity,
-      numberRoom,
-      roomType,
-      taxes,
-      description
-    }
-    onFormSubmitted();
-    if (isFormValid) return;
 
-    try {
-      
-      updateHotelWithRoom(+id, newRoom).then().catch(error => console.log(error));
+    if (areFieldsValid(errors)) {
+      const newRoom: Room = {
+        basisCost,
+        capacity,
+        numberRoom,
+        roomType,
+        taxes,
+        description,
+        isAvailable: true
+      }
 
-    } catch (error) {
-      console.log(error);
-
-    } finally {
-      onResetForm()
-      onEndSubmitted()
+      try {
+        updateHotelWithRoom(+id, newRoom).then().catch(error => console.log(error));
+        handleResetForm()
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -151,57 +142,105 @@ const RoomComponent = () => {
     navigate(`/api/hotels/detail/${id}`)
   }
 
-
   return (
     <>
-      <form className='create-hotel__form--rooms' onSubmit={onSubmit}>
-        <FormControl
-          label='room'
-          name='numberRoom'
-          type='text'
-          value={numberRoom}
-          onChange={onFieldChange}
-        />
-        <FormControl
-          label='type'
-          name='roomType'
-          type='text'
-          value={roomType}
-          onChange={onFieldChange}
-        />
-        <FormControl
-          label='costo base'
-          name='basisCost'
-          type='number'
-          value={basisCost}
-          onChange={onFieldChange}
-        />
-        <FormControl
-          label='costo impuestos'
-          name='taxes'
-          type='number'
-          value={taxes}
-          onChange={onFieldChange}
-        />
-        <FormControl
-          label='capacidad'
-          name='capacity'
-          type='number'
-          value={capacity}
-          onChange={onFieldChange}
-        />
-        <FormControl
-          label='description'
-          name='description'
-          type='text'
-          value={description}
-          onChange={onFieldChange}
-        />
+      <form className='create-hotel__form--rooms' onSubmit={handleSubmit}>
+
+        <div>
+          <FormControl
+            label='Number room'
+            name='numberRoom'
+            type='text'
+            value={numberRoom}
+            onChange={onFieldChange}
+            onBlur={handleBlur}
+          />
+          <ErrorMessage
+            fieldName={errors?.numberRoom}
+            isFormSubmitted={isFormSubmitted}
+            isTouched={isTouched?.numberRoom}
+          />
+        </div>
+
+        <div>
+          <FormControl
+            label='Room type'
+            name='roomType'
+            type='text'
+            value={roomType}
+            onChange={onFieldChange}
+            onBlur={handleBlur}
+          />
+          <ErrorMessage
+            fieldName={errors?.roomType}
+            isFormSubmitted={isFormSubmitted}
+            isTouched={isTouched?.roomType}
+          />
+        </div>
+
+        <div>
+          <FormControl
+            label='costo base'
+            name='basisCost'
+            type='number'
+            value={basisCost}
+            onChange={onFieldChange}
+            onBlur={handleBlur}
+          />
+          <ErrorMessage
+            fieldName={errors?.basisCost}
+            isFormSubmitted={isFormSubmitted}
+            isTouched={isTouched?.basisCost}
+          />
+        </div>
+
+        <div>
+          <FormControl
+            label='costo impuestos'
+            name='taxes'
+            type='number'
+            value={taxes}
+            onChange={onFieldChange}
+            onBlur={handleBlur}
+          />
+          <ErrorMessage
+            fieldName={errors?.taxes}
+            isFormSubmitted={isFormSubmitted}
+            isTouched={isTouched?.taxes}
+          />
+        </div>
+
+        <div>
+          <FormControl
+            label='capacidad'
+            name='capacity'
+            type='number'
+            value={capacity}
+            onChange={onFieldChange}
+            onBlur={handleBlur}
+          />
+          <ErrorMessage
+            fieldName={errors?.capacity}
+            isFormSubmitted={isFormSubmitted}
+            isTouched={isTouched?.capacity}
+          />
+        </div>
+
+        <div>
+          <FormControl
+            label='description'
+            name='description'
+            type='text'
+            value={description}
+            onChange={onFieldChange}
+            onBlur={handleBlur}
+          />
+        </div>
 
         <Button
           label='create room'
           type='submit'
-          disabled={isFormValid}
+          disabled={!!errors}
         />
       </form>
       <Button
@@ -210,30 +249,6 @@ const RoomComponent = () => {
         size='small'
         backgroundColor='green'
         onClick={handleDetailHotel}
-      />
-      <ErrorMessage
-        fieldName={numberRoomValid}
-        isFormSubmitted={isFormSubmitted}
-      />
-      <ErrorMessage
-        fieldName={capacityValid}
-        isFormSubmitted={isFormSubmitted}
-      />
-      <ErrorMessage
-        fieldName={basisCostValid}
-        isFormSubmitted={isFormSubmitted}
-      />
-      <ErrorMessage
-        fieldName={taxesValid}
-        isFormSubmitted={isFormSubmitted}
-      />
-      <ErrorMessage
-        fieldName={roomTypeValid}
-        isFormSubmitted={isFormSubmitted}
-      />
-      <ErrorMessage
-        fieldName={descriptionValid}
-        isFormSubmitted={isFormSubmitted}
       />
     </>
 

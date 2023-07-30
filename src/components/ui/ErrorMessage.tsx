@@ -1,18 +1,22 @@
 
 interface Props {
-	fieldName: string[];
+	fieldName: string[] | undefined;
 	isFormSubmitted: boolean
+	isTouched?: boolean
 }
 
-export const ErrorMessage = ({ isFormSubmitted, fieldName }: Props) => {
+export const ErrorMessage = ({ isFormSubmitted, fieldName, isTouched }: Props) => {
+
+	const shouldShowErrors = (isTouched && fieldName && fieldName.length > 0);
 
 	return (
-		isFormSubmitted && fieldName &&
+		shouldShowErrors || isFormSubmitted ?
 
-		<div className='error-message' >
-			{fieldName.map((errorMessage: string, index: number) => (
-				<p key={index}>{errorMessage}</p>
-			))}
-		</div>
+			<div className='error-message' >
+				{fieldName?.map((errorMessage: string, index: number) => (
+					<p key={index}>{errorMessage}</p>
+				))}
+			</div>
+			: <></>
 	);
 };

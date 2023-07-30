@@ -5,7 +5,7 @@ export const useForm = <T>(initialForm: T) => {
 
   const [formState, setFormState] = useState(initialForm);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isTouched, setIsTouched] = useState<{ [key: string]: boolean  } | null >(null)
+  const [isTouched, setIsTouched] = useState<{ [key: string]: boolean }>()
 
   useEffect(() => {
     setFormState(initialForm);
@@ -13,7 +13,7 @@ export const useForm = <T>(initialForm: T) => {
 
 
   const onFieldChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target; 
+    const { name, value } = e.target;
     setFormState((prevFormState) => ({
       ...prevFormState,
       [name]: value
@@ -30,12 +30,10 @@ export const useForm = <T>(initialForm: T) => {
   };
 
   const areFieldsValid = (errors: ErrorMessage<typeof initialForm | undefined>) => {
-    // const { name } = "name";
     setIsFormSubmitted(true);
     if (errors) {
       return false;
     }
-    setIsTouched(null);
     setIsFormSubmitted(false);
     return true;
   };
@@ -51,6 +49,7 @@ export const useForm = <T>(initialForm: T) => {
     onFieldChange,
     handleResetForm,
     areFieldsValid,
+    setIsTouched,
     handleBlur
   };
 };

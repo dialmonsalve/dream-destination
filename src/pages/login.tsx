@@ -1,19 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 
-import { useForm, useValidationSchema } from '../hooks';
+import { useForm } from '../hooks';
 
 import { Button } from '../components/ui/Button';
 import { FormControl } from '../components/ui/FormControl';
 
 import { InitialForm } from '../interfaces/types';
+import { validationSchema } from '../utils/validationSchema';
+import { formValidator } from '../utils/formValidator';
+import { ErrorMessage } from '../components/ui/ErrorMessage';
 
 interface LoginForm extends InitialForm {
   email: string,
   password: string
-}
-
-interface FormValidationResult {
-  [key: string]: string[];
 }
 
 const loginForm: LoginForm = {
@@ -23,19 +22,22 @@ const loginForm: LoginForm = {
 
 function LoginPage() {
 
-  const { loginSchema } = useValidationSchema();
-  const { formState, formValidation, onFieldChange } = useForm(loginForm, loginSchema)
+  const { loginValidationSchema } = validationSchema();
+  const { formState, isFormSubmitted, isTouched, onFieldChange, areFieldsValid, handleBlur } = useForm(loginForm)
+  const navigate = useNavigate();
 
-  const { email, password } = formState as LoginForm;
-  const { emailValid, passwordValid } = formValidation as FormValidationResult;
+  const errors = formValidator().getErrors(formState, loginValidationSchema);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { email, password } = formState;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (emailValid !== undefined || passwordValid !== undefined) return;    
+    if (areFieldsValid(errors)) {
+      console.log("Validating user");
+      console.log( formState );
+    }
   }
-
-  const navigate = useNavigate()
 
   const onCreateAccountClick = () => {
     navigate('/create-account')
@@ -44,32 +46,52 @@ function LoginPage() {
     <div className='new-account'>
       <div className='new-account__container' >
         <h1 className='new-account__container--title'>Login</h1>
-        <form className='new-account__container--form' onSubmit={onSubmit} >
-          <FormControl
-            label='email'
-            name='email'
-            type='text'
-            value={email}
-            onChange={onFieldChange}
-          />
-          <FormControl
-            label='password'
-            name='password'
-            type='password'
-            value={password}
-            onChange={onFieldChange}
-          />
-          <Button
-            margin='2rem 2rem 0 2rem'
-            label='login'
-            backgroundColor='red'
-            type='submit'
-          />
-          <Button
-            margin='2rem 2rem 0 2rem'
-            label='create account'
-            onClick={onCreateAccountClick}
-          />
+        <form className='new-account__container--form' onSubmit={handleSubmit} >
+          <div>
+            <FormControl
+              label='email'
+              name='email'
+              type='text'
+              value={email}
+              onChange={onFieldChange}
+              onBlur={handleBlur}
+            />
+            <FormControl
+              label='password'
+              name='password'
+              type='password'
+              value={password}
+              onChange={onFieldChange}
+              onBlur={handleBlur}
+            />
+          </div>
+          <div>
+
+            <ErrorMessage
+              fieldName={errors?.email}
+              isFormSubmitted={isFormSubmitted}
+              isTouched={isTouched?.email}
+            />
+            <ErrorMessage
+              fieldName={errors?.password}
+              isFormSubmitted={isFormSubmitted}
+              isTouched={isTouched?.password}
+            />
+          </div>
+          <div>
+            <Button
+              margin='2rem 2rem 0 2rem'
+              label='login'
+              backgroundColor='red'
+              type='submit'
+              disabled={!!errors}
+            />
+            <Button
+              margin='2rem 2rem 0 2rem'
+              label='create account'
+              onClick={onCreateAccountClick}
+            />
+          </div>
         </form>
       </div>
     </div>

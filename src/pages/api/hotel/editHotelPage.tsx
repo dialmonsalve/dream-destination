@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
-import { useHotels, useForm, useValidationSchema } from '../../../hooks';
+import { useHotels, useForm } from '../../../hooks';
 
 import NotFoundPage from '../../notFoundPage';
 import { Button } from '../../../components/ui/Button';
@@ -9,11 +9,8 @@ import { FormControl } from '../../../components/ui/FormControl';
 import { Spinner } from '../../../components/ui/Spinner';
 
 import { Hotel } from '../../../interfaces/types';
-
-interface FormValidationResult {
-  [key: string]: string[];
-}
-
+import { validationSchema } from '../../../utils/validationSchema';
+import { formValidator } from '../../../utils/formValidator';
 
 function EditHotelPage() {
 
@@ -22,8 +19,8 @@ function EditHotelPage() {
   const navigate = useNavigate();
 
   const { hotel, isLoading, handlerClearState, getHotel, updateHotel } = useHotels();
-  const { newHotelSchema } = useValidationSchema();
-  const { formState, formValidation, isFormSubmitted, onFieldChange, onFormSubmitted, onResetForm } = useForm(hotel, newHotelSchema);
+  const { newHotelValidationSchema } = validationSchema();
+  const { formState, isFormSubmitted, isTouched, handleBlur, onFieldChange, areFieldsValid } = useForm(hotel);
 
   useEffect(() => {
     if (id === undefined) return;
@@ -33,10 +30,9 @@ function EditHotelPage() {
       .catch(error => setError(true))
   }, [id, getHotel]);
 
-  const { name, city, description } = formState as Hotel
-  const { cityValid, nameValid } = formValidation as FormValidationResult;
+  const { name, city, description } = formState
 
-  const isFormValid = cityValid || nameValid ? true : false
+  const errors = formValidator().getErrors(formState, newHotelValidationSchema);
 
   const handleBack = () => {
     handlerClearState()
@@ -44,20 +40,18 @@ function EditHotelPage() {
   }
   if (id === undefined) return;
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    onFormSubmitted();
 
     const updatedHotel: Hotel = {
       name,
       city,
       description,
     }
-    if (!city || !name) return;
-    
-    updateHotel(id, updatedHotel).then().catch(e => console.log(e))
-    onResetForm()
-    navigate('/api/hotels/')
+    if (areFieldsValid(errors)) {
+      updateHotel(id, updatedHotel).then().catch(e => console.log(e))
+      navigate('/api/hotels/')
+    }
   }
 
   const handleCreateRoom = () => {
@@ -72,7 +66,7 @@ function EditHotelPage() {
         <div className='create-hotel'>
           <div className='create-hotel__container' >
             <h1 className='create-hotel__container--title'>Edit Hotel</h1>
-            <form className='create-hotel__form' onSubmit={onSubmit} >
+            <form className='create-hotel__form' onSubmit={handleSubmit} >
               <div className='create-hotel__form--hotel'>
                 <FormControl
                   label='hotel name'
@@ -80,6 +74,7 @@ function EditHotelPage() {
                   type='text'
                   value={name || ''}
                   onChange={onFieldChange}
+                  onBlur={handleBlur}
                 />
                 <FormControl
                   label='city'
@@ -87,6 +82,7 @@ function EditHotelPage() {
                   type='text'
                   value={city || ''}
                   onChange={onFieldChange}
+                  onBlur={handleBlur}
                 />
 
                 <FormControl
@@ -95,6 +91,7 @@ function EditHotelPage() {
                   type='text'
                   value={description || ''}
                   onChange={onFieldChange}
+                  onBlur={handleBlur}
                 />
               </div>
 
@@ -103,7 +100,7 @@ function EditHotelPage() {
                 <Button
                   margin='2rem 2rem 0 2rem'
                   label='edit hotel'
-                  disabled={isFormValid}
+                  disabled={!!errors}
                   type='submit'
                 />
 
@@ -116,12 +113,14 @@ function EditHotelPage() {
               </div>
             </form>
             <ErrorMessage
-              fieldName={nameValid}
+              fieldName={errors?.name}
               isFormSubmitted={isFormSubmitted}
+              isTouched={isTouched?.name}
             />
             <ErrorMessage
-              fieldName={cityValid}
+              fieldName={errors?.city}
               isFormSubmitted={isFormSubmitted}
+              isTouched={isTouched?.city}
             />
             <Button
               label='create rooms'

@@ -1,6 +1,6 @@
 import { useValidator } from '../hooks';
 
-interface Hotel {
+interface Hotel extends InitialForm {
   id?: number;
   name: string;
   city: string;

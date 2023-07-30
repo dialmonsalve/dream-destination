@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useValidationSchema, useForm, useHotels } from '../../../hooks';
+import { useForm, useHotels } from '../../../hooks';
 
 import { Button } from '../../../components/ui/Button';
 import { ErrorMessage } from '../../../components/ui/ErrorMessage';
@@ -10,15 +10,13 @@ import { ResumeHotel } from '../../../components/ui/staff/ResumeHotel';
 
 import { Spinner } from '../../../components/ui/Spinner';
 import { Hotel, InitialForm } from '../../../interfaces/types';
+import { validationSchema } from '../../../utils/validationSchema';
+import { formValidator } from '../../../utils/formValidator';
 
 interface NewHotelForm extends InitialForm {
   name: string,
   city: string
   description?: string
-}
-
-interface FormValidationResult {
-  [key: string]: string[];
 }
 
 const newHotelForm: NewHotelForm = {
@@ -28,28 +26,22 @@ const newHotelForm: NewHotelForm = {
 }
 
 function NewHotelPage() {
+
+  const {
+    formState, isFormSubmitted, isTouched,
+    areFieldsValid, handleBlur, handleResetForm, onFieldChange, } = useForm(newHotelForm);
   const [components, setComponents] = useState<ReactNode[]>([]);
   const navigate = useNavigate();
   const { createHotel, isLoading } = useHotels()
-  const { newHotelSchema } = useValidationSchema();
-  const {
-    formState,
-    formValidation,
-    isFormSubmitted,
-    onFieldChange,
-    onResetForm,
-    onFormSubmitted,
-    onEndSubmitted
-  } = useForm(newHotelForm, newHotelSchema);
 
-  const { city, name, description } = formState as NewHotelForm;
-  const { cityValid, nameValid } = formValidation as FormValidationResult;
+  const { newHotelValidationSchema } = validationSchema();
 
-  const isFormValid = cityValid || nameValid ? true : false
+  const { city, name, description } = formState;
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const errors = formValidator().getErrors(formState, newHotelValidationSchema);
+
+  const handlerSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    onFormSubmitted();
     const newHotel: Hotel = {
       name,
       city,
@@ -57,22 +49,18 @@ function NewHotelPage() {
       active: true,
       rooms: []
     }
-    if (!city || !name) return;
+    if (areFieldsValid(errors)) {
+      try {
+        const createdHotel = await createHotel(newHotel);
 
-    try {
-      const createdHotel = await createHotel(newHotel);
+        if (createdHotel.id === undefined) return;
 
-      if (createdHotel.id === undefined) return;
-
-      handleAddComponent(createdHotel.id)
-    } catch (error) {
-      console.log(error);
-
-    } finally {
-      onResetForm()
-      onEndSubmitted()
+        handleAddComponent(createdHotel.id)
+      } catch (error) {
+        console.log(error);
+      }
     }
-
+    handleResetForm();
   }
 
   const handleBack = () => {
@@ -95,26 +83,44 @@ function NewHotelPage() {
   };
   return (
 
-
     <div className='create-hotel'>
       <div className='create-hotel__container' >
         <h1 className='create-hotel__container--title'>Create Hotel</h1>
-        <form className='create-hotel__form' onSubmit={onSubmit} >
+        <form className='create-hotel__form' onSubmit={handlerSubmit} >
           <div className='create-hotel__form--hotel'>
-            <FormControl
-              label='hotel name'
-              name='name'
-              type='text'
-              value={name}
-              onChange={onFieldChange}
-            />
-            <FormControl
-              label='city'
-              name='city'
-              type='text'
-              value={city}
-              onChange={onFieldChange}
-            />
+
+            <div>
+              <FormControl
+                label='hotel name'
+                name='name'
+                type='text'
+                value={name}
+                onChange={onFieldChange}
+                onBlur={handleBlur}
+              />
+              <ErrorMessage
+                fieldName={errors?.name}
+                isFormSubmitted={isFormSubmitted}
+                isTouched={isTouched?.name}
+              />
+
+            </div>
+
+            <div>
+              <FormControl
+                label='city'
+                name='city'
+                type='text'
+                value={city}
+                onChange={onFieldChange}
+                onBlur={handleBlur}
+              />
+              <ErrorMessage
+                fieldName={errors?.city}
+                isFormSubmitted={isFormSubmitted}
+                isTouched={isTouched?.city}
+              />
+            </div>
 
             <FormControl
               label='description'
@@ -122,6 +128,7 @@ function NewHotelPage() {
               type='text'
               value={description}
               onChange={onFieldChange}
+              onBlur={handleBlur}
             />
 
           </div>
@@ -131,7 +138,7 @@ function NewHotelPage() {
             <Button
               margin='2rem 2rem 0 2rem'
               label='create hotel'
-              disabled={isFormValid}
+              disabled={!!errors}
               type='submit'
             />
 
@@ -144,14 +151,6 @@ function NewHotelPage() {
 
           </div>
         </form>
-        <ErrorMessage
-          fieldName={nameValid}
-          isFormSubmitted={isFormSubmitted}
-        />
-        <ErrorMessage
-          fieldName={cityValid}
-          isFormSubmitted={isFormSubmitted}
-        />
         {components.map((component) => component)}
       </div>
     </div>
