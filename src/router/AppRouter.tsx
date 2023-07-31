@@ -19,7 +19,6 @@ import CreateRoomsPage from '../hotel/private/pages/CreateRoomsPage';
 import { PrivateLayout } from '../user/private/layout/PrivateLayout';
 import { PublicLayout } from '../user/public/layout/PublicLayout';
 
-import { FormPage } from '../Copy/formPage';
 
 const routes: RouteObject[] = [
 
@@ -64,10 +63,6 @@ const routes: RouteObject[] = [
         path: 'logout',
         element: <ExamplePage />
       },
-      {
-        path: 'form',
-        element: <FormPage />
-      }
     ]
   },
   {
