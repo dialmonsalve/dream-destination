@@ -1,7 +1,7 @@
 import { formValidator, useForm } from "."
-import { Button } from "../components/ui/Button";
-import { ErrorMessage } from "../components/ui/ErrorMessage"
-import { FormControl } from "../components/ui/FormControl"
+
+import { Button, ErrorMessage, FormControl } from '../utils/components';
+
 
 export interface InitialForm {
   [key: string]: string | number;

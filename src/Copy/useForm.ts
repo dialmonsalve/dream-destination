@@ -5,7 +5,7 @@ export const useForm = <T>(initialForm: T) => {
 
   const [formState, setFormState] = useState(initialForm);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isTouched, setIsTouched] = useState<{ [key: string]: boolean }>()
+  const [isTouched, setIsTouched] = useState<{ [key: string]: boolean  } | null >(null)
 
   useEffect(() => {
     setFormState(initialForm);
@@ -34,6 +34,7 @@ export const useForm = <T>(initialForm: T) => {
     if (errors) {
       return false;
     }
+    setIsTouched(null);
     setIsFormSubmitted(false);
     return true;
   };
@@ -49,7 +50,6 @@ export const useForm = <T>(initialForm: T) => {
     onFieldChange,
     handleResetForm,
     areFieldsValid,
-    setIsTouched,
     handleBlur
   };
 };

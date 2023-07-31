@@ -5,7 +5,7 @@
       "name": "Hotel A",
       "city": "Medellin",
       "description": "Abeauty hotel",
-      "active": true,
+      "active": false,
       "rooms": [
         {
           "id": 1,
@@ -101,7 +101,7 @@
       "name": "Hotel A",
       "city": "Medellin",
       "description": "string",
-      "active": false,
+      "active": true,
       "rooms": [
         {
           "id": 1,
@@ -403,6 +403,54 @@
       "active": true,
       "rooms": [],
       "id": 44
+    },
+    {
+      "name": "Diego",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 45
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": false,
+      "rooms": [],
+      "id": 46
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": false,
+      "rooms": [],
+      "id": 47
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": false,
+      "rooms": [],
+      "id": 48
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": false,
+      "rooms": [],
+      "id": 49
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": false,
+      "rooms": [],
+      "id": 50
     }
   ],
   "reservas": [],

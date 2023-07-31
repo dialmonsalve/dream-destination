@@ -30,7 +30,6 @@ export const useForm = <T>(initialForm: T) => {
   };
 
   const areFieldsValid = (errors: ErrorMessage<typeof initialForm | undefined>) => {
-    // const { name } = "name";
     setIsFormSubmitted(true);
     if (errors) {
       return false;
