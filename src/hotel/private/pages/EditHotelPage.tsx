@@ -23,12 +23,11 @@ function EditHotelPage() {
     if (id === undefined) return;
     getHotel(id).
       then()
-      .catch(error => setError(true))
+      .catch((error) => setError(true))
   }, [id, getHotel]);
-
-  if (id === undefined) return;
-
+  
   const handleCreateRoom = () => {
+    if (id === undefined) return;
     navigate(`/api/hotels/${id}/rooms/create`)
     handlerClearState();
   }
@@ -58,7 +57,6 @@ function EditHotelPage() {
               formProps={formProps}
               formState={formState}
             />
-
             <Button
               label='create rooms'
               margin='1rem 0'

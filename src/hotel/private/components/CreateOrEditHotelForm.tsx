@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { Hotel } from "../../../types/hotel";
-import { Button, ErrorMessage, FormControl } from "../../../utils/components";
 
-import {
-  ErrorMessages, IsTouched, ReactChangeEvent, ReactFocusEvent, ReactFormEvent
-} from "../../../types";
 import { useHotels } from "../hooks/useHotels";
-
 import { formValidator, validationSchema } from "../../../utils/helpers";
 
+import { Button, ErrorMessage, FormControl } from "../../../utils/components";
+import {
+  ErrorMessages, 
+  Hotel, 
+  IsTouched, 
+  ReactChangeEvent, 
+  ReactFocusEvent, 
+  ReactFormEvent
+} from "../../../types";
 
 interface FormProps {
   id?: string
@@ -102,7 +105,6 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
             isFormSubmitted={isFormSubmitted}
             isTouched={isTouched?.name}
           />
-
         </div>
 
         <div>
@@ -120,7 +122,6 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
             isTouched={isTouched?.city}
           />
         </div>
-
         <FormControl
           label='description'
           name='description'
