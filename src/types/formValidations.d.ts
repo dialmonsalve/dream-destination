@@ -1,3 +1,3 @@
-interface InitialForm {
-  [key: string]: any;
-}
+
+
+export type ErrorMessages<T> = { [K in keyof T]: string[] }

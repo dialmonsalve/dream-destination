@@ -1,6 +1,4 @@
-interface InitialForm {
-  [key: string]: any;
-}
+import { InitialForm } from "./";
 
 export interface LoginUser extends InitialForm {
   email: string,

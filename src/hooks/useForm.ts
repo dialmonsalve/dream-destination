@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
-type ErrorMessage<T> = { [K in keyof T]: string[] }
+
+import { ErrorMessages,IsTouched, ReactChangeEvent, ReactFocusEvent } from '../types';
+
 
 export const useForm = <T>(initialForm: T) => {
 
   const [formState, setFormState] = useState(initialForm);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isTouched, setIsTouched] = useState<{ [key: string]: boolean  } | null >(null)
+  const [isTouched, setIsTouched] = useState<IsTouched>(null)
 
   useEffect(() => {
     setFormState(initialForm);
   }, [initialForm]);
 
 
-  const onFieldChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handlerFieldChange = (e: ReactChangeEvent) => {
     const { name, value } = e.target; 
     setFormState((prevFormState) => ({
       ...prevFormState,
@@ -20,7 +22,7 @@ export const useForm = <T>(initialForm: T) => {
     }));
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleBlur = (e: ReactFocusEvent) => {
     const { name } = e.target;
     setIsTouched((prevIsTouched) => ({ ...prevIsTouched, [name]: true }));
 
@@ -29,7 +31,7 @@ export const useForm = <T>(initialForm: T) => {
     }
   };
 
-  const areFieldsValid = (errors: ErrorMessage<typeof initialForm | undefined>) => {
+  const areFieldsValid = (errors: ErrorMessages<typeof initialForm | undefined>) => {
     setIsFormSubmitted(true);
     if (errors) {
       return false;
@@ -47,7 +49,7 @@ export const useForm = <T>(initialForm: T) => {
     isFormSubmitted,
     isTouched,
 
-    onFieldChange,
+    handlerFieldChange,
     handleResetForm,
     areFieldsValid,
     handleBlur

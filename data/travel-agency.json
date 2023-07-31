@@ -2,7 +2,7 @@
   "hotels": [
     {
       "id": 2,
-      "name": "Hotel A",
+      "name": "tres",
       "city": "Medellin",
       "description": "Abeauty hotel",
       "active": false,
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "name": "Laptop Diamond M2",
+      "name": "Hotel J",
       "city": "Panamá",
       "description": "",
       "active": true,
@@ -451,6 +451,30 @@
       "active": false,
       "rooms": [],
       "id": 50
+    },
+    {
+      "name": "Creo",
+      "city": "City",
+      "description": "Con una desc",
+      "active": true,
+      "rooms": [],
+      "id": 51
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 52
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 53
     }
   ],
   "reservas": [],

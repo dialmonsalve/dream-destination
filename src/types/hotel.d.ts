@@ -11,7 +11,7 @@ export interface Hotel extends InitialForm {
   rooms?: Room[];
 }
 
-interface Room extends InitialForm {
+export interface Room extends InitialForm {
   id?: string;
   numberRoom: string;
   roomType: string;
