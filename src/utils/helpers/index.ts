@@ -1,2 +1,2 @@
-export * from '../helpers/formValidator';
-export * from '../helpers/validationSchema';
+export * from './formValidator';
+export * from './validationSchema';
