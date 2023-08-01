@@ -8,10 +8,10 @@ import { Hotel }  from '../../../types/hotel';
 interface CardProps {
   hotel: Hotel;
   children?: ReactNode | ReactNode[];
-  handlerClearState: () => void
+  handleClearState: () => void
 }
 
-export const HotelDetailCard = ({ children, hotel, handlerClearState, ...props }: CardProps) => {
+export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }: CardProps) => {
 
   const navigate = useNavigate();
 
@@ -22,13 +22,13 @@ export const HotelDetailCard = ({ children, hotel, handlerClearState, ...props }
 
   const handleBack = () => {
     navigate('/api/hotels/')
-    handlerClearState();
+    handleClearState();
   }
 
   const handleCreateRoom = () => {
     if (id === undefined) return;
     navigate(`/api/hotels/${id}/rooms/create`)
-    handlerClearState();
+    handleClearState();
   }
 
   return (

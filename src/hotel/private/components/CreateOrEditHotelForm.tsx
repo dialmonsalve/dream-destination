@@ -5,18 +5,18 @@ import { formValidator, validationSchema } from "../../../utils/helpers";
 
 import { Button, ErrorMessage, FormControl } from "../../../utils/components";
 import {
-  ErrorMessages, 
-  Hotel, 
-  IsTouched, 
-  ReactChangeEvent, 
-  ReactFocusEvent, 
+  ErrorMessages,
+  Hotel,
+  IsTouched,
+  ReactChangeEvent,
+  ReactFocusEvent,
   ReactFormEvent
 } from "../../../types";
 
 interface FormProps {
   id?: string
   name: string
-  handlerFieldChange: ((e: ReactChangeEvent) => void)
+  handleFieldChange: ((e: ReactChangeEvent) => void)
   handleBlur: ((e: ReactFocusEvent) => void)
   city: string;
   description: string | undefined;
@@ -37,9 +37,9 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
 
   const {
     city, description, isFormSubmitted, isTouched, name, id,
-    areFieldsValid, handlerFieldChange, handleBlur, handleResetForm } = formProps;
+    areFieldsValid, handleFieldChange, handleBlur, handleResetForm } = formProps;
 
-  const { createHotel, updateHotel, handlerClearState } = useHotels();
+  const { createHotel, updateHotel, handleClearState } = useHotels();
   const navigate = useNavigate();
 
   const { newHotelValidationSchema } = validationSchema();
@@ -83,56 +83,51 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
   }
 
   const handleBack = () => {
-    handlerClearState()
+    handleClearState()
     navigate(-1)
   }
 
   return (
-    <form className='create-hotel__form' onSubmit={handleSubmit} >
-      <div className='create-hotel__form--hotel'>
-
-        <div>
-          <FormControl
-            label='hotel name'
-            name='name'
-            type='text'
-            value={createOrEditName}
-            onChange={handlerFieldChange}
-            onBlur={handleBlur}
-          />
-          <ErrorMessage
-            fieldName={errors?.name}
-            isFormSubmitted={isFormSubmitted}
-            isTouched={isTouched?.name}
-          />
-        </div>
-
-        <div>
-          <FormControl
-            label='city'
-            name='city'
-            type='text'
-            value={createOrEditCity}
-            onChange={handlerFieldChange}
-            onBlur={handleBlur}
-          />
-          <ErrorMessage
-            fieldName={errors?.city}
-            isFormSubmitted={isFormSubmitted}
-            isTouched={isTouched?.city}
-          />
-        </div>
+    <form className='create-edit-hotel__form' onSubmit={handleSubmit} >
+      <div>
         <FormControl
-          label='description'
-          name='description'
+          label='hotel name'
+          name='name'
           type='text'
-          value={createOrEditDescription}
-          onChange={handlerFieldChange}
+          value={createOrEditName}
+          onChange={handleFieldChange}
           onBlur={handleBlur}
+        />
+        <ErrorMessage
+          fieldName={errors?.name}
+          isFormSubmitted={isFormSubmitted}
+          isTouched={isTouched?.name}
         />
       </div>
 
-      <div className='create-hotel__form--buttons' >
+      <div>
+        <FormControl
+          label='city'
+          name='city'
+          type='text'
+          value={createOrEditCity}
+          onChange={handleFieldChange}
+          onBlur={handleBlur}
+        />
+        <ErrorMessage
+          fieldName={errors?.city}
+          isFormSubmitted={isFormSubmitted}
+          isTouched={isTouched?.city}
+        />
+      </div>
+      <FormControl
+        label='description'
+        name='description'
+        type='text'
+        value={createOrEditDescription}
+        onChange={handleFieldChange}
+        onBlur={handleBlur}
+      />
         <Button
           margin='2rem 2rem 0 2rem'
           label={`${title} hotel`}
@@ -145,7 +140,6 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
           backgroundColor='red'
           onClick={handleBack}
         />
-      </div>
     </form>
   )
 }

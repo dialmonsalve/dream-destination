@@ -1,8 +1,15 @@
+@use '../abstract/mixins' as m;
+
 .error-message {
   background-color: #f007079b;
   border-radius: .6rem;
   color: white;
-  font-size: 1.6rem;
-  margin: 1rem;
+  font-size: 1.4rem;
+  margin: 0 1rem;
   padding: 0.5rem;
+
+  @include m.respond(phone) {
+    font-size: 1.6rem;
+  }
 }
+

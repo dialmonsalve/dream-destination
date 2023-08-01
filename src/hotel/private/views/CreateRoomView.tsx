@@ -22,7 +22,7 @@ export const CreateRoomView = () => {
 
 
   const { newRoomValidationSchema } = validationSchema();
-  const { formState, isFormSubmitted, isTouched, handleBlur, onFieldChange, areFieldsValid, handleResetForm } = useForm(newRoomForm);
+  const { formState, isFormSubmitted, isTouched, handleBlur, handleFieldChange, areFieldsValid, handleResetForm } = useForm(newRoomForm);
 
   const { updateHotelWithRoom } = useHotels();
   const navigate = useNavigate()
@@ -65,14 +65,13 @@ export const CreateRoomView = () => {
   return (
     <>
       <form className='create-hotel__form--rooms' onSubmit={handleSubmit}>
-
         <div>
           <FormControl
             label='Number room'
             name='numberRoom'
             type='text'
             value={numberRoom}
-            onChange={onFieldChange}
+            onChange={handleFieldChange}
             onBlur={handleBlur}
           />
           <ErrorMessage
@@ -88,7 +87,7 @@ export const CreateRoomView = () => {
             name='roomType'
             type='text'
             value={roomType}
-            onChange={onFieldChange}
+            onChange={handleFieldChange}
             onBlur={handleBlur}
           />
           <ErrorMessage
@@ -104,7 +103,7 @@ export const CreateRoomView = () => {
             name='basisCost'
             type='number'
             value={basisCost}
-            onChange={onFieldChange}
+            onChange={handleFieldChange}
             onBlur={handleBlur}
           />
           <ErrorMessage
@@ -120,7 +119,7 @@ export const CreateRoomView = () => {
             name='taxes'
             type='number'
             value={taxes}
-            onChange={onFieldChange}
+            onChange={handleFieldChange}
             onBlur={handleBlur}
           />
           <ErrorMessage
@@ -136,7 +135,7 @@ export const CreateRoomView = () => {
             name='capacity'
             type='number'
             value={capacity}
-            onChange={onFieldChange}
+            onChange={handleFieldChange}
             onBlur={handleBlur}
           />
           <ErrorMessage
@@ -152,7 +151,7 @@ export const CreateRoomView = () => {
             name='description'
             type='text'
             value={description}
-            onChange={onFieldChange}
+            onChange={handleFieldChange}
             onBlur={handleBlur}
           />
         </div>

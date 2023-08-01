@@ -33,7 +33,7 @@ export const PrivateHotelsPage = () => {
   return (
     isLoading === 'loading' ? <Spinner type='long-play' /> :
 
-      <div className='staff-hotels'>
+    <div className='staff-hotels'>
         <h1 className='staff-hotels__title' >Hotels</h1>
         <Button
           label='create'

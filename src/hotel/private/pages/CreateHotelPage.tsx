@@ -24,7 +24,7 @@ function CreateHotelPage() {
     areFieldsValid,
     handleBlur,
     handleResetForm,
-    handlerFieldChange,
+    handleFieldChange,
   } = useForm(hotel);
 
   const [components, setComponents] = useState<ReactNode[]>([]);
@@ -40,7 +40,7 @@ function CreateHotelPage() {
     isTouched,
     areFieldsValid,
     handleBlur,
-    handlerFieldChange,
+    handleFieldChange,
     handleResetForm
   }
 
@@ -53,7 +53,7 @@ function CreateHotelPage() {
           id={id}
           name={name}
           city={city}
-          classBase={'created'}
+          classBase={'hotel-created'}
         />
       </div>
 

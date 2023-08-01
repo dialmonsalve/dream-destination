@@ -7,14 +7,14 @@ export const useForm = <T>(initialForm: T) => {
 
   const [formState, setFormState] = useState(initialForm);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isTouched, setIsTouched] = useState<IsTouched>(null)
+  const [isTouched, setIsTouched] = useState<IsTouched>(null);
 
   useEffect(() => {
     setFormState(initialForm);
   }, [initialForm]);
 
 
-  const handlerFieldChange = (e: ReactChangeEvent) => {
+  const handleFieldChange = (e: ReactChangeEvent) => {
     const { name, value } = e.target; 
     setFormState((prevFormState) => ({
       ...prevFormState,
@@ -49,7 +49,7 @@ export const useForm = <T>(initialForm: T) => {
     isFormSubmitted,
     isTouched,
 
-    handlerFieldChange,
+    handleFieldChange,
     handleResetForm,
     areFieldsValid,
     handleBlur

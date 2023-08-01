@@ -12,9 +12,9 @@ export const ErrorMessage = ({ isFormSubmitted, fieldName, isTouched }: Props) =
 	return (
 		shouldShowErrors || isFormSubmitted ?
 
-			<div className='error-message' >
+			<div  >
 				{fieldName?.map((errorMessage: string, index: number) => (
-					<p key={index}>{errorMessage}</p>
+					<p className='error-message' key={index}>{errorMessage}</p>
 				))}
 			</div>
 			: <></>

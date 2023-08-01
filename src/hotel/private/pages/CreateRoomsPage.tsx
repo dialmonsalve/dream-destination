@@ -21,7 +21,13 @@ function CreateRoomsPage() {
 
 
   return (
-    <PrivateResumeHotelView classBase='info' id={Number(id)!} city={hotel.city} name={hotel.name} isInfo={true} />
+    <div className='create-room'>
+      <div className='create-room__container' >
+        <h1 className='create-room__container--title' >Create room</h1>
+      <PrivateResumeHotelView classBase='create-room--info' id={Number(id)!} city={hotel.city} name={hotel.name} isInfo={true} />
+      </div>
+
+    </div>
   )
 }
 

@@ -4,12 +4,16 @@
 .navbar {
   display: flex;
   padding: 1rem;
-  background-color:  v.$color-primary-darker;
+  background-color: v.$color-primary-darker;
 
-  
+  @include m.respond(phone) {
+    border-bottom: 1px solid v.$color-white;
+  }
+
 
   &__nav {
     @include m.navbar();
+
 
     @include m.respond(tab-port) {
       flex-direction: column

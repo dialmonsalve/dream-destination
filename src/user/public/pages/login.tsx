@@ -14,7 +14,7 @@ const loginForm: LoginUser = {
 function LoginPage() {
 
   const { loginValidationSchema } = validationSchema();
-  const { formState, isFormSubmitted, isTouched, onFieldChange, areFieldsValid, handleBlur } = useForm(loginForm)
+  const { formState, isFormSubmitted, isTouched, handleFieldChange, areFieldsValid, handleBlur } = useForm(loginForm)
   const navigate = useNavigate();
 
   const errors = formValidator().getErrors(formState, loginValidationSchema);
@@ -34,34 +34,35 @@ function LoginPage() {
     navigate('/create-account')
   }
   return (
-    <div className='new-account'>
-      <div className='new-account__container' >
-        <h1 className='new-account__container--title'>Login</h1>
-        <form className='new-account__container--form' onSubmit={handleSubmit} >
+    <div className='login'>
+      <div className='login__container' >
+        <h1 className='login__container--title'>Login and make your reservations</h1>
+        <form className='login__container--form' onSubmit={handleSubmit} >
+
           <div>
             <FormControl
               label='email'
               name='email'
               type='text'
               value={email}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
+            <ErrorMessage
+              fieldName={errors?.email}
+              isFormSubmitted={isFormSubmitted}
+              isTouched={isTouched?.email}
+            />
+            <div>
+
+            </div>
             <FormControl
               label='password'
               name='password'
               type='password'
               value={password}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
-            />
-          </div>
-          <div>
-
-            <ErrorMessage
-              fieldName={errors?.email}
-              isFormSubmitted={isFormSubmitted}
-              isTouched={isTouched?.email}
             />
             <ErrorMessage
               fieldName={errors?.password}
@@ -69,6 +70,7 @@ function LoginPage() {
               isTouched={isTouched?.password}
             />
           </div>
+
           <div>
             <Button
               margin='2rem 2rem 0 2rem'

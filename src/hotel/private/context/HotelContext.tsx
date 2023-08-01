@@ -10,7 +10,7 @@ interface ContextProps {
   updateHotel: (id: string | number, hotel: Hotel) => Promise<void>
   deleteHotel: (id: string | number) => Promise<void>
   activateHotel: (id: string | number) => Promise<void>
-  handlerClearState: () => void
+  handleClearState: () => void
 
   updateHotelWithRoom: (hotelId: number, newRoom: Room) => Promise<void>
 }

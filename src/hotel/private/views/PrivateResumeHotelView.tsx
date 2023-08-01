@@ -40,11 +40,19 @@ export const PrivateResumeHotelView = ({ id, name, city, classBase, isInfo = fal
 
 
   return (
-    <div className={`hotel-${classBase}`} >
-      <h2 className={`hotel-${classBase}--title`}>Create room</h2>
-      <h3 className={`hotel-${classBase}--subtitle`} >Hotel as been created</h3>
-      <p className={`hotel-${classBase}--content`}>Name: <span>{name}</span></p>
-      <p className={`hotel-${classBase}--content`}>City: <span>{city}</span></p>
+    <div className={`${classBase}`} >
+      {
+        isInfo ?
+          <></>
+          : <h2 className={`${classBase}--title`}>Create room</h2>
+      }
+      {
+        isInfo ?
+          <h3 className={`${classBase}--subtitle`} >Info Hotel</h3>
+          : <h3 className={`${classBase}--subtitle`} >Hotel as been created</h3>
+      }
+      <p className={`${classBase}--content`}>Name: <span>{name}</span></p>
+      <p className={`${classBase}--content`}>City: <span>{city}</span></p>
       {
         isInfo
           ?

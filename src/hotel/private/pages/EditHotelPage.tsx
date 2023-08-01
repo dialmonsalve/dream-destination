@@ -15,9 +15,9 @@ function EditHotelPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { hotel, isLoading, handlerClearState, getHotel } = useHotels();
+  const { hotel, isLoading, handleClearState, getHotel } = useHotels();
   const { formState, isFormSubmitted, isTouched,
-    handleBlur, handlerFieldChange, areFieldsValid } = useForm(hotel);
+    handleBlur, handleFieldChange, areFieldsValid } = useForm(hotel);
 
   useEffect(() => {
     if (id === undefined) return;
@@ -29,7 +29,7 @@ function EditHotelPage() {
   const handleCreateRoom = () => {
     if (id === undefined) return;
     navigate(`/api/hotels/${id}/rooms/create`)
-    handlerClearState();
+    handleClearState();
   }
 
   const formProps = {
@@ -40,7 +40,7 @@ function EditHotelPage() {
     isFormSubmitted,
     isTouched,
     handleBlur,
-    handlerFieldChange,
+    handleFieldChange,
     areFieldsValid
   }
 

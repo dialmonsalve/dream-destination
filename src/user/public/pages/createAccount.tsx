@@ -24,7 +24,7 @@ function CreateAccountPage() {
 
   const { newClientValidationSchema } = validationSchema();
   const { formState, isFormSubmitted, isTouched,
-    onFieldChange, areFieldsValid, handleBlur } = useForm(newAccountForm);
+    handleFieldChange, areFieldsValid, handleBlur } = useForm(newAccountForm);
   const navigate = useNavigate();
 
   const errors = formValidator().getErrors(formState, newClientValidationSchema);
@@ -40,9 +40,6 @@ function CreateAccountPage() {
     name,
     password,
     phone } = formState;
-
-    console.log(errors);
-    
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -60,10 +57,10 @@ function CreateAccountPage() {
   }
   return (
 
-    <div className='new-account'>
-      <div className='new-account__container' >
-        <h1 className='new-account__container--title'>Create account</h1>
-        <form className='new-account__container--form' onSubmit={handleSubmit}>
+    <div className='create-account'>
+      <div className='create-account__container' >
+        <h1 className='create-account__container--title'>Create account and make your reservations</h1>
+        <form className='create-account__container--form' onSubmit={handleSubmit}>
 
           <div>
             <FormControl
@@ -71,7 +68,7 @@ function CreateAccountPage() {
               name='name'
               type='text'
               value={name}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
             <ErrorMessage
@@ -87,7 +84,7 @@ function CreateAccountPage() {
               name='lastName'
               type='text'
               value={lastName}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
             <ErrorMessage
@@ -99,7 +96,7 @@ function CreateAccountPage() {
 
           <div className='form-control'>
           <label className='form-control--label' htmlFor='document-type'>Document type</label>
-            <select value={documentType} className='form-control--select' name='documentType' onChange={onFieldChange}  >
+            <select value={documentType} className='form-control--select' name='documentType' onChange={handleFieldChange}  >
               <option  value=""></option>
               <option  value="dni">DNI</option>
               <option  value="extranjero">Extranjero</option>
@@ -118,7 +115,7 @@ function CreateAccountPage() {
               name='document'
               type='text'
               value={document}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
             <ErrorMessage
@@ -133,7 +130,7 @@ function CreateAccountPage() {
               name='birthDate'
               type='date'
               value={birthDate}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
           </div>
@@ -144,7 +141,7 @@ function CreateAccountPage() {
               name='country'
               type='text'
               value={country}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
 
@@ -165,7 +162,7 @@ function CreateAccountPage() {
               name='email'
               type='email'
               value={email}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
             <ErrorMessage
@@ -181,7 +178,7 @@ function CreateAccountPage() {
               name='password'
               type='password'
               value={password}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
             <ErrorMessage
@@ -197,7 +194,7 @@ function CreateAccountPage() {
               name='phone'
               type='phone'
               value={phone}
-              onChange={onFieldChange}
+              onChange={handleFieldChange}
               onBlur={handleBlur}
             />
 

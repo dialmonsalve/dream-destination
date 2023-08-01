@@ -12,7 +12,7 @@ function DetailHotelPage() {
 
   const [error, setError] = useState(false);
   const { id } = useParams();
-  const { hotel, isLoading, getHotel, handlerClearState } = useHotels();
+  const { hotel, isLoading, getHotel, handleClearState } = useHotels();
 
   useEffect(() => {
     if (id === undefined) return;
@@ -27,7 +27,7 @@ function DetailHotelPage() {
     isLoading === 'loading' ? <Spinner type='long-play' /> :
 
       error ? <NotFoundPage /> :
-        <HotelDetailCard hotel={hotel} handlerClearState={handlerClearState} />
+        <HotelDetailCard hotel={hotel} handleClearState={handleClearState} />
   )
 }
 

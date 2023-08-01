@@ -6,7 +6,7 @@
   background-color: v.$color-primary-dark;
   display: flex;
   justify-content: space-between;
-
+  
   @include m.respond(tab-port) {
     flex-direction: column;
     align-items: flex-start;

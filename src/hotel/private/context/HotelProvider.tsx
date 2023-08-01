@@ -92,7 +92,7 @@ export const HotelProvider = ({ children }: Props) => {
     }
   }
 
-  const handlerClearState = () => {
+  const handleClearState = () => {
     dispatch({ type: '[Hotel] - Clear state' })
   }
 
@@ -145,7 +145,7 @@ export const HotelProvider = ({ children }: Props) => {
       updateHotel,
       deleteHotel,
       activateHotel,
-      handlerClearState,
+      handleClearState,
       //! Rooms
       updateHotelWithRoom,
     }}>
