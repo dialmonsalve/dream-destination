@@ -1,0 +1,13 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
+
+.private-hotels {  
+
+  @include m.respond(phone) {
+    align-items: flex-start;
+    margin-left: 6rem;
+  }
+
+  @include m.detail-hotels-private(80vw, 50vh);
+
+}

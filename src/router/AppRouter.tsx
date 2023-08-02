@@ -1,7 +1,7 @@
 
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
-import BookingsPage from '../booking/routes/bookings';
+import BookingsPage from '../reservations/routes/bookings';
 import HomePage from '../user/public/pages';
 
 import NotFoundPage from '../user/public/pages/notFoundPage';

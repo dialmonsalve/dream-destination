@@ -33,77 +33,80 @@ export const PrivateHotelsPage = () => {
   return (
     isLoading === 'loading' ? <Spinner type='long-play' /> :
 
-    <div className='staff-hotels'>
-        <h1 className='staff-hotels__title' >Hotels</h1>
-        <Button
-          label='create'
-          hasBackground={false}
-          backgroundColor='green'
-          margin='-2rem 10rem'
-          onClick={handleCreateHotel}
-        />
-        <table className='staff-hotels__table' >
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>city</th>
-              <th>total rooms</th>
-              <th>edit</th>
-              <th>detail</th>
-              <th>delete</th>
-              <th>status</th>
-              <th>Active</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div className='private-hotels'>
+        <h1 className='private-hotels__title' >Hotels</h1>
+        <div>
+          <Button
+            label='create'
+            hasBackground={false}
+            backgroundColor='green'
+            onClick={handleCreateHotel}
+          />
+        </div>
+        <div className='private-hotels__container-table' >
+          <table className='private-hotels__container-table--table' >
+            
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>city</th>
+                <th>total rooms</th>
+                <th>edit</th>
+                <th>detail</th>
+                <th>delete</th>
+                <th>status</th>
+                <th>Active</th> 
+              </tr>
+            </thead>
+            <tbody>
 
-            {
-              hotels.map(hotel => (
+              {
+                hotels.map(hotel => (
 
-                <tr key={hotel.id} >
-                  <td>{hotel.name}</td>
-                  <td>{hotel.city}</td>
-                  <td>{hotel.rooms?.length}</td>
-
-                  <td><Button
-                    backgroundColor='blue'
-                    size='small'
-                    label='edit'
-                    onClick={() => handleEditHotel(hotel.id!)}
-                  /></td>
-                  <td><Button
-                    backgroundColor='green'
-                    size='small'
-                    label='detail'
-                    onClick={() => handleDetailHotel(hotel.id!)}
-                  /></td>
-                  {
-                    hotel.active ?
-                      <td><Button
-                        backgroundColor='red'
-                        size='small'
-                        label='delete'
-                        onClick={() => handleDeleteHotel(hotel.id!)}
-                      /></td> : <td></td>
-                  }
-                  <td>{hotel.active ? 'active' : 'inactive'}</td>
-                  {
-                    !hotel.active ?
-                      <td>
-                        <Button
-                          backgroundColor='primary-dark'
+                  <tr key={hotel.id} >
+                    <td>{hotel.name}</td>
+                    <td>{hotel.city}</td>                    
+                    <td>{hotel.rooms?.length}</td>                    
+                    <td><Button
+                      backgroundColor='blue'
+                      size='small'
+                      label='edit'
+                      onClick={() => handleEditHotel(hotel.id!)}
+                    /></td>
+                    <td><Button
+                      backgroundColor='green'
+                      size='small'
+                      label='detail'
+                      onClick={() => handleDetailHotel(hotel.id!)}
+                    /></td>
+                    {
+                      hotel.active ?
+                        <td><Button
+                          backgroundColor='red'
                           size='small'
-                          label='active'
-                          onClick={() => handleActiveHotel(hotel.id!)}
-                        /></td>
-                      : <td> </td>
-                  }
-                </tr>
-              ))
-            }
-          </tbody>
+                          label='delete'
+                          onClick={() => handleDeleteHotel(hotel.id!)}
+                        /></td> : <td></td>
+                    }
+                    <td>{hotel.active ? 'active' : 'inactive'}</td>
+                    {
+                      !hotel.active ?
+                        <td>
+                          <Button
+                            backgroundColor='primary-dark'
+                            size='small'
+                            label='active'
+                            onClick={() => handleActiveHotel(hotel.id!)}
+                          /></td>
+                        : <td> </td>
+                    }
+                  </tr>
+                ))
+              }
+            </tbody>
 
-        </table>
+          </table>
+        </div>
       </div>
   )
 }

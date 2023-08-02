@@ -160,6 +160,7 @@ export const CreateRoomView = () => {
           label='create room'
           type='submit'
           disabled={!!errors}
+          margin='2rem 0 0 0 '
         />
       </form>
       <Button

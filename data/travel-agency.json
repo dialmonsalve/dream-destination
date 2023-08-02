@@ -93,6 +93,26 @@
           "description": "A beautifull place",
           "isAvailable": true,
           "id": 30
+        },
+        {
+          "basisCost": "820",
+          "capacity": "65",
+          "numberRoom": "A526",
+          "roomType": "SINGLE",
+          "taxes": "65",
+          "description": "Uhadiufjn adjhiue uidfh ñiauhndf  adnfñlkdamn kldsfokd jfoadsjfoi asdjoia ",
+          "isAvailable": true,
+          "id": 32
+        },
+        {
+          "basisCost": "50",
+          "capacity": "50",
+          "numberRoom": "A526",
+          "roomType": "asda",
+          "taxes": "50",
+          "description": "20",
+          "isAvailable": true,
+          "id": 33
         }
       ]
     },
@@ -496,7 +516,7 @@
       "name": "Laptop Diamond M2",
       "city": "Panamá",
       "description": "",
-      "active": true,
+      "active": false,
       "rooms": [],
       "id": 56
     },
@@ -504,9 +524,33 @@
       "name": "Laptop Diamond M2",
       "city": "Panamá",
       "description": "",
-      "active": true,
+      "active": false,
       "rooms": [],
       "id": 57
+    },
+    {
+      "name": "Diego",
+      "city": "Panamá",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": true,
+      "rooms": [],
+      "id": 58
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 59
+    },
+    {
+      "name": "Diego",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 60
     }
   ],
   "reservas": [],
@@ -808,6 +852,36 @@
       "description": "A beautifull place",
       "isAvailable": true,
       "id": 30
+    },
+    {
+      "basisCost": "250",
+      "capacity": "3",
+      "numberRoom": "A525",
+      "roomType": "SINGLE",
+      "taxes": "50",
+      "description": "dadsfkjasokfjasdkfj adsdfjioqwe riej u rjiej ioej 9i8 r0i8  irj ijtrfeqiojmn",
+      "isAvailable": true,
+      "id": 31
+    },
+    {
+      "basisCost": "820",
+      "capacity": "65",
+      "numberRoom": "A526",
+      "roomType": "SINGLE",
+      "taxes": "65",
+      "description": "Uhadiufjn adjhiue uidfh ñiauhndf  adnfñlkdamn kldsfokd jfoadsjfoi asdjoia ",
+      "isAvailable": true,
+      "id": 32
+    },
+    {
+      "basisCost": "50",
+      "capacity": "50",
+      "numberRoom": "A526",
+      "roomType": "asda",
+      "taxes": "50",
+      "description": "20",
+      "isAvailable": true,
+      "id": 33
     }
   ]
 }

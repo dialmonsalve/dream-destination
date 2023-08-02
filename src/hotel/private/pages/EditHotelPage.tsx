@@ -59,9 +59,9 @@ function EditHotelPage() {
             />
             <Button
               label='create rooms'
-              margin='1rem 0'
               backgroundColor='blue'
               onClick={handleCreateRoom}
+              margin='0 0 0 2rem'
             />
           </div>
         </div>

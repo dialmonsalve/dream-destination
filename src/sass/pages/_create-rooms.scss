@@ -1,0 +1,136 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
+
+.create-room {
+  display: flex;
+  overflow: auto;
+  min-width: 85vw;
+  height: 85vh;
+
+  @include m.respond(tab-port) {
+    height: 80vh;
+  }
+
+  @include m.respond(phone) {
+    background-color: v.$color-primary-darker;
+    height: 75vh;
+  }
+
+  &__container {
+    margin: 6rem auto;
+    min-width: 85vw;
+
+    @include m.respond(tab-land) {
+      min-width: 60vw;
+    }
+    @include m.respond(phone) {
+      min-width: 80vw;
+    }
+
+    &--title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: v.$color-primary-darker;
+      text-transform: uppercase;
+
+      @include m.respond(tab-land) {
+        margin-left: 4rem;
+      }
+
+      @include m.respond(phone) {
+        color: v.$color-white;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--info {
+    @include m.form();
+    max-width: 60vw;
+
+    @include m.respond(tab-land) {
+      max-width: 75vw;
+      box-shadow: none;
+    }
+
+    @include m.respond(phone) {
+      max-width: 80vw;
+      box-shadow: none;
+    }
+
+    &--title,
+    &--subtitle,
+    &--content {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-weight: 100;
+    }
+
+    &--title {
+      font-size: v.$font-size + 2rem;
+    }
+
+    &--subtitle {
+      font-size: v.$font-size + 0.5rem;
+    }
+
+    &--content {
+      font-size: v.$font-size + 1rem;
+
+      span {
+        color: v.$color-primary;
+      }
+    }
+
+    &--title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: v.$color-primary-darker;
+      text-transform: uppercase;
+
+      @include m.respond(tab-land) {
+        margin-left: 4rem;
+      }
+
+      @include m.respond(phone) {
+        color: v.$color-white;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.hotel-info {
+  @include m.form();
+  margin: 2rem auto;
+  padding: 4rem;
+  border-radius: 1rem;
+  overflow: auto;
+  max-height: 50vh;
+
+  &--title,
+  &--subtitle,
+  &--content {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: 100;
+  }
+
+  &--title {
+    font-size: v.$font-size + 2rem;
+  }
+
+  &--subtitle {
+    font-size: v.$font-size + 0.5rem;
+  }
+
+  &--content {
+    font-size: v.$font-size + 1rem;
+
+    span {
+      color: v.$color-primary;
+    }
+  }
+}

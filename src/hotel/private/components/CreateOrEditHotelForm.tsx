@@ -129,7 +129,7 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
         onBlur={handleBlur}
       />
         <Button
-          margin='2rem 2rem 0 2rem'
+          margin='2rem 2rem 0 0rem'
           label={`${title} hotel`}
           disabled={!!errors}
           type='submit'
