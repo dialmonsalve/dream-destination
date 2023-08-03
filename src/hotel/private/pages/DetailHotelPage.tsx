@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useHotels } from '../hooks/useHotels';
 import { HotelDetailCard } from '../components/HotelDetailCard';
 
-import NotFoundPage from '../../../user/public/pages/notFoundPage';
-import { Spinner } from '../../../utils/components';
+
+import { Spinner } from '../../../ui';
+import NotFoundPage from '../../public/pages/notFoundPage';
 
 
 function DetailHotelPage() {

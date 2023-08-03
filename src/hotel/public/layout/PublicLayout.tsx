@@ -1,9 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
+import { AnchorTag } from '../../../ui';
 import { Footer,  Navbar, Header } from '../components';
-
-import { AnchorTag } from '../../../utils/components/AnchorTag';
-
 
 export const PublicLayout = () => {
   

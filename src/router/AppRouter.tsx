@@ -1,23 +1,24 @@
 
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
-import ReservationsPage from '../reservation/routes/Reservations';
-import HomePage from '../user/public/pages';
-
-import NotFoundPage from '../user/public/pages/notFoundPage';
-import ExamplePage from '../user/public/pages/examplePage';
-
-import CreateAccountPage from '../user/public/pages/createAccount';
-import LoginPage from '../user/public/pages/login';
+import RegisterPage from '../auth/public/pages/RegisterPage';
+import LoginPage from '../auth/public/pages/login';
 
 import HotelsPage from '../hotel/routes/HotelsPage';
+
+import HomePage from '../hotel/public/pages';
+import ExamplePage from '../hotel/public/pages/examplePage';
+import NotFoundPage from '../hotel/public/pages/notFoundPage';
+
+import ReservationsPage from '../reservation/routes/Reservations';
+
 import CreateHotelPage from '../hotel/private/pages/CreateHotelPage';
 import EditHotelPage from '../hotel/private/pages/EditHotelPage';
 import DetailHotelPage from '../hotel/private/pages/DetailHotelPage';
 import CreateRoomsPage from '../hotel/private/pages/CreateRoomsPage';
 
-import { PrivateLayout } from '../user/private/layout/PrivateLayout';
-import { PublicLayout } from '../user/public/layout/PublicLayout';
+import { PublicLayout } from '../hotel/public/layout/PublicLayout';
+import { PrivateLayout } from '../hotel/private/layout/PrivateLayout';
 
 
 const routes: RouteObject[] = [
@@ -41,7 +42,7 @@ const routes: RouteObject[] = [
       },
       {
         path: 'create-account',
-        element: <CreateAccountPage />
+        element: <RegisterPage />
       },
       {
         path: 'login',

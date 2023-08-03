@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '../../../utils/components';
+import { Button } from '../../../ui';
 import { CreateRoomView } from './CreateRoomView';
 
 

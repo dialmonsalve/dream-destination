@@ -4,7 +4,7 @@ import { useHotels } from '../hooks/useHotels';
 import { useForm } from '../../../hooks/useForm';
 
 import { PrivateResumeHotelView } from '../views/PrivateResumeHotelView';
-import { Spinner } from '../../../utils/components';
+import { Spinner } from '../../../ui';
 
 import { Hotel } from '../../../types/hotel';
 import { CreateOrEditHotelForm } from '../components/CreateOrEditHotelForm';

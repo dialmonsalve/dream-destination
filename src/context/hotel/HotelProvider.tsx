@@ -3,7 +3,7 @@ import { ReactNode, useCallback, useEffect, useReducer } from 'react';
 import { HOTEL_INITIAL_STATE, HotelContext, hotelReducer } from './';
 import { hotelsApi, roomsApi } from '../../api/hotelsApi';
 
-import { Hotel, Room }  from '../../../types/hotel';
+import { Hotel, Room }  from '../../types';
 
 export interface Props {
   children: ReactNode;

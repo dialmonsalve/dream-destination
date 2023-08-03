@@ -1,6 +1,6 @@
 import { PublicHotelCard } from '../components/PublicHotelCard';
 
-import { Button, FormControl } from '../../../utils/components';
+import { Button, FormControl } from '../../../ui';
 
 
 export const PublicHotelsPage = () => {

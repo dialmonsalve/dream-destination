@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useHotels } from '../hooks/useHotels';
 import { useForm } from '../../../hooks/useForm';
 
-import { validationSchema, formValidator } from '../../../utils/helpers';
-import { Button, FormControl, ErrorMessage } from '../../../utils/components';
+import { validationSchema, formValidator } from '../../../helpers';
+import { Button, FormControl, ErrorMessage } from '../../../ui';
 
 import { Room } from '../../../types/hotel';
 

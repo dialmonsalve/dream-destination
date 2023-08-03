@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { useHotels } from '../hooks/useHotels';
-import { Button, Spinner } from '../../../utils/components';
+import { Button, Spinner } from '../../../ui';
 
 export const PrivateHotelsPage = () => {
 

@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Button, ErrorMessage, FormControl } from '../../../utils/components';
+import { Button, ErrorMessage, FormControl } from '../../../ui';
 
-import { validationSchema, formValidator } from '../../../utils/helpers';
+import { formValidator, validationSchema } from '../../../helpers';
 import { useForm } from '../../../hooks/useForm';
 
 import { NewUser } from '../../../types/user';
@@ -20,7 +20,7 @@ const newAccountForm: NewUser = {
   phone: '',
 }
 
-function CreateAccountPage() {
+function RegisterPage() {
 
   const { newClientValidationSchema } = validationSchema();
   const { formState, isFormSubmitted, isTouched,
@@ -225,4 +225,4 @@ function CreateAccountPage() {
 }
 
 
-export default CreateAccountPage;
+export default RegisterPage;

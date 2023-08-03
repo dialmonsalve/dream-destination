@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { CardHead, CardBody, Button } from '../../../utils/components';
+import { CardHead, CardBody, Button } from '../../../ui';
 
 import { Hotel } from '../../../types/hotel';
 

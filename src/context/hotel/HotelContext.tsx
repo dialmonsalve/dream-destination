@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Hotel, Room }  from '../../../types/hotel';
+import { Hotel, Room }  from '../../types';
 
 interface ContextProps {
   hotels: Hotel[];

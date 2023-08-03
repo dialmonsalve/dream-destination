@@ -9,6 +9,7 @@
   min-height: 100vh;
   position: absolute;
   transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  transform: translateX(-90%);
   z-index: 1;
 
   &__container {
@@ -19,9 +20,9 @@
   }
 }
 
-.animation-hide-sidebar {
-  transform: translateX(-90%);
-  animation: sidebarAnimationLeft;
+.show-animation-sidebar {
+  transform: translateX(0);
+  animation: sidebarAnimationRight .5s cubic-bezier(0.58, 0, 0.42, 1);
 }
 
 .menu {

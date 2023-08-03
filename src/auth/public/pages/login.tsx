@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../../hooks/useForm';
-import { Button, ErrorMessage, FormControl } from '../../../utils/components';
-import { validationSchema, formValidator } from '../../../utils/helpers';
+import { Button, ErrorMessage, FormControl } from '../../../ui';
+import { validationSchema, formValidator } from '../../../helpers';
 
 import { LoginUser } from '../../../types/user';
 

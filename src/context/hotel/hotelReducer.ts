@@ -1,4 +1,4 @@
-import { Hotel, Room }  from '../../../types/hotel';
+import { Hotel, Room }  from '../../types';
 
 
 interface HotelState {

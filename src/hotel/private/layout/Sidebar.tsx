@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { AnchorTag } from '../../../utils/components/AnchorTag';
+import { AnchorTag } from '../../../ui';
 
 interface Props {
   width?: number
@@ -8,12 +8,12 @@ interface Props {
 
 export const Sidebar = ({ width = 300 }: Props) => {
 
-  const [toggleSidebar, setToggleSidebar] = useState(false)
+  const [toggleSidebar, setToggleSidebar] = useState(false);
 
   return (
     <>
       <nav
-        className={`sidebar animation-sidebar ${toggleSidebar ? '' : `animation-hide-sidebar`} `}
+        className={`sidebar ${toggleSidebar ? 'show-animation-sidebar' : ''}`}
         style={{ width }}
       >
         <ul className='sidebar__container'>
@@ -28,7 +28,7 @@ export const Sidebar = ({ width = 300 }: Props) => {
             href='/api/reservations'
             label='reservations'
             itemClassName={`item`}
-            linkClassName={`item__link`}  /* item__link--medium */
+            linkClassName={`item__link`}
             onClick={() => setToggleSidebar(!toggleSidebar)}
           />
         </ul>

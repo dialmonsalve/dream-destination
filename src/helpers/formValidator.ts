@@ -1,9 +1,5 @@
-import {
-  ErrorMessage,
-  InitialForm, ValidationSchema,
-  Validator,
-  ValidatorReturn,
-} from "../../types";
+
+import { ErrorMessage, InitialForm, ValidationSchema, Validator, ValidatorReturn } from "../types";
 
 export const formValidator = (): ValidatorReturn => {
 

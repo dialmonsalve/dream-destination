@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { CardHead, CardBody, CardFooter } from '../../../utils/components';
+import { CardHead, CardBody, CardFooter } from '../../../ui';
 
 
 interface CardProps {

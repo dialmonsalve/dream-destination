@@ -4,8 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import { useHotels } from '../hooks/useHotels';
 
-import { Button, Spinner } from '../../../utils/components';
-import NotFoundPage from '../../../user/public/pages/notFoundPage';
+import NotFoundPage from '../../public/pages/notFoundPage';
+import { Button, Spinner } from '../../../ui';
 
 import { CreateOrEditHotelForm } from '../components/CreateOrEditHotelForm';
 

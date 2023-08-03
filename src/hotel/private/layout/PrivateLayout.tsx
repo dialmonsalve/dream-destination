@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 
-import { Sidebar } from './Sidebar';
 
-import { AnchorTag } from '../../../utils/components/AnchorTag'
-import { Header } from '../../public/components'
+import { AnchorTag } from '../../../ui';
+import { Sidebar } from './Sidebar';
+import { Header } from '../../public/components';
 
 export const PrivateLayout = () => {
 
   return (
     <>
-      <Sidebar/>
+      <Sidebar />
       <Header
         isClient={false}
       >
