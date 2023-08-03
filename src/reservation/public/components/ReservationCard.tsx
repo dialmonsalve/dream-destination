@@ -8,17 +8,17 @@ interface CardProps {
   children?: ReactNode | ReactNode[];
 }
 
-export const BookingCard = ({ children, ...props }: CardProps) => {
+export const ReservationCard = ({ children, ...props }: CardProps) => {
 
   return (
     <div
-      className='card-booking'
+      className='card-reservation'
       {...props}
     >
       {children}
 
       <CardHead >
-        <h3 className='title-card' >Booking No</h3>
+        <h3 className='title-card' >Reservation No</h3>
         <p className='card__head--client' ><span>client</span></p>
         <p className='card__head--client' >Phone: <span>325656595</span> </p>
       </CardHead>
@@ -27,7 +27,7 @@ export const BookingCard = ({ children, ...props }: CardProps) => {
         <p className='card__body--room' >Ciudad: <span>Juarez</span> </p>
         <p className='card__body--room' >Hotel: <span>Pepito</span> </p>
 
-        <div className='card__body--booking'>
+        <div className='card__body--reservation'>
           <p className='card__body--room' >Number Room: <span>200</span> </p>
           <p className='card__body--room' >tipo: <span>doble</span> </p>
           <p className='card__body--room' >Precio: <span>250</span> </p>
@@ -36,7 +36,7 @@ export const BookingCard = ({ children, ...props }: CardProps) => {
           <p className='card__body--room' >Fecha final: <span>23-01-2022</span> </p>
           <p className='card__body--room' >Total días: <span>3 dias</span> </p>
         </div>
-        <div className='card__body--booking'>
+        <div className='card__body--reservation'>
           <p className='card__body--room' >Number Room: <span>201</span> </p>
           <p className='card__body--room' >tipo: <span>Individual</span> </p>
           <p className='card__body--room' >Precio: <span>180</span> </p>

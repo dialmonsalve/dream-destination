@@ -1,7 +1,7 @@
 @use '../abstract/variables' as v;
 @use '../abstract/mixins' as m;
 
-.client-bookings {
+.public-reservation {
   padding: 2rem 20rem;
 
   &__title {
@@ -25,7 +25,7 @@
   }
 }
 
-.card-booking {
+.card-reservation {
   border-bottom: 1px solid black;
 }
 
@@ -41,7 +41,7 @@
       color:v.$color-primary-light;
     }
 
-    &--booking {
+    &--reservation {
       margin-bottom: 1rem;
       border-bottom: 1px solid v.$color-primary-light;
       width: 120%;

@@ -17,8 +17,8 @@ export const navLinks: PropsNav[] = [
   },
   {
     id: 2,
-    name: "bookings",
-    href: '/bookings'
+    name: "reservations",
+    href: '/reservations'
   },
   // {
   //   id: 4,

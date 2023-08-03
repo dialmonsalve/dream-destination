@@ -2,12 +2,13 @@
 @use '../abstract/mixins' as m;
 
 .detail-hotel {
-  
+  max-height: 80vh;
+
   @include m.respond(phone) {
     align-items: flex-start;
     margin-left: 2rem;
-    padding: 3rem 4rem;
+    padding: 3rem 2.5rem;
   }
-  @include m.detail-hotels-private(85vw, 26vh);
+  @include m.detail-hotels-private(74vw, 23vh);
 }
 

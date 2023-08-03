@@ -1,8 +1,8 @@
 @forward 'all-hotels-private';
-@forward 'client-bookings';
 @forward 'create-rooms';
-@forward 'client-hotels';
+@forward 'all-hotels-public';
 @forward 'detail-hotel-private';
 @forward 'create-hotels';
 @forward 'login';
 @forward 'new-account';
+@forward 'reservations-public';

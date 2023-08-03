@@ -1,12 +1,12 @@
 
-export const PrivateSummaryBooking = () => {
+export const PrivateSummaryReservation = () => {
   return (
     <div className='staff-hotels'>
-      <h1 className='staff-hotels__title' >Bookings</h1>
+      <h1 className='staff-hotels__title' >Reservations</h1>
       <table className='staff-hotels__table' >
         <thead>
           <tr>
-            <th>Booking No</th>
+            <th>Reservation No</th>
             <th>client</th>
             <th>phone</th>
             <th>Hotel city</th>

@@ -1,38 +1,9 @@
-interface Validator {
-  rules: ValidationRule[];
-  validate(value: string): string[];
-  email(): Validator;
-  max(length: number, message: string): Validator;
-  min(length: number, message: string): Validator;
-  number(): Validator;
-  password(regex: string, message: string): Validator;
-  positiveNumber(message: string): Validator;
-  required(message: string): Validator;
-  string(): Validator;
-}
-
-export interface ValidationRule {
-  test: (value: string) => boolean | string;
-  message: string;
-}
-
-type ValidatorReturn = Omit<Omit<Validator, 'rules'>, 'validate'> & Pick<getErrors, 'getErrors'>;
-
-export interface ValidationSchema {
-  [key: string]: ValidatorFunction;
-}
-
-export type ValidatorFunction = Omit<Validator, 'rules'>;
-
-interface getErrors {
-  getErrors: <T extends InitialForm> (formState: T, objValidations: ValidationSchema) => ErrorMessage<T> | undefined
-}
-
-export interface InitialForm {
-  [key: string]: string | number;
-}
-
-type ErrorMessage<T extends InitialForm> = { [K in keyof T]: string[] };
+import {
+  ErrorMessage,
+  InitialForm, ValidationSchema,
+  Validator,
+  ValidatorReturn,
+} from "../../types";
 
 export const formValidator = (): ValidatorReturn => {
 
@@ -42,21 +13,21 @@ export const formValidator = (): ValidatorReturn => {
 
     for (const fieldRules of Object.keys(objValidations)) {
 
-      // if (Object.prototype.hasOwnProperty.call(formState, fieldRules)) {
+      if (Object.prototype.hasOwnProperty.call(formState, fieldRules)) {
 
-      const fieldValidator = objValidations[fieldRules];
+        const fieldValidator = objValidations[fieldRules];
 
-      if (fieldRules in formState) {
-        const fieldValue = fieldValidator.validate(formState[fieldRules] as string);
+        if (fieldRules in formState) {
+          const fieldValue = fieldValidator.validate(formState[fieldRules] as string);
 
-        if (fieldValue.length) {
-          formCheckedValues = {
-            ...formCheckedValues,
-            [`${fieldRules}`]: fieldValue
+          if (fieldValue.length) {
+            formCheckedValues = {
+              ...formCheckedValues,
+              [`${fieldRules}`]: fieldValue
+            }
           }
         }
       }
-      // }
     }
     if (Object.keys(formCheckedValues).length === 0) {
       return undefined;

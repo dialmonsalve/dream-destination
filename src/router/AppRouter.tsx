@@ -1,7 +1,7 @@
 
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
-import BookingsPage from '../reservations/routes/bookings';
+import ReservationsPage from '../reservation/routes/Reservations';
 import HomePage from '../user/public/pages';
 
 import NotFoundPage from '../user/public/pages/notFoundPage';
@@ -32,8 +32,8 @@ const routes: RouteObject[] = [
         element: <HomePage />
       },
       {
-        path: 'bookings',
-        element: <BookingsPage isStaff={false} />
+        path: 'reservations',
+        element: <ReservationsPage isStaff={false} />
       },
       {
         path: 'hotels',
@@ -101,8 +101,8 @@ const routes: RouteObject[] = [
         ]
       },
       {
-        path: 'bookings',
-        element: <BookingsPage isStaff />
+        path: 'reservations',
+        element: <ReservationsPage isStaff />
       }
 
     ]

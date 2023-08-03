@@ -551,6 +551,33 @@
       "active": true,
       "rooms": [],
       "id": 60
+    },
+    {
+      "name": "Diego",
+      "city": "Panamá",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": true,
+      "rooms": [
+        {
+          "basisCost": "4",
+          "capacity": "8",
+          "numberRoom": "A527",
+          "roomType": "SINGLE",
+          "taxes": "2",
+          "description": "",
+          "isAvailable": true,
+          "id": 34
+        }
+      ],
+      "id": 61
+    },
+    {
+      "name": "dasd",
+      "city": "asdasd",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 62
     }
   ],
   "reservas": [],
@@ -882,6 +909,16 @@
       "description": "20",
       "isAvailable": true,
       "id": 33
+    },
+    {
+      "basisCost": "4",
+      "capacity": "8",
+      "numberRoom": "A527",
+      "roomType": "SINGLE",
+      "taxes": "2",
+      "description": "",
+      "isAvailable": true,
+      "id": 34
     }
   ]
 }
