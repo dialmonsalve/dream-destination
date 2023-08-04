@@ -8,7 +8,7 @@ export const PublicLayout = () => {
   return (
     <div className=''>
       <Header
-        isClient
+        isClient={true}
       >
         <AnchorTag
           href='/companies'

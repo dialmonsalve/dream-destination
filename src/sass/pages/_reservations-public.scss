@@ -2,13 +2,11 @@
 @use '../abstract/mixins' as m;
 
 .public-reservation {
-  padding: 2rem 20rem;
+  padding: 2rem 3rem;
 
   &__title {
-    color: v.$color-primary-darker;
-    text-transform: uppercase;
-    font-size: v.$font-size + 1rem;
     text-align: center;
+    @include m.title-pages(v.$color-primary-darker);
   }
 
   &__cards {
@@ -18,7 +16,7 @@
     justify-items: center;
     padding: 2rem;
 
-    @include m.responsive(phone){
+    @include m.responsive(phone) {
       grid-template-columns: repeat(1, 1fr);
       padding: 1rem;
     }
@@ -34,11 +32,11 @@
     border-bottom: 1px solid v.$color-primary-light;
   }
 
-  &__body{
+  &__body {
 
     &--client span {
       font-weight: 100;
-      color:v.$color-primary-light;
+      color: v.$color-primary-light;
     }
 
     &--reservation {
@@ -46,11 +44,11 @@
       border-bottom: 1px solid v.$color-primary-light;
       width: 120%;
     }
+
     &--room span {
       font-weight: 100;
     }
-  
+
   }
 
 }
-

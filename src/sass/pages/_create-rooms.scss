@@ -22,25 +22,20 @@
     @include m.responsive(tab-land) {
       min-width: 60vw;
     }
+
     @include m.responsive(phone) {
       min-width: 80vw;
     }
 
     &--title {
       text-align: center;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: v.$color-primary-darker;
-      text-transform: uppercase;
+
+      @include m.title-pages(v.$color-white);
 
       @include m.responsive(tab-land) {
         margin-left: 4rem;
       }
 
-      @include m.responsive(phone) {
-        color: v.$color-white;
-        margin-bottom: 0;
-      }
     }
   }
 

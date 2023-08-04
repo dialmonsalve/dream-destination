@@ -22,25 +22,33 @@
   @if $breakpoint ==phone {
     @media(max-width: 37.5em) {
       @content
-    }; //! 600px
+    }
+
+    ; //! 600px
   }
 
   @if $breakpoint ==tab-port {
     @media(max-width: 56.25em) {
       @content
-    }; //! 900px
+    }
+
+    ; //! 900px
   }
 
   @if $breakpoint ==tab-land {
     @media(max-width: 75em) {
       @content
-    }; //! 1200px
+    }
+
+    ; //! 1200px
   }
 
   @if $breakpoint ==big-desktop {
     @media(min-width: 112.5em) {
       @content
-    }; //! 1800px
+    }
+
+    ; //! 1800px
   }
 }
 
@@ -50,7 +58,6 @@
   display: flex;
   margin-right: 2rem;
   padding: 0 0.3rem;
-
 }
 
 @mixin navbar-link() {
@@ -186,18 +193,16 @@
   color: v.$color-white;
 }
 
-
-@mixin title-pages() {
+@mixin title-pages($color-phone) {
 
   color: v.$color-primary-darker;
-  font-size: v.$font-size + 3rem;
+  font-size: v.$font-size + 2rem;
   margin-bottom: 3rem;
   text-transform: uppercase;
 
   @include responsive(phone) {
-    align-self: center;
     font-size: v.$font-size + 1rem;
+    margin-bottom: 2rem;
+    color: $color-phone;
   }
-
 }
-

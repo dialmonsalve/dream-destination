@@ -8,17 +8,16 @@
     flex-direction: column;
     height: 25rem;
     margin: 0 auto;
+    padding: 3rem 0;
 
     @include m.responsive(phone) {
       height: 50rem;
     }
 
     &--title {
-      color: v.$color-primary-darker;
-      font-size: v.$font-size + 2rem;
-      margin: 2rem 0;
       text-align: center;
-      text-transform: uppercase;
+      @include m.title-pages( v.$color-primary-darker);
+
     }
 
     &--form {

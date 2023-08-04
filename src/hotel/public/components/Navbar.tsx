@@ -5,6 +5,7 @@ export const Navbar = () => {
   
   return (
     <nav className='navbar'>
+      
       <ul className='navbar__nav' >
         {
           navLinks.map(link => (

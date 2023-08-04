@@ -9,7 +9,7 @@ interface HotelPageProps {
 function HotelsPage({ isStaff }: HotelPageProps) {
 
   return (
-    isStaff ? <PrivateHotelsPage /> : <PublicHotelsPage />
+    isStaff ? <PrivateHotelsPage  /> : <PublicHotelsPage />
   )
 }
 

@@ -19,14 +19,7 @@
 
     &--title {
       text-align: center;
-      font-size: 3rem;
-      margin-bottom: 4rem;
-      color: v.$color-primary-darker;
-
-      @include m.responsive(phone) {
-        font-size: 2rem;
-        color: v.$color-white;
-      }
+      @include m.title-pages(v.$color-white);
     }
 
     &--form {

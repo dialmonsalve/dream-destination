@@ -10,20 +10,22 @@ interface HeaderProps {
 export const Header = ({ children, isClient }: HeaderProps) => {
   return (
     <header className='header'>
-      <Link className='header__brand' to='/'>
-        <img src='/assets/brand.svg' alt='dream-destination' />
-      </Link>
+      <div className='header__brand'>
+        <Link to='/'>
+          <img src='/assets/brand.svg' alt='dream-destination' />
+        </Link>
+      </div>
 
       <div className='header__user' >
 
-        <div className='header__user--search'>
-          {
-            isClient &&
+        {
+          isClient &&
+          <div className='header__user--search'>
             <Link to='#'>
-              <img className='header__user--search-img' src='/assets/icon-search.svg' alt='icon-search' />
+              <img src='/assets/icon-search.svg' alt='icon-search' />
             </Link>
-          }
-        </div>
+          </div>
+        }
 
         <ul className='header__user--nav' >
           {children}
@@ -31,7 +33,7 @@ export const Header = ({ children, isClient }: HeaderProps) => {
 
         <div className='header__user--avatar' >
           <Link to='#'>
-            <img className='header__user--avatar-img' src='/assets/avatar.svg' alt='avatar' />
+            <img src='/assets/avatar.svg' alt='avatar' />
           </Link>
         </div>
       </div>

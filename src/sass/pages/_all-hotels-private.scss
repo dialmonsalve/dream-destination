@@ -13,8 +13,13 @@
   }
 
   &__title {
-    @include m.title-pages();
+    @include m.title-pages( v.$color-primary-darker);
+
+    @include m.responsive(phone) {
+      align-self: center;
+    }
   }
+
 
   &__container-table {
     border: 1px solid black;

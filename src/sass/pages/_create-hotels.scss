@@ -22,15 +22,7 @@
 
     &--title {
       text-align: center;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: v.$color-primary-darker;
-      text-transform: uppercase;
-
-      @include m.responsive(phone) {
-        color: v.$color-white;
-        margin-bottom: 0;
-      }
+      @include m.title-pages(v.$color-white);      
     }
   }
 
