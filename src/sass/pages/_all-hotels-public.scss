@@ -9,10 +9,9 @@
     height: 25rem;
     margin: 0 auto;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       height: 50rem;
     }
-
 
     &--title {
       color: v.$color-primary-darker;
@@ -28,18 +27,22 @@
       border-radius: 1rem;
       display: flex;
       margin: 0 auto;
-      padding: 2rem;
-      align-items: stretch;
+      padding: 2rem 1rem;
 
-      @include m.respond(tab-port) {
+      @include m.responsive(tab-port) {
         flex-wrap: wrap;
         justify-content:center;
       }
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         flex-direction: column;
+        border-radius: 0;
         margin: 0;
       }
+    }
+
+    & > :last-child {
+      align-items: flex-end;
     }
   }
 }
@@ -47,15 +50,15 @@
 .client-hotels {
   padding: 2rem 20rem;
 
-  @include m.respond(tab-land) {
+  @include m.responsive(tab-land) {
     padding: 2rem 6rem;
   }
 
-  @include m.respond(tab-port) {
+  @include m.responsive(tab-port) {
     padding: 2rem 10rem;
   }
 
-  @include m.respond(phone) {
+  @include m.responsive(phone) {
     padding: 2rem 0rem;
   }
 
@@ -65,7 +68,7 @@
     font-size: v.$font-size + 1rem;
     text-align: center;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -77,11 +80,11 @@
     justify-items: center;
     padding: 2rem;
 
-    @include m.respond(tab-port) {
+    @include m.responsive(tab-port) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       grid-template-columns: repeat(1, 1fr);
     }
   }

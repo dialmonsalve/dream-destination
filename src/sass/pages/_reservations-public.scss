@@ -18,7 +18,7 @@
     justify-items: center;
     padding: 2rem;
 
-    @include m.respond(phone){
+    @include m.responsive(phone){
       grid-template-columns: repeat(1, 1fr);
       padding: 1rem;
     }

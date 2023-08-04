@@ -18,7 +18,7 @@
 !em == 16px
 */
 
-@mixin respond($breakpoint) {
+@mixin responsive($breakpoint) {
   @if $breakpoint ==phone {
     @media(max-width: 37.5em) {
       @content
@@ -133,7 +133,7 @@
   background-color: rgb(217, 213, 213);
   padding: 0.7rem;
 
-  @include respond(phone) {
+  @include responsive(phone) {
     color: black;
   }
 }
@@ -154,7 +154,7 @@
   padding: 8rem;
   position: sticky;
 
-  @include respond(phone) {
+  @include responsive(phone) {
     padding: 7rem;
   }
 }
@@ -187,38 +187,17 @@
 }
 
 
-//! Pages
+@mixin title-pages() {
 
-//! DETAIL HOTEL - HOTELS (PAGE PRIVATE)
-@mixin detail-hotels-private($max-width, $max-height) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 0;
+  color: v.$color-primary-darker;
+  font-size: v.$font-size + 3rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
 
-  &__title {
-    color: v.$color-primary-darker;
-    font-size: v.$font-size + 3rem;
-    margin-bottom: 5rem;
-
-    @include respond(phone) {
-      align-self: center;
-    }
+  @include responsive(phone) {
+    align-self: center;
+    font-size: v.$font-size + 1rem;
   }
 
-  &__container-table {
-    margin: 3rem 0;
-    overflow: auto;
-    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
-    max-width: $max-width;
-    max-height: $max-height;
-
-    &--table {
-      border-spacing: 0;
-
-      @include respond(phone) {
-        box-shadow: none;
-      }
-    }
-  }
 }
+

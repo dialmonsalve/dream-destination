@@ -4,14 +4,14 @@
 .login {
   display: flex;
 
-  @include m.respond(phone) {
+  @include m.responsive(phone) {
     background-color:  v.$color-primary-darker;
   }
 
   &__container {
     margin: 8rem auto;    
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -23,7 +23,7 @@
       font-size: 3rem;
       margin-bottom: 4rem;
       color: v.$color-primary-darker;
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         color:  v.$color-white;
       }
     }
@@ -33,7 +33,7 @@
       @include m.form-columns-1();
       max-width:43rem;
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         min-width:35rem;
         box-shadow: none;
       }

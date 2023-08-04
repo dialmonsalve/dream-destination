@@ -3,17 +3,22 @@
 
 .create-hotel {
   display: flex;
+  max-height: 85vh;
   overflow: auto;
 
-  @include m.respond(phone) {
-    min-height: 82vh;
+  @include m.responsive(tab-port) {
+    max-height: 80vh;
+  }
+
+  @include m.responsive(phone) {
     background-color: v.$color-primary-darker;
-    padding: 0 3rem;
+    padding: 2rem 4rem;
+    max-height: 67.5vh;
   }
 
   &__container {
     margin: 6rem auto;
-    max-width: 75rem;
+    width: 45rem;
 
     &--title {
       text-align: center;
@@ -22,7 +27,7 @@
       color: v.$color-primary-darker;
       text-transform: uppercase;
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         color: v.$color-white;
         margin-bottom: 0;
       }
@@ -35,7 +40,7 @@
       padding: 2rem;
       box-shadow: none;
 
-      @include m.respond(tab-port) {
+      @include m.responsive(tab-port) {
         @include m.form-columns-1();
       }
     }
@@ -48,7 +53,7 @@
     @include m.form();
     margin-bottom: 1rem;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       box-shadow: none;
     }
   }
@@ -59,7 +64,7 @@
   flex-direction: column;
   @include m.form();
 
-  @include m.respond(phone) {
+  @include m.responsive(phone) {
     box-shadow: none;
     margin-left: 2rem;
   }
@@ -76,7 +81,7 @@
     font-size: v.$font-size + 2rem;
     text-transform: uppercase;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       font-size: v.$font-size + 1rem;
     }
   }
@@ -89,7 +94,7 @@
   &--content {
     font-size: v.$font-size + 1rem;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       font-size: v.$font-size + 0.5rem;
     }
 

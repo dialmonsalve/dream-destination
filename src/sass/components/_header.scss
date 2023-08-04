@@ -7,14 +7,14 @@
   display: flex;
   justify-content: space-between;
   
-  @include m.respond(tab-port) {
+  @include m.responsive(tab-port) {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
     align-content: center;
   }
 
-  @include m.respond(phone) {
+  @include m.responsive(phone) {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
@@ -25,7 +25,7 @@
     margin-left: 3rem;
     padding: 0.5rem;
 
-    @include m.respond(tab-port) {
+    @include m.responsive(tab-port) {
       margin: 0 auto;
     }
   }
@@ -33,7 +33,7 @@
   &__user {
     display: flex;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       flex-direction: column-reverse;
       margin: 2rem auto;
     }
@@ -41,12 +41,12 @@
     &--search {
       border-right: 3px solid v.$color-primary-light;
 
-      @include m.respond(tab-port) {
+      @include m.responsive(tab-port) {
         border-right: none;
         display: none;
       }
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         border-right: none;
       }
     }
@@ -56,7 +56,7 @@
       padding: 1rem;
       width: 80%;
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         width: 20%;
       }
 
@@ -75,11 +75,11 @@
       @include m.navbar();
       border-right: 3px solid v.$color-primary-light;
 
-      @include m.respond(tab-port) {
+      @include m.responsive(tab-port) {
         border-right: none;        
       }
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         flex-direction: column;
         
       }
@@ -97,7 +97,7 @@
       width: 130%;
       border-radius: 5rem;
 
-      @include m.respond(phone) {
+      @include m.responsive(phone) {
         width: 20%;
         margin-left: 3rem;
       }

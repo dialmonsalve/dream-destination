@@ -38,6 +38,7 @@ export const PrivateHotelsPage = () => {
         <div>
           <Button
             label='create'
+            margin='0 0 2rem 0'
             hasBackground={false}
             backgroundColor='green'
             onClick={handleCreateHotel}

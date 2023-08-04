@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   margin: 1rem .8rem;
-  @include m.respond(phone) {
+  @include m.responsive(phone) {
     margin:0;
   }
 
@@ -16,7 +16,7 @@
     padding: 1rem 0;
     text-transform: uppercase;
 
-    @include m.respond(phone) {
+    @include m.responsive(phone) {
       font-size: v.$font-size - 0.3rem;
     }
   }

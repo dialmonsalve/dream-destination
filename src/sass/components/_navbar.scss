@@ -6,7 +6,7 @@
   padding: 1rem;
   background-color: v.$color-primary-darker;
 
-  @include m.respond(phone) {
+  @include m.responsive(phone) {
     border-bottom: 1px solid v.$color-white;
   }
 
@@ -15,7 +15,7 @@
     @include m.navbar();
 
 
-    @include m.respond(tab-port) {
+    @include m.responsive(tab-port) {
       flex-direction: column
     }
 

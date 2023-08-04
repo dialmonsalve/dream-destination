@@ -524,7 +524,7 @@
       "name": "Laptop Diamond M2",
       "city": "Panamá",
       "description": "",
-      "active": false,
+      "active": true,
       "rooms": [],
       "id": 57
     },
@@ -532,7 +532,7 @@
       "name": "Diego",
       "city": "Panamá",
       "description": "Un lujoso hotel en la ciudad B",
-      "active": true,
+      "active": false,
       "rooms": [],
       "id": 58
     },
@@ -548,7 +548,7 @@
       "name": "Diego",
       "city": "Panamá",
       "description": "",
-      "active": true,
+      "active": false,
       "rooms": [],
       "id": 60
     },
@@ -578,6 +578,14 @@
       "active": true,
       "rooms": [],
       "id": 62
+    },
+    {
+      "name": "Alejandro",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 63
     }
   ],
   "reservas": [],

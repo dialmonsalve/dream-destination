@@ -33,6 +33,7 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
 
   return (
     <div className='detail-hotel'>
+      <h1 className='detail-hotel__title' >Detail hotel: {hotel.name}</h1>
       <div
         className='card'
         {...props}
@@ -51,11 +52,11 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
         </CardBody>
       </div>
 
-      <div >
+ 
         {
           hotel.rooms?.length === 0 ? <h2 className='h2'>There's no rooms create yet</h2> :
-            <div className='detail-hotel__container-table' >
-              <table className='detail-hotel__container-table--table header_fijo' >
+
+              <table className='detail-hotel__table' >
                 <thead>
                   <tr>
                     <th>Number room</th>
@@ -84,7 +85,7 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
                     }
                 </tbody>
               </table>
-            </div>
+
         }
 
         <div>
@@ -101,7 +102,7 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
           backgroundColor='red'
           onClick={handleBack}
         />
-      </div>
+
     </div>
   )
 }
