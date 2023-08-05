@@ -1,30 +1,32 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useHotels } from '../hooks/useHotels';
+import { useHotel } from '../hooks/useHotel';
 
 import { PrivateResumeHotelView } from '../views/PrivateResumeHotelView';
 
 function CreateRoomsPage() {
 
-  const { id } = useParams();
-  const { hotel, getHotel } = useHotels()
 
+
+  const { hotelId } = useParams();
+  const { hotel, getHotel } = useHotel()
+  
   useEffect(() => {
-    if (id === undefined) return;
+    if (hotelId === undefined) return;
 
-    getHotel(id).
+    getHotel(hotelId).
       then()
       .catch(error => console.log(error)
       )
-  }, [id, getHotel]);
+  }, [hotelId, getHotel]);
 
 
   return (
     <div className='create-room'>
       <div className='create-room__container' >
         <h1 className='create-room__container--title' >Create room</h1>
-      <PrivateResumeHotelView classBase='create-room--info' id={Number(id)!} city={hotel.city} name={hotel.name} isInfo={true} />
+      <PrivateResumeHotelView classBase='create-room--info' id={Number(hotelId)!} city={hotel.city} name={hotel.name} isInfo={true} />
       </div>
 
     </div>

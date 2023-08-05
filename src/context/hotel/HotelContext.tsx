@@ -5,11 +5,11 @@ interface ContextProps {
   hotels: Hotel[];
   hotel: Hotel;
   isLoading: 'loading' | 'ready' | 'error';
-  getHotel: (id: number | string) => Promise<void>;
+  getHotel: (hotelId: string | number) => Promise<void>;
   createHotel: (hotel: Hotel) => Promise<Hotel >
-  updateHotel: (id: string | number, hotel: Hotel) => Promise<void>
-  deleteHotel: (id: string | number) => Promise<void>
-  activateHotel: (id: string | number) => Promise<void>
+  updateHotel: (hotelId: string | number, hotel: Hotel) => Promise<void>
+  deleteHotel: (hotelId: string | number) => Promise<void>
+  activateHotel: (hotelId: string | number) => Promise<void>
   handleClearState: () => void
 
   updateHotelWithRoom: (hotelId: number, newRoom: Room) => Promise<void>

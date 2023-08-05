@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useForm } from '../../../hooks/useForm';
-import { useHotels } from '../hooks/useHotels';
+import { useHotel } from '../hooks/useHotel';
 
 import NotFoundPage from '../../public/pages/notFoundPage';
 import { Button, Spinner } from '../../../ui';
@@ -12,28 +12,28 @@ import { CreateOrEditHotelForm } from '../components/CreateOrEditHotelForm';
 function EditHotelPage() {
 
   const [error, setError] = useState(false);
-  const { id } = useParams();
+  const { hotelId } = useParams();
   const navigate = useNavigate();
 
-  const { hotel, isLoading, handleClearState, getHotel } = useHotels();
+  const { hotel, isLoading, handleClearState, getHotel } = useHotel();
   const { formState, isFormSubmitted, isTouched,
     handleBlur, handleFieldChange, areFieldsValid } = useForm(hotel);
 
   useEffect(() => {
-    if (id === undefined) return;
-    getHotel(id).
+    if (hotelId === undefined) return;
+    getHotel(hotelId).
       then()
       .catch((error) => setError(true))
-  }, [id, getHotel]);
+  }, [hotelId, getHotel]);
   
   const handleCreateRoom = () => {
-    if (id === undefined) return;
-    navigate(`/api/hotels/${id}/rooms/create`)
+    if (hotelId === undefined) return;
+    navigate(`/api/hotel/${hotelId}/rooms/create`)
     handleClearState();
   }
 
   const formProps = {
-    id,
+    id:hotelId,
     city: formState.city,
     description: formState.description,
     name: formState.name,

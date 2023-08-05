@@ -1,24 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 
-import { useHotels } from '../hooks/useHotels';
+import { useHotel } from '../hooks/useHotel';
 import { Button, Spinner } from '../../../ui';
 
 export const PrivateHotelsPage = () => {
 
   const navigate = useNavigate();
 
-  const { hotels, isLoading, deleteHotel, activateHotel } = useHotels()
+  const { hotels, isLoading, deleteHotel, activateHotel } = useHotel()
 
   const handleCreateHotel = () => {
-    navigate('/api/hotels/create')
+    navigate('/api/hotel/create')
   }
 
   const handleEditHotel = (id: number) => {
-    navigate(`/api/hotels/${id}`)
+    navigate(`/api/hotel/edit/${id}`)
   }
 
   const handleDetailHotel = (id: number) => {
-    navigate(`/api/hotels/detail/${id}`)
+    navigate(`/api/hotel/${id}`)
   }
 
   const handleDeleteHotel = (id: number) => {
@@ -46,7 +46,7 @@ export const PrivateHotelsPage = () => {
         </div>
         <div className='private-hotels__container-table' >
           <table className='private-hotels__container-table--table' >
-            
+
             <thead>
               <tr>
                 <th>name</th>
@@ -56,7 +56,7 @@ export const PrivateHotelsPage = () => {
                 <th>detail</th>
                 <th>delete</th>
                 <th>status</th>
-                <th>Active</th> 
+                <th>Active</th>
               </tr>
             </thead>
             <tbody>
@@ -66,8 +66,8 @@ export const PrivateHotelsPage = () => {
 
                   <tr key={hotel.id} >
                     <td>{hotel.name}</td>
-                    <td>{hotel.city}</td>                    
-                    <td>{hotel.rooms?.length}</td>                    
+                    <td>{hotel.city}</td>
+                    <td>{hotel.rooms?.length}</td>
                     <td><Button
                       backgroundColor='blue'
                       size='small'

@@ -1,4 +1,4 @@
-import { Hotel, Room }  from '../../types';
+import { Hotel, NewRoomForHotel, Room } from '../../types';
 
 
 interface HotelState {
@@ -19,16 +19,17 @@ type HotelActionType =
   | { type: '[Hotel] - Get hotels', payload: Hotel[] }
   | { type: '[Hotel] - Get hotel', payload: Hotel }
   | { type: '[Hotel] - Create hotel', payload: Hotel }
-  | { type: '[Hotel] - Update hotel', payload: Hotel }
+  | { type: '[Hotel] - Update hotel', payload: Hotel | NewRoomForHotel }
   | { type: '[Hotel] - Active hotel', payload: string | number }
   | { type: '[Hotel] - Delete hotel', payload: string | number }
+  // | { type: '[Hotel] - UpdateWhitRoom hotel', payload: NewRoomForHotel }
   | { type: '[Hotel] - Clear state' }
 
 
 export const hotelReducer = (state: HotelState, action: HotelActionType): HotelState => {
 
   switch (action.type) {
-    
+
     case '[Hotel] - Get hotels':
       return {
         ...state,

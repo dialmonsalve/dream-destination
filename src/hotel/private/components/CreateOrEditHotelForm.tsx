@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { useHotels } from "../hooks/useHotels";
+import { useHotel } from "../hooks/useHotel";
 import { formValidator, validationSchema } from "../../../helpers";
 
 import { Button, ErrorMessage, FormControl } from "../../../ui";
@@ -39,7 +39,7 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
     city, description, isFormSubmitted, isTouched, name, id,
     areFieldsValid, handleFieldChange, handleBlur, handleResetForm } = formProps;
 
-    const { createHotel, updateHotel, handleClearState } = useHotels();
+    const { createHotel, updateHotel, handleClearState } = useHotel();
   const navigate = useNavigate();
 
   const { newHotelValidationSchema } = validationSchema();

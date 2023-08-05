@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useHotels } from '../hooks/useHotels';
+import { useHotel } from '../hooks/useHotel';
 import { HotelDetailCard } from '../components/HotelDetailCard';
 
 
@@ -12,16 +12,16 @@ import NotFoundPage from '../../public/pages/notFoundPage';
 function DetailHotelPage() {
 
   const [error, setError] = useState(false);
-  const { id } = useParams();
-  const { hotel, isLoading, getHotel, handleClearState } = useHotels();
+  const { hotelId } = useParams();
+  const { hotel, isLoading, getHotel, handleClearState } = useHotel();
 
   useEffect(() => {
-    if (id === undefined) return;
+    if (hotelId === undefined) return;
 
-    getHotel(id).
+    getHotel(hotelId).
       then()
       .catch(error => setError(true))
-  }, [id, getHotel]);
+  }, [hotelId, getHotel]);
 
   return (
 

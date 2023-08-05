@@ -1,11 +1,11 @@
-import { useHotels } from '../../private/hooks/useHotels';
+import { useHotel } from '../../private/hooks/useHotel';
 
 import { Button, CardHead, CardBody, CardFooter } from '../../../ui';
 
 
 export const PublicHotelCard = () => {
 
-  const { hotels } = useHotels();
+  const { hotels } = useHotel();
 
   return (
 

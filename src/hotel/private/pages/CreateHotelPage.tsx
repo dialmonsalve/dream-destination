@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 
-import { useHotels } from '../hooks/useHotels';
+import { useHotel } from '../hooks/useHotel';
 import { useForm } from '../../../hooks/useForm';
 
 import { PrivateResumeHotelView } from '../views/PrivateResumeHotelView';
@@ -28,7 +28,7 @@ function CreateHotelPage() {
   } = useForm(hotel);
 
   const [components, setComponents] = useState<ReactNode[]>([]);
-  const { isLoading } = useHotels();
+  const { isLoading } = useHotel();
 
   const { city, name, description } = formState;
 

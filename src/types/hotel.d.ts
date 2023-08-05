@@ -22,11 +22,12 @@ export interface Room extends InitialForm {
   description?: string;
 }
 
-// interface NewRoomForm extends Room {
-//   numberRoom: string;
-//   roomType: '';
-//   basisCost: number;
-//   taxes: number;
-//   capacity: number;
-//   description?: string;
-// }
+interface NewRoomForHotel extends Hotel {
+  id?: number;
+  name: string;
+  city: string;
+  description?: string;
+  active?: boolean;
+  rooms?: id;
+}
+

@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  max-height: 85vh;
+  max-height: 82vh;
   overflow: auto;
 
   @include m.responsive(tab-port) {

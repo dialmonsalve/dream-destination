@@ -3,7 +3,8 @@ import { ReactNode, useCallback, useEffect, useReducer } from 'react';
 import { HOTEL_INITIAL_STATE, HotelContext, hotelReducer } from './';
 import { hotelsApi, roomsApi } from '../../api/hotelsApi';
 
-import { Hotel, Room }  from '../../types';
+import { Hotel, NewRoomForHotel, Room } from '../../types';
+import { useRoom } from '../../hotel/private/hooks/useRoom';
 
 export interface Props {
   children: ReactNode;
@@ -12,6 +13,7 @@ export interface Props {
 export const HotelProvider = ({ children }: Props) => {
 
   const [state, dispatch] = useReducer(hotelReducer, HOTEL_INITIAL_STATE);
+  const { createRoom } = useRoom()
 
   useEffect(() => {
     getHotels()
@@ -33,18 +35,16 @@ export const HotelProvider = ({ children }: Props) => {
 
     } catch (error) {
       console.log(error);
-
     }
   }
 
-  const getHotel = useCallback(async (id: number | string): Promise<void> => {
-    const { data } = await hotelsApi.get<Hotel>(`/${id}`);
+  const getHotel = useCallback(async (hotelId: number | string): Promise<void> => {
+    const { data } = await hotelsApi.get<Hotel>(`/${hotelId}`);
 
     dispatch({ type: '[Hotel] - Get hotel', payload: data })
   }, [])
 
-
-  const createHotel = async (hotel: Hotel): Promise<Hotel > => {
+  const createHotel = async (hotel: Hotel): Promise<Hotel> => {
 
     try {
       const { data } = await hotelsApi.post<Hotel>('', hotel);
@@ -62,15 +62,14 @@ export const HotelProvider = ({ children }: Props) => {
 
   }
 
-  const updateHotel = async (id: number | string, hotel: Partial<Hotel>): Promise<void> => {
+  const updateHotel = async (hotelId: number | string, hotel: Partial<Hotel>): Promise<void> => {
 
     try {
-      const { data } = await hotelsApi.patch<Hotel>(`/${id}`, { id, ...hotel });
+      const { data } = await hotelsApi.patch<Hotel>(`/${hotelId}`, { hotelId, ...hotel });
       dispatch({ type: '[Hotel] - Update hotel', payload: data });
     } catch (error) {
       console.log(error);
     }
-
   }
 
   const deleteHotel = async (id: number | string) => {
@@ -96,33 +95,19 @@ export const HotelProvider = ({ children }: Props) => {
     dispatch({ type: '[Hotel] - Clear state' })
   }
 
-  //! ROOMS
-
-  const createRoom = async (room: Room): Promise<Room> => {
-
-    try {
-      const { data } = await roomsApi.post<Room>(``, room);
-      if (data.id !== undefined) {
-        return data;
-      } else {
-        console.log('Field "id" does not exist in the server.');
-      }
-    } catch (error) {
-      console.log(error);
-      throw error
-    }
-
-    return room
-  }
 
   const updateHotelWithRoom = async (hotelId: number, newRoom: Room): Promise<void> => {
     try {
 
       const createdRoom = await createRoom(newRoom);
 
-      const updatedHotel = {
+      const { id } = createdRoom;
+
+      const updateRooms = [...state.hotel.rooms || [], {id}]
+
+      const updatedHotel:NewRoomForHotel = {
         ...state.hotel,
-        rooms: [...state.hotel.rooms || [], createdRoom],
+        rooms: updateRooms,
       };
 
       await hotelsApi.patch(`/${hotelId}`, updatedHotel);

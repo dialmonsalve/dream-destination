@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { HotelContext } from '../../../context/hotel';
 
 
-export const useHotels = () => {
+export const useHotel = () => {
 
   const context = useContext(HotelContext)
   

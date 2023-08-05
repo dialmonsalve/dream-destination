@@ -19,7 +19,7 @@ export const PrivateResumeHotelView = ({ id, name, city, classBase, isInfo = fal
   const navigate = useNavigate();
 
   const handleCreateRoom = () => {
-    navigate(`/api/hotels/${id}/rooms/create`)
+    navigate(`/api/hotel/${id}/rooms/create`)
   }
 
   const handleAddComponent = () => {

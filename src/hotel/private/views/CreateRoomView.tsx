@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { useHotels } from '../hooks/useHotels';
+import { useHotel } from '../hooks/useHotel';
 import { useForm } from '../../../hooks/useForm';
 
 import { validationSchema, formValidator } from '../../../helpers';
@@ -24,11 +24,11 @@ export const CreateRoomView = () => {
   const { newRoomValidationSchema } = validationSchema();
   const { formState, isFormSubmitted, isTouched, handleBlur, handleFieldChange, areFieldsValid, handleResetForm } = useForm(newRoomForm);
 
-  const { updateHotelWithRoom } = useHotels();
+  const { updateHotelWithRoom } = useHotel();
   const navigate = useNavigate()
 
-  const { id } = useParams();
-  if (id === undefined) return;
+  const { hotelId } = useParams();
+  if (hotelId === undefined) return;
 
   const errors = formValidator().getErrors(formState, newRoomValidationSchema);
 
@@ -40,17 +40,17 @@ export const CreateRoomView = () => {
 
     if (areFieldsValid(errors)) {
       const newRoom: Room = {
-        basisCost,
-        capacity,
+        basisCost: Number(basisCost),
+        capacity : Number(capacity),
         numberRoom,
         roomType,
-        taxes,
+        taxes: Number(taxes),
         description,
         isAvailable: true
       }
 
       try {
-        updateHotelWithRoom(+id, newRoom).then().catch(error => console.log(error));
+        updateHotelWithRoom(+hotelId, newRoom).then().catch(error => console.log(error));
         handleResetForm()
       } catch (error) {
         console.log(error);
@@ -59,7 +59,7 @@ export const CreateRoomView = () => {
   }
 
   const handleDetailHotel = () => {
-    navigate(`/api/hotels/detail/${id}`)
+    navigate(`/api/hotel/${hotelId}`)
   }
 
   return (

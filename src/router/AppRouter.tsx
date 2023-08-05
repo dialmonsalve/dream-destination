@@ -19,6 +19,8 @@ import CreateRoomsPage from '../hotel/private/pages/CreateRoomsPage';
 
 import { PublicLayout } from '../hotel/public/layout/PublicLayout';
 import { PrivateLayout } from '../hotel/private/layout/PrivateLayout';
+import EditRoomPage from '../hotel/private/pages/EditRoomPage';
+import DetailRoomPage from '../hotel/private/pages/DetailRoomPage';
 
 
 const routes: RouteObject[] = [
@@ -73,31 +75,39 @@ const routes: RouteObject[] = [
     children: [
       {
         path: 'hotels',
+        element: <HotelsPage isStaff />,
+      },
+      {
+        path: 'hotel',
         children: [
-          {
-            index: true,
-            element: <HotelsPage isStaff />,
-          },
           {
             path: 'create',
             element: <CreateHotelPage />
           },
           {
-            path: ':id',
+            path: 'edit/:hotelId',
+            element: <EditHotelPage />
+          },
+          {
+            path: ':hotelId',
             children: [
               {
                 index: true,
-                element: <EditHotelPage />,
+                element: <DetailHotelPage />,
               },
               {
                 path: 'rooms/create',
                 element: <CreateRoomsPage />
-              }
+              },
+              {
+                path: 'rooms/edit/:roomId',
+                element: <EditRoomPage />
+              },
+              {
+                path: 'room/:roomId',
+                element: <DetailRoomPage />
+              },
             ]
-          },
-          {
-            path: 'detail/:id',
-            element: <DetailHotelPage />
           },
         ]
       },
@@ -105,12 +115,9 @@ const routes: RouteObject[] = [
         path: 'reservations',
         element: <ReservationsPage isStaff />
       }
-
     ]
   }
-
 ];
-
 
 
 export const router = createBrowserRouter(routes)

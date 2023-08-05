@@ -6,14 +6,17 @@ import { router } from './router/AppRouter.tsx';
 
 import './index.scss'
 import { HotelProvider } from './context/hotel';
+import { RoomProvider } from './context/room';
 
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
   <React.StrictMode>
-    <HotelProvider >
-      <RouterProvider router={router} />
-    </HotelProvider>
+    <RoomProvider>
+      <HotelProvider >
+        <RouterProvider router={router} />
+      </HotelProvider>
+    </RoomProvider>
   </React.StrictMode>,
 )
