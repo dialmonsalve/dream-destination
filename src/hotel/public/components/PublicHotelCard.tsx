@@ -12,7 +12,7 @@ export const PublicHotelCard = () => {
     hotels.map(hotel => (
 
       <div
-        className='card'
+        className='card' key={hotel.id}
       >
         <CardHead >
           <h3 className='title-card' >{hotel.city} {hotel.id}</h3>
