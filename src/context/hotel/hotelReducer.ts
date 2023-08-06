@@ -20,9 +20,8 @@ type HotelActionType =
   | { type: '[Hotel] - Get hotel', payload: Hotel }
   | { type: '[Hotel] - Create hotel', payload: Hotel }
   | { type: '[Hotel] - Update hotel', payload: Hotel | NewRoomForHotel }
-  | { type: '[Hotel] - Active hotel', payload: string | number }
-  | { type: '[Hotel] - Delete hotel', payload: string | number }
-  // | { type: '[Hotel] - UpdateWhitRoom hotel', payload: NewRoomForHotel }
+  | { type: '[Hotel] - Toggle hotel-isActive', payload: Hotel }
+
   | { type: '[Hotel] - Clear state' }
 
 
@@ -54,39 +53,17 @@ export const hotelReducer = (state: HotelState, action: HotelActionType): HotelS
     case '[Hotel] - Update hotel':
       return {
         ...state,
-        hotels: state.hotels.map(hotel => {
-          if (hotel.id === action.payload.id) {
-            return action.payload
-          }
-          return hotel
-        }),
+        hotels: state.hotels.map(hotel => hotel.id === action.payload.id ? action.payload : hotel),
         isLoading: 'ready',
       }
 
-    case '[Hotel] - Delete hotel':
+    case '[Hotel] - Toggle hotel-isActive':
       return {
         ...state,
-        hotels: state.hotels.map(hotel => {
-          if (hotel.id === action.payload) {
-            return { ...hotel, active: false }
-          }
-          return hotel
-        }),
+        hotels: state.hotels.map(hotel => hotel.id === action.payload.id ? { ...hotel, active: !hotel.active }
+          : hotel),
         isLoading: 'ready',
       }
-
-    case '[Hotel] - Active hotel':
-      return {
-        ...state,
-        hotels: state.hotels.map(hotel => {
-          if (hotel.id === action.payload) {
-            return { ...hotel, active: true }
-          }
-          return hotel
-        }),
-        isLoading: 'ready',
-      }
-
     case '[Hotel] - Clear state':
       return {
         ...state,

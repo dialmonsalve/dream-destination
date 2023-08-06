@@ -33,6 +33,12 @@
         },
         {
           "id": 33
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
         }
       ]
     },
@@ -41,7 +47,7 @@
       "name": "Hotel A",
       "city": "Medellin",
       "description": "string",
-      "active": true,
+      "active": false,
       "rooms": [
         {
           "id": 1
@@ -59,11 +65,9 @@
       "active": true,
       "rooms": [
         {
-
           "id": 35
         },
         {
-
           "id": 36
         },
         {
@@ -88,7 +92,7 @@
       "name": "Hotel A",
       "city": "Medellin",
       "description": "string",
-      "active": false,
+      "active": true,
       "rooms": [
         {
           "id": 38
@@ -145,6 +149,30 @@
         }
       ],
       "id": 61
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "A Beauty hotel",
+      "active": false,
+      "rooms": [],
+      "id": 62
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 63
+    },
+    {
+      "name": "Pepito",
+      "city": "Huantanamo",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 64
     }
   ],
   "reservas": [],
@@ -180,16 +208,19 @@
       "roomType": "SINGLE",
       "taxes": 35,
       "description": "",
-      "id": 1
+      "id": 1,
+      "isActive": true
     },
     {
-      "basisCost": 250,
-      "capacity": 5,
+      "basisCost": 1,
+      "capacity": 1,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": 23,
+      "taxes": 1,
       "description": "",
-      "id": 2
+      "id": 2,
+      "roomId": "2",
+      "isActive": true
     },
     {
       "basisCost": 225,
@@ -198,7 +229,8 @@
       "roomType": "SINGLE",
       "taxes": 40,
       "description": "",
-      "id": 3
+      "id": 3,
+      "isActive": true
     },
     {
       "basisCost": 50,
@@ -207,295 +239,318 @@
       "roomType": "SINGLE",
       "taxes": 3,
       "description": "",
-      "id": 4
+      "id": 4,
+      "isActive": true
     },
     {
-      "basisCost": "520",
-      "capacity": "32",
+      "basisCost": 520,
+      "capacity": 32,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "25",
+      "taxes": 25,
       "description": "",
-      "id": 5
+      "id": 5,
+      "isActive": true
     },
     {
-      "basisCost": "3",
-      "capacity": "02",
+      "basisCost": 3,
+      "capacity": 2,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "280",
+      "taxes": 280,
       "description": "",
-      "id": 6
+      "id": 6,
+      "isActive": true
     },
     {
-      "basisCost": "50",
-      "capacity": "5",
+      "basisCost": 50,
+      "capacity": 5,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "12",
+      "taxes": 12,
       "description": "",
-      "id": 7
+      "id": 7,
+      "isActive": true
     },
     {
-      "basisCost": "520",
-      "capacity": "2",
+      "basisCost": 520,
+      "capacity": 2,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "12",
+      "taxes": 12,
       "description": "8",
-      "id": 8
+      "id": 8,
+      "isActive": true
     },
     {
-      "basisCost": "12",
-      "capacity": "1",
+      "basisCost": 12,
+      "capacity": 1,
       "numberRoom": "A523",
       "roomType": "sadas",
-      "taxes": "5",
+      "taxes": 5,
       "description": "",
-      "id": 9
+      "id": 9,
+      "isActive": true
     },
     {
-      "basisCost": "85",
-      "capacity": "03",
+      "basisCost": 85,
+      "capacity": 3,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "12",
+      "taxes": 12,
       "description": "",
-      "id": 10
+      "id": 10,
+      "isActive": true
     },
     {
-      "basisCost": "50",
-      "capacity": "12",
+      "basisCost": 50,
+      "capacity": 12,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "1",
+      "taxes": 1,
       "description": "",
-      "id": 11
+      "id": 11,
+      "isActive": true
     },
     {
-      "basisCost": "85",
-      "capacity": "2",
+      "basisCost": 85,
+      "capacity": 2,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "1",
+      "taxes": 1,
       "description": "",
-      "id": 12
+      "id": 12,
+      "isActive": true
     },
     {
-      "basisCost": "85",
-      "capacity": "2",
+      "basisCost": 85,
+      "capacity": 2,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "2",
+      "taxes": 2,
       "description": "",
-      "id": 13
+      "id": 13,
+      "isActive": true
     },
     {
-      "basisCost": "45",
-      "capacity": "3",
+      "basisCost": 45,
+      "capacity": 3,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "12",
+      "taxes": 12,
       "description": "",
-      "id": 14
+      "id": 14,
+      "isActive": true
     },
     {
-      "basisCost": "85",
-      "capacity": "1",
+      "basisCost": 85,
+      "capacity": 1,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "13",
+      "taxes": 13,
       "description": "",
-      "id": 15
+      "id": 15,
+      "isActive": true
     },
     {
-      "basisCost": "905",
-      "capacity": "2",
+      "basisCost": 905,
+      "capacity": 2,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "12",
+      "taxes": 12,
       "description": "",
-      "id": 16
+      "id": 16,
+      "isActive": true
     },
     {
-      "basisCost": "85",
-      "capacity": "1",
+      "basisCost": 85,
+      "capacity": 1,
       "numberRoom": "A523",
       "roomType": "sadas",
-      "taxes": "5222",
+      "taxes": 5222,
       "description": "",
-      "id": 17
+      "id": 17,
+      "isActive": true
     },
     {
-      "basisCost": "1",
-      "capacity": "1",
+      "basisCost": 1,
+      "capacity": 1,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "1",
+      "taxes": 1,
       "description": "",
-      "id": 18
+      "id": 18,
+      "isActive": true
     },
     {
-      "basisCost": "500000",
-      "capacity": "5888888",
+      "basisCost": 500000,
+      "capacity": 5888888,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "133333",
+      "taxes": 133333,
       "description": "",
-      "id": 19
+      "id": 19,
+      "isActive": true
     },
     {
-      "basisCost": "85",
-      "capacity": "1",
+      "basisCost": 85,
+      "capacity": 1,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "1",
+      "taxes": 1,
       "description": "",
-      "id": 20
+      "id": 20,
+      "isActive": true
     },
     {
-      "basisCost": "3",
-      "capacity": "13",
+      "basisCost": 3,
+      "capacity": 13,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "50",
+      "taxes": 50,
       "description": "",
-      "id": 21
+      "id": 21,
+      "isActive": true
     },
     {
-      "basisCost": "4",
-      "capacity": "12",
+      "basisCost": 4,
+      "capacity": 12,
       "numberRoom": "A525",
       "roomType": "SINGLE",
-      "taxes": "65",
+      "taxes": 65,
       "description": "",
-      "id": 22
+      "id": 22,
+      "isActive": true
     },
     {
-      "basisCost": "3",
-      "capacity": "1",
+      "basisCost": 3,
+      "capacity": 1,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "2",
+      "taxes": 2,
       "description": "",
-      "id": 23
+      "id": 23,
+      "isActive": true
     },
     {
-      "basisCost": "3",
-      "capacity": "3",
+      "basisCost": 3,
+      "capacity": 3,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "3",
+      "taxes": 3,
       "description": "",
-      "id": 24
+      "id": 24,
+      "isActive": true
     },
     {
-      "basisCost": "0",
-      "capacity": "2",
+      "basisCost": 150,
+      "capacity": 2,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "2",
+      "taxes": 2,
       "description": "",
-      "id": 26
+      "id": 26,
+      "isActive": true,
+      "roomId": "26"
     },
     {
-      "basisCost": "3",
-      "capacity": "2",
+      "basisCost": 3,
+      "capacity": 2,
       "numberRoom": "A524",
       "roomType": "SINGLE",
-      "taxes": "3",
+      "taxes": 3,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 27
     },
     {
-      "basisCost": "3",
-      "capacity": "0",
+      "basisCost": 3,
+      "capacity": 0,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "3",
+      "taxes": 3,
       "description": "",
-      "isAvailable": true,
+      "isActive": false,
       "id": 28
     },
     {
-      "basisCost": "2",
-      "capacity": "1",
+      "basisCost": 2,
+      "capacity": 1,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "1",
+      "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": false,
       "id": 29
     },
     {
-      "basisCost": "2",
-      "capacity": "2",
+      "basisCost": 2,
+      "capacity": 2,
       "numberRoom": "A523",
       "roomType": "SINGLE",
-      "taxes": "1",
+      "taxes": 1,
       "description": "A beautifull place",
-      "isAvailable": true,
+      "isActive": true,
       "id": 30
     },
     {
-      "basisCost": "250",
-      "capacity": "3",
+      "basisCost": 250,
+      "capacity": 3,
       "numberRoom": "A525",
       "roomType": "SINGLE",
-      "taxes": "50",
+      "taxes": 50,
       "description": "dadsfkjasokfjasdkfj adsdfjioqwe riej u rjiej ioej 9i8 r0i8  irj ijtrfeqiojmn",
-      "isAvailable": true,
+      "isActive": true,
       "id": 31
     },
     {
-      "basisCost": "820",
-      "capacity": "65",
+      "basisCost": 820,
+      "capacity": 65,
       "numberRoom": "A526",
       "roomType": "SINGLE",
-      "taxes": "65",
+      "taxes": 65,
       "description": "Uhadiufjn adjhiue uidfh ñiauhndf  adnfñlkdamn kldsfokd jfoadsjfoi asdjoia ",
-      "isAvailable": true,
+      "isActive": false,
       "id": 32
     },
     {
-      "basisCost": "50",
-      "capacity": "50",
+      "basisCost": 50,
+      "capacity": 50,
       "numberRoom": "A526",
       "roomType": "asda",
-      "taxes": "50",
+      "taxes": 50,
       "description": "20",
-      "isAvailable": true,
+      "isActive": true,
       "id": 33
     },
     {
-      "basisCost": "4",
-      "capacity": "8",
+      "basisCost": 4,
+      "capacity": 8,
       "numberRoom": "A527",
       "roomType": "SINGLE",
-      "taxes": "2",
+      "taxes": 2,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 34
     },
     {
-      "basisCost": "1200",
-      "capacity": "3",
+      "basisCost": 1200,
+      "capacity": 3,
       "numberRoom": "B700",
       "roomType": "SINGLE",
-      "taxes": "50",
+      "taxes": 50,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 35
     },
     {
-      "basisCost": "5800",
-      "capacity": "2",
+      "basisCost": 5800,
+      "capacity": 2,
       "numberRoom": "C5000",
       "roomType": "DOUBLE",
-      "taxes": "230",
+      "taxes": 230,
       "description": "UNA HABITACION AL MAR",
-      "isAvailable": true,
+      "isActive": true,
       "id": 36
     },
     {
@@ -505,27 +560,27 @@
       "roomType": "DOUBLE",
       "taxes": 200,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 37
     },
     {
-      "basisCost": "9500",
-      "capacity": "2",
+      "basisCost": 9500,
+      "capacity": 2,
       "numberRoom": "Z500",
       "roomType": "SUITE",
-      "taxes": "268",
+      "taxes": 268,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 38
     },
     {
-      "basisCost": "0922",
-      "capacity": "1",
+      "basisCost": 922,
+      "capacity": 1,
       "numberRoom": "Z700",
       "roomType": "SUITE",
-      "taxes": "65",
+      "taxes": 65,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 39
     },
     {
@@ -535,7 +590,7 @@
       "roomType": "SUITE",
       "taxes": 680,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 40
     },
     {
@@ -545,7 +600,7 @@
       "roomType": "SINGLE",
       "taxes": 60,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 41
     },
     {
@@ -555,7 +610,7 @@
       "roomType": "SINGLE",
       "taxes": 32,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 42
     },
     {
@@ -565,7 +620,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 43
     },
     {
@@ -575,7 +630,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 44
     },
     {
@@ -585,7 +640,7 @@
       "roomType": "SINGLE",
       "taxes": 2,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 45
     },
     {
@@ -595,7 +650,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 46
     },
     {
@@ -605,7 +660,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 47
     },
     {
@@ -615,7 +670,7 @@
       "roomType": "SINGLE",
       "taxes": 20,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 48
     },
     {
@@ -625,7 +680,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 49
     },
     {
@@ -635,8 +690,28 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isAvailable": true,
+      "isActive": true,
       "id": 50
+    },
+    {
+      "basisCost": 220,
+      "capacity": 1,
+      "numberRoom": "K5000",
+      "roomType": "SINGLE",
+      "taxes": 12,
+      "description": "",
+      "isActive": true,
+      "id": 51
+    },
+    {
+      "basisCost": 828,
+      "capacity": 4,
+      "numberRoom": "A523",
+      "roomType": "SINGLE",
+      "taxes": 23,
+      "description": "",
+      "isActive": false,
+      "id": 52
     }
   ]
 }

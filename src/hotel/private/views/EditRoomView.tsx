@@ -1,31 +1,17 @@
-import { useParams } from 'react-router-dom';
-
 import { useForm } from '../../../hooks/useForm';
 
-import { Room } from '../../../types/hotel';
 import { CreateOrEditRoomForm } from '../components/CreateOrEditRoomForm';
+import { useRoom } from '../hooks/useRoom';
 
-const newRoomForm: Room = {
-  numberRoom: '',
-  roomType: '',
-  basisCost: 0,
-  taxes: 0,
-  capacity: 0,
-  description: '',
-  isAvailable: false
-}
+export const EditRoomView = () => {
 
-export const CreateRoomView = () => {
-
-  const { formState, isFormSubmitted, isTouched, handleBlur, handleFieldChange, areFieldsValid, handleResetForm } = useForm(newRoomForm);
-
-  const { hotelId } = useParams();
-  if (hotelId === undefined) return;
+  const { room } = useRoom();  
+  const { formState, isFormSubmitted, isTouched, handleBlur, handleFieldChange, areFieldsValid, handleResetForm } = useForm(room);
 
   const { basisCost, capacity, numberRoom, roomType, taxes, description } = formState;
 
   const formProps = {
-    hotelId,
+
     numberRoom,
     roomType,
     basisCost,
@@ -42,7 +28,7 @@ export const CreateRoomView = () => {
 
   return (
     <CreateOrEditRoomForm
-      isCreating
+      isCreating={false}
       formProps={formProps}
       formState={formState}
     />

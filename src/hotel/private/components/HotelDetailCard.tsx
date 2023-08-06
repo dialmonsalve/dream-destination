@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { CardHead, CardBody, Button } from '../../../ui';
 
 import { Hotel } from '../../../types/hotel';
 import { useRoom } from '../hooks/useRoom';
+import NotFoundPage from '../../public/pages/notFoundPage';
 
 interface CardProps {
   hotel: Hotel;
@@ -14,7 +15,8 @@ interface CardProps {
 
 export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }: CardProps) => {
 
-  const { rooms } = useRoom()
+  const { rooms, toggleActiveRoom } = useRoom();
+  const { hotelId } = useParams()
   const navigate = useNavigate();
 
   const { description, name, rooms: totalHotelRooms, city, id } = hotel;
@@ -32,6 +34,30 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
     navigate(`/api/hotel/${id}/rooms/create`)
     handleClearState();
   }
+
+  if (hotelId === undefined) {
+    return <NotFoundPage />
+  }
+
+
+  const handleEditRoom = (id: number) => {
+    if (Number(hotelId) !== hotel.id) {
+      return <NotFoundPage />
+    }
+    navigate(`/api/hotel/${hotelId}/room/edit/${id}`)
+  }
+
+  const handleDetailRoom = (id: number) => {
+    navigate(`/api/hotel/${hotelId}/room/${id}`)
+  }
+
+  const handleDeleteRoom = (id: number, isActive: boolean) => {
+    toggleActiveRoom(id, isActive).then().catch(error => console.log(error))
+  }
+
+  // const handleActiveRoom = (id: number) => {
+  //   activateRoom(id).then().catch(error => console.log(error))
+  // }
 
   return (
     <div className='detail-hotel'>
@@ -65,9 +91,9 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
                 <th>Room type</th>
                 <th>Basic Cost</th>
                 <th>Taxes</th>
-                <th>Available?</th>
                 <th>Capacity</th>
-                <th>Description</th>
+                <th colSpan={3} >Actions</th>
+                <th>Available?</th>
               </tr>
             </thead>
 
@@ -81,13 +107,43 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
                       <td  >{room.roomType}</td>
                       <td  >{room.basisCost}</td>
                       <td  >{room.taxes}</td>
-                      <td  >{room.isAvailable ? 'Available' : 'Not available'}</td>
+
                       <td  >{room.capacity}</td>
-                      <td  >{
+                      {/* <td  >{
                         room.description && (room.description.length > 20 ?
                           room.description.substring(0, 20) + '...'
                           : room.description)
-                      }</td>
+                      }</td> */}
+                      <td><Button
+                        label='detail'
+                        size='small'
+                        backgroundColor='green'
+                        onClick={() => handleDetailRoom(room.id!)}
+                      /></td>
+                      <td><Button
+                        label='edit'
+                        size='small'
+                        backgroundColor='blue'
+                        onClick={() => handleEditRoom(room.id!)}
+                      /></td>
+                      {
+                        room.isActive
+                          ?
+                          <td><Button
+                            label='delete'
+                            size='small'
+                            backgroundColor='red'
+                            onClick={() => handleDeleteRoom(room.id!, false)}
+                          /></td>
+                          :
+                          <td><Button
+                            label='activate'
+                            size='small'
+                            backgroundColor='primary-dark'
+                            onClick={() => handleDeleteRoom(room.id!, true)}
+                          /></td>
+                      }
+                      <td  >{room.isActive ? 'active' : 'inactive'}</td>
                     </tr>
                   ))
                 ))

@@ -7,8 +7,6 @@ import { PrivateResumeHotelView } from '../views/PrivateResumeHotelView';
 
 function CreateRoomsPage() {
 
-
-
   const { hotelId } = useParams();
   const { hotel, getHotel } = useHotel()
   
@@ -26,7 +24,7 @@ function CreateRoomsPage() {
     <div className='create-room'>
       <div className='create-room__container' >
         <h1 className='create-room__container--title' >Create room</h1>
-      <PrivateResumeHotelView classBase='create-room--info' id={Number(hotelId)!} city={hotel.city} name={hotel.name} isInfo={true} />
+      <PrivateResumeHotelView classBase='create-room--info' id={Number(hotelId)!} city={hotel.city} name={hotel.name} isInfo={true} isCreating/>
       </div>
 
     </div>

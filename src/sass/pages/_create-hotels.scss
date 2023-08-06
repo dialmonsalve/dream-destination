@@ -3,22 +3,28 @@
 
 .create-hotel {
   display: flex;
-  max-height: 85vh;
+  max-height: 83vh;
   overflow: auto;
+  align-items: flex-start;
 
   @include m.responsive(tab-port) {
-    max-height: 80vh;
+    max-height: 76vh;
   }
 
   @include m.responsive(phone) {
     background-color: v.$color-primary-darker;
     padding: 2rem 4rem;
-    max-height: 67.5vh;
+    max-height: 71.7vh;
   }
 
   &__container {
     margin: 6rem auto;
     width: 45rem;
+    
+
+    @include m.responsive(phone){
+      height: 50.4rem;
+    }
 
     &--title {
       text-align: center;

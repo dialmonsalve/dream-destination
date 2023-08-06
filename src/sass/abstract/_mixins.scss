@@ -64,7 +64,7 @@
   border-radius: 1rem;
   color: v.$color-white;
   font-size: v.$font-size;
-  padding: 1.8rem 1.5rem;
+  padding:1rem 1.5rem;
 
 
   &:link,
@@ -197,7 +197,7 @@
 
   color: v.$color-primary-darker;
   font-size: v.$font-size + 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
 
   @include responsive(phone) {

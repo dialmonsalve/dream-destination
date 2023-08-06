@@ -7,7 +7,7 @@ export const PrivateHotelsPage = () => {
 
   const navigate = useNavigate();
 
-  const { hotels, isLoading, deleteHotel, activateHotel } = useHotel()
+  const { hotels, isLoading, toggleActiveHotel } = useHotel()
 
   const handleCreateHotel = () => {
     navigate('/api/hotel/create')
@@ -21,13 +21,10 @@ export const PrivateHotelsPage = () => {
     navigate(`/api/hotel/${id}`)
   }
 
-  const handleDeleteHotel = (id: number) => {
-    deleteHotel(id).then().catch(error => console.log(error))
+  const handleDeleteHotel = (id: number, active: boolean) => {
+    toggleActiveHotel(id, active).then().catch(error => console.log(error))
   }
 
-  const handleActiveHotel = (id: number) => {
-    activateHotel(id).then().catch(error => console.log(error))
-  }
 
 
   return (
@@ -52,11 +49,8 @@ export const PrivateHotelsPage = () => {
                 <th>name</th>
                 <th>city</th>
                 <th>total rooms</th>
-                <th>edit</th>
-                <th>detail</th>
-                <th>delete</th>
+                <th colSpan={3} >Actions</th>
                 <th>status</th>
-                <th>Active</th>
               </tr>
             </thead>
             <tbody>
@@ -86,21 +80,18 @@ export const PrivateHotelsPage = () => {
                           backgroundColor='red'
                           size='small'
                           label='delete'
-                          onClick={() => handleDeleteHotel(hotel.id!)}
-                        /></td> : <td></td>
-                    }
-                    <td>{hotel.active ? 'active' : 'inactive'}</td>
-                    {
-                      !hotel.active ?
+                          onClick={() => handleDeleteHotel(hotel.id!, false)}
+                        /></td>
+                        :
                         <td>
                           <Button
                             backgroundColor='primary-dark'
                             size='small'
-                            label='active'
-                            onClick={() => handleActiveHotel(hotel.id!)}
+                            label='activate'
+                            onClick={() => handleDeleteHotel(hotel.id!, true)}
                           /></td>
-                        : <td> </td>
                     }
+                    <td>{hotel.active ? 'active' : 'inactive'}</td>
                   </tr>
                 ))
               }

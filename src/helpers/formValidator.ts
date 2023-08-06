@@ -60,7 +60,7 @@ export const formValidator = (): ValidatorReturn => {
     },
     required(message: string): typeof validator {
       validator.rules.push({
-        test: (value: string) => value && value.trim().length > 0,
+        test: (value: string) => typeof value === 'string' && value && value.trim().length > 0 || typeof value === 'number' && value && value > 0,
         message,
       });
       return validator;

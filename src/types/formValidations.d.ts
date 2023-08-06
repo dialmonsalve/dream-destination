@@ -21,7 +21,7 @@ export interface Validator {
 }
 
 export interface ValidationRule {
-  test: (value: string) => boolean | string;
+  test: (value: string ) => boolean | string;
   message: string;
 }
 

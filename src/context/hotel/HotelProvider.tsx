@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useEffect, useReducer } from 'react';
 
 import { HOTEL_INITIAL_STATE, HotelContext, hotelReducer } from './';
-import { hotelsApi, roomsApi } from '../../api/hotelsApi';
+import { hotelsApi } from '../../api/hotelsApi';
 
 import { Hotel, NewRoomForHotel, Room } from '../../types';
 import { useRoom } from '../../hotel/private/hooks/useRoom';
@@ -72,20 +72,11 @@ export const HotelProvider = ({ children }: Props) => {
     }
   }
 
-  const deleteHotel = async (id: number | string) => {
+  const toggleActiveHotel = async (id: number | string, active: boolean) => {
     try {
-      const { data } = await hotelsApi.patch<Hotel>(`/${id}`, { active: false });
+      const { data } = await hotelsApi.patch<Hotel>(`/${id}`, { active });
       if (data.id === undefined) return;
-      dispatch({ type: '[Hotel] - Delete hotel', payload: data.id });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  const activateHotel = async (id: number | string) => {
-    try {
-      const { data } = await hotelsApi.patch<Hotel>(`/${id}`, { active: true });
-      if (data.id === undefined) return;
-      dispatch({ type: '[Hotel] - Active hotel', payload: data.id });
+      dispatch({ type: '[Hotel] - Toggle hotel-isActive', payload: data });
     } catch (error) {
       console.log(error);
     }
@@ -103,9 +94,9 @@ export const HotelProvider = ({ children }: Props) => {
 
       const { id } = createdRoom;
 
-      const updateRooms = [...state.hotel.rooms || [], {id}]
+      const updateRooms = [...state.hotel.rooms || [], { id }]
 
-      const updatedHotel:NewRoomForHotel = {
+      const updatedHotel: NewRoomForHotel = {
         ...state.hotel,
         rooms: updateRooms,
       };
@@ -128,8 +119,7 @@ export const HotelProvider = ({ children }: Props) => {
       getHotel,
       createHotel,
       updateHotel,
-      deleteHotel,
-      activateHotel,
+      toggleActiveHotel,
       handleClearState,
       //! Rooms
       updateHotelWithRoom,

@@ -13,6 +13,12 @@ import {
   ReactFormEvent
 } from "../../../types";
 
+interface CreateOrEditHotelProps {
+  isCreate: boolean;
+  formProps: FormProps;
+  handleAddComponent?: (id: number) => void
+  formState: Hotel
+}
 interface FormProps {
   id?: string
   name: string
@@ -26,12 +32,6 @@ interface FormProps {
   handleResetForm?: () => void
 }
 
-interface CreateOrEditHotelProps {
-  isCreate: boolean;
-  formProps: FormProps;
-  handleAddComponent?: (id: number) => void
-  formState: Hotel
-}
 
 export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent, formState }: CreateOrEditHotelProps) => {
 
@@ -39,7 +39,7 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
     city, description, isFormSubmitted, isTouched, name, id,
     areFieldsValid, handleFieldChange, handleBlur, handleResetForm } = formProps;
 
-    const { createHotel, updateHotel, handleClearState } = useHotel();
+  const { createHotel, updateHotel, handleClearState } = useHotel();
   const navigate = useNavigate();
 
   const { newHotelValidationSchema } = validationSchema();

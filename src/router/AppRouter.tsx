@@ -100,7 +100,7 @@ const routes: RouteObject[] = [
                 element: <CreateRoomsPage />
               },
               {
-                path: 'rooms/edit/:roomId',
+                path: 'room/edit/:roomId',
                 element: <EditRoomPage />
               },
               {

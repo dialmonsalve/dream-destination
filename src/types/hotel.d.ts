@@ -12,12 +12,12 @@ export interface Hotel extends InitialForm {
 }
 
 export interface Room extends InitialForm {
-  id?: string;
+  id?: number;
   numberRoom: string;
   roomType: string;
   basisCost: number;
   taxes: number;
-  isAvailable?: boolean;
+  isActive?: boolean;
   capacity: number;
   description?: string;
 }
