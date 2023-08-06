@@ -50,6 +50,7 @@ function CreateHotelPage() {
 
         {isLoading === 'loading' && <Spinner />}
         <PrivateResumeHotelView
+          isCreating
           id={id}
           name={name}
           city={city}
@@ -72,6 +73,8 @@ function CreateHotelPage() {
         />
         {components.map((component) => component)}
       </div>
+      
+
     </div>
   )
 }

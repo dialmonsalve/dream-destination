@@ -113,15 +113,20 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
           />
         </div>
 
-        <div>
-          <FormControl
-            label='Room type'
-            name='roomType'
-            type='text'
-            value={createOrEditRoomType}
-            onChange={handleFieldChange}
-            onBlur={handleBlur}
-          />
+        <div style={{marginTop:'1.4rem' }}>
+          <label className='form-control--label label-room' htmlFor='document-type'>Room type</label>
+          <select 
+          value={createOrEditRoomType} 
+          className='form-control--select select-room' 
+          name='roomType' 
+          onChange={handleFieldChange}  
+          onFocus={handleBlur}
+          >
+            <option value=""></option>
+            <option value="single">single</option>
+            <option value="double">double</option>
+            <option value="suite">suite</option>
+          </select>
           <ErrorMessage
             fieldName={errors?.roomType}
             isFormSubmitted={isFormSubmitted}
@@ -131,7 +136,7 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
 
         <div>
           <FormControl
-            label='costo base'
+            label='basis cost'
             name='basisCost'
             type='number'
             value={createOrEditBasisCost}
@@ -147,7 +152,7 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
 
         <div>
           <FormControl
-            label='costo impuestos'
+            label='taxes'
             name='taxes'
             type='number'
             value={createOrEditTaxes}
@@ -163,7 +168,7 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
 
         <div>
           <FormControl
-            label='capacidad'
+            label='capacity'
             name='capacity'
             type='number'
             value={createOrEditCapacity}
@@ -200,6 +205,7 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
         type='button'
         size='small'
         backgroundColor='green'
+        margin="1.5rem 0 0"
         onClick={handleDetailHotel}
       />
     </>

@@ -4,12 +4,14 @@ import NotFoundPage from "../../public/pages/notFoundPage";
 import { useEffect } from "react";
 import { useRoom } from "../hooks/useRoom";
 import { PrivateResumeHotelView } from "../views/PrivateResumeHotelView";
+import { Spinner } from "../../../ui";
 
 function EditRoomPage() {
 
-  const { hotel, getHotel } = useHotel();
+  const { hotel, getHotel, isLoading } = useHotel();
   const { getRoom } = useRoom()
   const { hotelId, roomId } = useParams();
+  const existRoomInHotel = hotel.rooms?.some(room => room.id === Number(roomId));
 
   useEffect(() => {
     if (hotelId === undefined) return;
@@ -23,13 +25,13 @@ function EditRoomPage() {
     )
   }, [roomId, getRoom])
 
-  const existRoomInHotel = hotel.rooms?.some(room => room.id === Number(roomId));
-
-  if (!existRoomInHotel) {
-    return <NotFoundPage />
-  }
 
   return (
+
+    isLoading === 'loading' ? <Spinner type="long-play" />:
+
+    !existRoomInHotel ? <NotFoundPage /> :
+
     <div className='create-room'>
       <div className='create-room__container' >
         <h1 className='create-room__container--title' >Edit room</h1>

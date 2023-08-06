@@ -7,9 +7,18 @@
   align-items: center;
   padding: 2rem;
 
+
+  @include m.responsive(tab-land) {
+    height: 78vh;
+  }
+  @include m.responsive(tab-port) {
+    height: 69vh;
+  }
+
   @include m.responsive(phone) {
     align-items: flex-start;
     margin-left: 3rem;
+    height: 62vh;
   }
 
   &__title {

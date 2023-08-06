@@ -4,23 +4,30 @@
 .create-room {
   display: flex;
   overflow: auto;
-  max-height: 82vh;
+  height: 81.5vh;
+  padding: 2rem;
+
+  @include m.responsive(tab-land) {
+    max-height: 78.5vh;
+  }
 
   @include m.responsive(tab-port) {
-    max-height: 80vh;
+    max-height: 69.3vh;
   }
 
   @include m.responsive(phone) {
     background-color: v.$color-primary-darker;
-    max-height: 68vh;
+    max-height: 63.3vh;
+    padding: 0rem;
   }
 
   &__container {
     margin: 3rem auto;
-    min-width: 85vw;
+    width: 50.4vw;
+    
 
     @include m.responsive(tab-land) {
-      min-width: 60vw;
+      min-width: 62vw;
     }
 
     @include m.responsive(phone) {

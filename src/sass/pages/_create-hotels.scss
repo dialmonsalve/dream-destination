@@ -3,29 +3,38 @@
 
 .create-hotel {
   display: flex;
-  max-height: 83vh;
+  height: 83vh;
   overflow: auto;
   align-items: flex-start;
+  padding: 2rem;
 
-  @include m.responsive(tab-port) {
-    max-height: 76vh;
+  @include m.responsive(tab-land) {
+    max-height: 78.6vh;
   }
-
+  @include m.responsive(tab-port) {
+    max-height: 69.5vh;
+  }
   @include m.responsive(phone) {
     background-color: v.$color-primary-darker;
-    padding: 2rem 4rem;
-    max-height: 71.7vh;
+    max-height: 63.3vh;
+    padding: 0;
   }
 
   &__container {
-    margin: 6rem auto;
-    width: 45rem;
-    
+    margin: 0 auto;
+    width: 36rem;
 
-    @include m.responsive(phone){
-      height: 50.4rem;
+    @include m.responsive(phone) {
+      padding: 0 1rem;
+      margin: 3rem 0 0 2.5rem;
     }
 
+    @include m.responsive(phone) {
+      max-width: 50rem;
+      padding: 0 1.5rem;
+      margin: 2rem 0 0 2.5rem;
+    }
+    
     &--title {
       text-align: center;
       @include m.title-pages(v.$color-white);      
@@ -35,11 +44,12 @@
   &__form {
     &--rooms {
       @include m.form-columns-3();
-      padding: 2rem;
+      align-items: baseline;
       box-shadow: none;
 
       @include m.responsive(tab-port) {
         @include m.form-columns-1();
+        align-items: stretch;
       }
     }
   }

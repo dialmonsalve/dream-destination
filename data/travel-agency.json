@@ -173,6 +173,30 @@
       "active": true,
       "rooms": [],
       "id": 64
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "Un lujoso hotel en la ciudad B",
+      "active": true,
+      "rooms": [],
+      "id": 65
+    },
+    {
+      "name": "Alejandro",
+      "city": "Ciudad B",
+      "description": "A nice hotel in Medellin city",
+      "active": true,
+      "rooms": [],
+      "id": 66
+    },
+    {
+      "name": "Diego",
+      "city": "sdd",
+      "description": "",
+      "active": false,
+      "rooms": [],
+      "id": 67
     }
   ],
   "reservas": [],
@@ -426,11 +450,12 @@
       "basisCost": 3,
       "capacity": 1,
       "numberRoom": "A523",
-      "roomType": "SINGLE",
+      "roomType": "suite",
       "taxes": 2,
       "description": "",
       "id": 23,
-      "isActive": true
+      "isActive": true,
+      "roomId": "23"
     },
     {
       "basisCost": 3,
