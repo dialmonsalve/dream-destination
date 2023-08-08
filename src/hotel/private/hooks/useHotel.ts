@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { HotelContext } from '../../../context/hotel';
+import { HotelContext } from '../../../context/hotels';
 
 
 export const useHotel = () => {

@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useEffect, useReducer } from 'react';
 
-import { HOTEL_INITIAL_STATE, HotelContext, hotelReducer } from './';
+import { HOTEL_INITIAL_STATE, HotelContext, hotelReducer } from '.';
 import { hotelsApi } from '../../api/hotelsApi';
 
 import { Hotel, NewRoomForHotel, Room } from '../../types';
@@ -19,7 +19,7 @@ export const HotelProvider = ({ children }: Props) => {
     getHotels()
       .then((data => {
         if (data === undefined) return;
-        dispatch({ type: '[Hotel] - Get hotels', payload: data })
+        dispatch({ type: 'hotel/getHotels', payload: data })
       }))
       .catch((error) => {
         console.log(error);
@@ -41,7 +41,7 @@ export const HotelProvider = ({ children }: Props) => {
   const getHotel = useCallback(async (hotelId: number | string): Promise<void> => {
     const { data } = await hotelsApi.get<Hotel>(`/${hotelId}`);
 
-    dispatch({ type: '[Hotel] - Get hotel', payload: data })
+    dispatch({ type: 'hotel/getHotel', payload: data })
   }, [])
 
   const createHotel = async (hotel: Hotel): Promise<Hotel> => {
@@ -49,7 +49,7 @@ export const HotelProvider = ({ children }: Props) => {
     try {
       const { data } = await hotelsApi.post<Hotel>('', hotel);
       if (data.id !== undefined) {
-        dispatch({ type: '[Hotel] - Create hotel', payload: data });
+        dispatch({ type: 'hotel/createHotel', payload: data });
         return data;
       } else {
         console.log('Field "id" does not exist in the server.');
@@ -66,7 +66,7 @@ export const HotelProvider = ({ children }: Props) => {
 
     try {
       const { data } = await hotelsApi.patch<Hotel>(`/${hotelId}`, { hotelId, ...hotel });
-      dispatch({ type: '[Hotel] - Update hotel', payload: data });
+      dispatch({ type: 'hotel/updateHotel', payload: data });
     } catch (error) {
       console.log(error);
     }
@@ -76,14 +76,14 @@ export const HotelProvider = ({ children }: Props) => {
     try {
       const { data } = await hotelsApi.patch<Hotel>(`/${id}`, { active });
       if (data.id === undefined) return;
-      dispatch({ type: '[Hotel] - Toggle hotel-isActive', payload: data });
+      dispatch({ type: 'hotel/toggleActiveHotel', payload: data });
     } catch (error) {
       console.log(error);
     }
   }
 
   const handleClearState = () => {
-    dispatch({ type: '[Hotel] - Clear state' })
+    dispatch({ type: 'hotel/handleClearState' })
   }
 
 
@@ -103,7 +103,7 @@ export const HotelProvider = ({ children }: Props) => {
 
       await hotelsApi.patch(`/${hotelId}`, updatedHotel);
 
-      dispatch({ type: '[Hotel] - Update hotel', payload: updatedHotel });
+      dispatch({ type: 'hotel/updateHotel', payload: updatedHotel });
     } catch (error) {
       console.log(error);
       throw error;

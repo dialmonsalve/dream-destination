@@ -26,17 +26,23 @@
 - Listar hoteles:
   http://localhost:5173/api/hotels
 
+- Detalle de un hotel
+  http://localhost:5173/api/hotel/:id
+
 - Crear Hoteles
-  http://localhost:5173/api/hotels/create
+  http://localhost:5173/api/hotel/create
 
 - Editar Hoteles
-  http://localhost:5173/api/hotels/:id
-
-- Detalle de un hotel
-  http://localhost:5173/api/hotels/detail/:id
+  http://localhost:5173/api/hotel/edit/:id
 
 - Crear habitaciones
-  http://localhost:5173/api/hotels/:id/rooms/create
+  http://localhost:5173/api/hotels/:id/room/create
+
+- Editar habitaciones
+  http://localhost:5173/api/hotels/:id/room/edit/:id
+
+- Detalle de una habitación
+  http://localhost:5173/api/hotels/:id/room/:id
 
 - Login:
   http://localhost:5173/login

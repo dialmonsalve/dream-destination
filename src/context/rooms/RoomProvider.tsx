@@ -15,7 +15,7 @@ export const RoomProvider = ({ children }: Props) => {
   useEffect(() => {
     getRooms().then(data => {
       if (data === undefined) return;
-      dispatch({ type: '[Room] - Get rooms', payload: data })
+      dispatch({ type: 'room/getRooms', payload: data })
     }).catch(error => console.log(error)
     )
   }, [])
@@ -34,7 +34,7 @@ export const RoomProvider = ({ children }: Props) => {
   const getRoom = useCallback(async (id: number | string): Promise<void> => {
     const { data } = await roomsApi.get<Room>(`/${id}`);
 
-    dispatch({ type: '[Room] - Get room', payload: data })
+    dispatch({ type: 'room/getRoom', payload: data })
   }, [])
 
   const createRoom = async (room: Room): Promise<Room> => {
@@ -43,7 +43,7 @@ export const RoomProvider = ({ children }: Props) => {
 
       if (data.id !== undefined) {
 
-        dispatch({ type: '[Room] - create room', payload: data })
+        dispatch({ type: 'room/createRoom', payload: data })
         return data;
       } else {
         console.log('Field "id" does not exist in the server.');
@@ -59,7 +59,7 @@ export const RoomProvider = ({ children }: Props) => {
   const updateRoom = async (roomId: string | number, room: Room): Promise<void> => {
     try {
       const { data } = await roomsApi.patch<Room>(`/${roomId}`, { roomId, ...room });
-      dispatch({ type: '[Room] - Update room', payload: data });
+      dispatch({ type: 'room/updateRoom', payload: data });
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +70,7 @@ export const RoomProvider = ({ children }: Props) => {
     try {
       const { data } = await roomsApi.patch<Room>(`/${roomId}`, { isActive });
       if (data.id === undefined) return;
-      dispatch({ type: '[Room] - Toggle room', payload: data });
+      dispatch({ type: 'room/toggleActiveRoom', payload: data });
     } catch (error) {
       console.log(error);
     }

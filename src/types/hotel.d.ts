@@ -20,6 +20,8 @@ export interface Room extends InitialForm {
   isActive?: boolean;
   capacity: number;
   description?: string;
+  initialDate?: number;
+  finalDate?: number
 }
 
 interface NewRoomForHotel extends Hotel {

@@ -10,7 +10,7 @@ export interface NewUser extends LoginUser {
   lastName: string;
   documentType: string
   document: string
-  birthDate: string;
+  birthDate: number;
   country: string;
   genre: string;
   phone: string,

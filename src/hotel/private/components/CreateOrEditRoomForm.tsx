@@ -66,7 +66,9 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
           roomType,
           taxes: Number(taxes),
           description,
-          isAvailable: true
+          isActive: true,
+          initialDate: 0,
+          finalDate: 0,
         }
         try {
           updateHotelWithRoom(+hotelId, newRoom).then().catch(error => console.log(error));
@@ -113,14 +115,14 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
           />
         </div>
 
-        <div style={{marginTop:'1.4rem' }}>
+        <div style={{ marginTop: '1.4rem' }}>
           <label className='form-control--label label-room' htmlFor='document-type'>Room type</label>
-          <select 
-          value={createOrEditRoomType} 
-          className='form-control--select select-room' 
-          name='roomType' 
-          onChange={handleFieldChange}  
-          onFocus={handleBlur}
+          <select
+            value={createOrEditRoomType}
+            className='form-control--select select-room'
+            name='roomType'
+            onChange={handleFieldChange}
+            onFocus={handleBlur}
           >
             <option value=""></option>
             <option value="single">single</option>

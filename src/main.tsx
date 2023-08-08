@@ -5,8 +5,8 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './router/AppRouter.tsx';
 
 import './index.scss'
-import { HotelProvider } from './context/hotel';
-import { RoomProvider } from './context/room';
+import { HotelProvider } from './context/hotels/index.ts';
+import { RoomProvider } from './context/rooms';
 
 
 

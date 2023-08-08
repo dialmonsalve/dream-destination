@@ -12,7 +12,7 @@ const newAccountForm: NewUser = {
   lastName: '',
   documentType: '',
   document: '',
-  birthDate: '',
+  birthDate: Number('0'),
   country: '',
   genre: '',
   email: '',
@@ -48,13 +48,26 @@ function RegisterPage() {
       console.log("Creating user");
 
       console.log(formState);
-      
+
     }
   }
 
   const handleLoginClick = () => {
     navigate('/login')
   }
+
+  const selectedDate = new Date(birthDate);
+  const timeSinceEpoch = selectedDate.getTime();
+
+  const millisecondsPerDay = (24 * 60 * 60);
+
+
+  //Time since birth Date in milliseconds
+  const daysSinceEpoch = Math.floor((timeSinceEpoch / millisecondsPerDay) + 209);
+
+  // birth Date on date format
+  const bir = new Date((daysSinceEpoch * 24 * 60 * 60));
+
   return (
 
     <div className='create-account'>
@@ -95,12 +108,12 @@ function RegisterPage() {
           </div>
 
           <div className='form-control'>
-          <label className='form-control--label' htmlFor='document-type'>Document type</label>
+            <label className='form-control--label' htmlFor='document-type'>Document type</label>
             <select value={documentType} className='form-control--select' name='documentType' onChange={handleFieldChange}  >
-              <option  value=""></option>
-              <option  value="dni">DNI</option>
-              <option  value="extranjero">Extranjero</option>
-              <option  value="other">Other</option>
+              <option value=""></option>
+              <option value="dni">DNI</option>
+              <option value="extranjero">Extranjero</option>
+              <option value="other">Other</option>
             </select>
             <ErrorMessage
               fieldName={errors?.documentType}

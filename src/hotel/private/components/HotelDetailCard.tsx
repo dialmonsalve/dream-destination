@@ -6,6 +6,7 @@ import { CardHead, CardBody, Button } from '../../../ui';
 import { Hotel } from '../../../types/hotel';
 import { useRoom } from '../hooks/useRoom';
 import NotFoundPage from '../../public/pages/notFoundPage';
+import { convertDate } from '../../../helpers/convertDate';
 
 interface CardProps {
   hotel: Hotel;
@@ -55,9 +56,6 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
     toggleActiveRoom(id, isActive).then().catch(error => console.log(error))
   }
 
-  // const handleActiveRoom = (id: number) => {
-  //   activateRoom(id).then().catch(error => console.log(error))
-  // }
 
   return (
     <div className='detail-hotel'>
@@ -93,7 +91,8 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
                 <th>Taxes</th>
                 <th>Capacity</th>
                 <th colSpan={3} >Actions</th>
-                <th>Available?</th>
+                <th>Status</th>
+                <th>date reservation</th>
               </tr>
             </thead>
 
@@ -109,11 +108,6 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
                       <td  >{room.taxes}</td>
 
                       <td  >{room.capacity}</td>
-                      {/* <td  >{
-                        room.description && (room.description.length > 20 ?
-                          room.description.substring(0, 20) + '...'
-                          : room.description)
-                      }</td> */}
                       <td><Button
                         label='detail'
                         size='small'
@@ -144,6 +138,12 @@ export const HotelDetailCard = ({ children, hotel, handleClearState, ...props }:
                           /></td>
                       }
                       <td  >{room.isActive ? 'active' : 'inactive'}</td>
+
+                      {
+                        room.finalDate! - room.initialDate! > 0 ?
+                          <td> {`${convertDate(room.initialDate!)}  -  ${convertDate(room.finalDate!)}`} </td>
+                          : <td>free</td>
+                      }
                     </tr>
                   ))
                 ))

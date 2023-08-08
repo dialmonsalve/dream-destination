@@ -40,7 +40,21 @@ const routes: RouteObject[] = [
       },
       {
         path: 'hotels',
-        element: <HotelsPage isStaff={false} />
+        element: <HotelsPage isStaff={false} />,
+      },
+      {
+        path: 'hotel',
+        children: [
+          {
+            path: ':hotelId',
+            children: [
+              {
+                index: true,
+                element: <DetailHotelPage />,
+              }
+            ]
+          }
+        ]
       },
       {
         path: 'create-account',
@@ -96,7 +110,7 @@ const routes: RouteObject[] = [
                 element: <DetailHotelPage />,
               },
               {
-                path: 'rooms/create',
+                path: 'room/create',
                 element: <CreateRoomsPage />
               },
               {

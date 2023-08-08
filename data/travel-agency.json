@@ -39,6 +39,9 @@
         },
         {
           "id": 52
+        },
+        {
+          "id": 53
         }
       ]
     },
@@ -233,7 +236,9 @@
       "taxes": 35,
       "description": "",
       "id": 1,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1,
@@ -243,8 +248,9 @@
       "taxes": 1,
       "description": "",
       "id": 2,
-      "roomId": "2",
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 225,
@@ -254,7 +260,9 @@
       "taxes": 40,
       "description": "",
       "id": 3,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 50,
@@ -264,7 +272,9 @@
       "taxes": 3,
       "description": "",
       "id": 4,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 520,
@@ -274,7 +284,9 @@
       "taxes": 25,
       "description": "",
       "id": 5,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 3,
@@ -284,7 +296,9 @@
       "taxes": 280,
       "description": "",
       "id": 6,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 50,
@@ -294,7 +308,9 @@
       "taxes": 12,
       "description": "",
       "id": 7,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 520,
@@ -304,7 +320,9 @@
       "taxes": 12,
       "description": "8",
       "id": 8,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 12,
@@ -314,7 +332,9 @@
       "taxes": 5,
       "description": "",
       "id": 9,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 85,
@@ -324,7 +344,9 @@
       "taxes": 12,
       "description": "",
       "id": 10,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 50,
@@ -334,7 +356,9 @@
       "taxes": 1,
       "description": "",
       "id": 11,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 85,
@@ -344,7 +368,9 @@
       "taxes": 1,
       "description": "",
       "id": 12,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 85,
@@ -354,7 +380,9 @@
       "taxes": 2,
       "description": "",
       "id": 13,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 45,
@@ -364,7 +392,9 @@
       "taxes": 12,
       "description": "",
       "id": 14,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 85,
@@ -374,7 +404,9 @@
       "taxes": 13,
       "description": "",
       "id": 15,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 905,
@@ -384,7 +416,9 @@
       "taxes": 12,
       "description": "",
       "id": 16,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 85,
@@ -394,7 +428,9 @@
       "taxes": 5222,
       "description": "",
       "id": 17,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1,
@@ -404,7 +440,9 @@
       "taxes": 1,
       "description": "",
       "id": 18,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 500000,
@@ -414,7 +452,9 @@
       "taxes": 133333,
       "description": "",
       "id": 19,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 85,
@@ -424,7 +464,9 @@
       "taxes": 1,
       "description": "",
       "id": 20,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 3,
@@ -434,7 +476,9 @@
       "taxes": 50,
       "description": "",
       "id": 21,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 4,
@@ -444,7 +488,9 @@
       "taxes": 65,
       "description": "",
       "id": 22,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 3,
@@ -455,7 +501,8 @@
       "description": "",
       "id": 23,
       "isActive": true,
-      "roomId": "23"
+      "initialDate": 1702477440000,
+      "finalDate": 1702944000000
     },
     {
       "basisCost": 3,
@@ -465,7 +512,9 @@
       "taxes": 3,
       "description": "",
       "id": 24,
-      "isActive": true
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 150,
@@ -476,7 +525,8 @@
       "description": "",
       "id": 26,
       "isActive": true,
-      "roomId": "26"
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 3,
@@ -486,7 +536,9 @@
       "taxes": 3,
       "description": "",
       "isActive": true,
-      "id": 27
+      "id": 27,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 3,
@@ -496,7 +548,9 @@
       "taxes": 3,
       "description": "",
       "isActive": false,
-      "id": 28
+      "id": 28,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 2,
@@ -506,7 +560,9 @@
       "taxes": 1,
       "description": "",
       "isActive": false,
-      "id": 29
+      "id": 29,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 2,
@@ -516,7 +572,9 @@
       "taxes": 1,
       "description": "A beautifull place",
       "isActive": true,
-      "id": 30
+      "id": 30,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 250,
@@ -526,7 +584,9 @@
       "taxes": 50,
       "description": "dadsfkjasokfjasdkfj adsdfjioqwe riej u rjiej ioej 9i8 r0i8  irj ijtrfeqiojmn",
       "isActive": true,
-      "id": 31
+      "id": 31,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 820,
@@ -536,7 +596,9 @@
       "taxes": 65,
       "description": "Uhadiufjn adjhiue uidfh ñiauhndf  adnfñlkdamn kldsfokd jfoadsjfoi asdjoia ",
       "isActive": false,
-      "id": 32
+      "id": 32,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 50,
@@ -546,7 +608,9 @@
       "taxes": 50,
       "description": "20",
       "isActive": true,
-      "id": 33
+      "id": 33,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 4,
@@ -556,7 +620,9 @@
       "taxes": 2,
       "description": "",
       "isActive": true,
-      "id": 34
+      "id": 34,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1200,
@@ -566,7 +632,9 @@
       "taxes": 50,
       "description": "",
       "isActive": true,
-      "id": 35
+      "id": 35,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 5800,
@@ -576,7 +644,9 @@
       "taxes": 230,
       "description": "UNA HABITACION AL MAR",
       "isActive": true,
-      "id": 36
+      "id": 36,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 3000,
@@ -586,7 +656,9 @@
       "taxes": 200,
       "description": "",
       "isActive": true,
-      "id": 37
+      "id": 37,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 9500,
@@ -596,7 +668,9 @@
       "taxes": 268,
       "description": "",
       "isActive": true,
-      "id": 38
+      "id": 38,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 922,
@@ -606,7 +680,9 @@
       "taxes": 65,
       "description": "",
       "isActive": true,
-      "id": 39
+      "id": 39,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 8500,
@@ -616,7 +692,9 @@
       "taxes": 680,
       "description": "",
       "isActive": true,
-      "id": 40
+      "id": 40,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 280,
@@ -626,7 +704,9 @@
       "taxes": 60,
       "description": "",
       "isActive": true,
-      "id": 41
+      "id": 41,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 50,
@@ -636,7 +716,9 @@
       "taxes": 32,
       "description": "",
       "isActive": true,
-      "id": 42
+      "id": 42,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1,
@@ -646,7 +728,9 @@
       "taxes": 1,
       "description": "",
       "isActive": true,
-      "id": 43
+      "id": 43,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 2,
@@ -656,7 +740,9 @@
       "taxes": 1,
       "description": "",
       "isActive": true,
-      "id": 44
+      "id": 44,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 2,
@@ -666,7 +752,9 @@
       "taxes": 2,
       "description": "",
       "isActive": true,
-      "id": 45
+      "id": 45,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1,
@@ -676,7 +764,9 @@
       "taxes": 1,
       "description": "",
       "isActive": true,
-      "id": 46
+      "id": 46,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1,
@@ -686,7 +776,9 @@
       "taxes": 1,
       "description": "",
       "isActive": true,
-      "id": 47
+      "id": 47,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 650,
@@ -696,7 +788,9 @@
       "taxes": 20,
       "description": "",
       "isActive": true,
-      "id": 48
+      "id": 48,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 1,
@@ -706,7 +800,9 @@
       "taxes": 1,
       "description": "",
       "isActive": true,
-      "id": 49
+      "id": 49,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 2,
@@ -716,7 +812,9 @@
       "taxes": 1,
       "description": "",
       "isActive": true,
-      "id": 50
+      "id": 50,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 220,
@@ -726,7 +824,9 @@
       "taxes": 12,
       "description": "",
       "isActive": true,
-      "id": 51
+      "id": 51,
+      "initialDate": 0,
+      "finalDate": 0
     },
     {
       "basisCost": 828,
@@ -736,7 +836,21 @@
       "taxes": 23,
       "description": "",
       "isActive": false,
-      "id": 52
+      "id": 52,
+      "initialDate": 0,
+      "finalDate": 0
+    },
+    {
+      "basisCost": 28,
+      "capacity": 1,
+      "numberRoom": "L2000",
+      "roomType": "single",
+      "taxes": 50,
+      "description": "Hola",
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0,
+      "id": 53
     }
   ]
 }

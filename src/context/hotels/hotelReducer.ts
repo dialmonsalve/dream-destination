@@ -16,55 +16,54 @@ export const HOTEL_INITIAL_STATE: HotelState = {
 }
 
 type HotelActionType =
-  | { type: '[Hotel] - Get hotels', payload: Hotel[] }
-  | { type: '[Hotel] - Get hotel', payload: Hotel }
-  | { type: '[Hotel] - Create hotel', payload: Hotel }
-  | { type: '[Hotel] - Update hotel', payload: Hotel | NewRoomForHotel }
-  | { type: '[Hotel] - Toggle hotel-isActive', payload: Hotel }
-
-  | { type: '[Hotel] - Clear state' }
+  | { type: 'hotel/getHotels', payload: Hotel[] }
+  | { type: 'hotel/getHotel', payload: Hotel }
+  | { type: 'hotel/createHotel', payload: Hotel }
+  | { type: 'hotel/updateHotel', payload: Hotel | NewRoomForHotel }
+  | { type: 'hotel/toggleActiveHotel', payload: Hotel }
+  | { type: 'hotel/handleClearState' }
 
 
 export const hotelReducer = (state: HotelState, action: HotelActionType): HotelState => {
 
   switch (action.type) {
 
-    case '[Hotel] - Get hotels':
+    case 'hotel/getHotels':
       return {
         ...state,
         hotels: [...action.payload],
         isLoading: 'ready',
       }
 
-    case '[Hotel] - Get hotel':
+    case 'hotel/getHotel':
       return {
         ...state,
         hotel: state.hotels.find(hotel => hotel.id === action.payload?.id) || action.payload,
         isLoading: 'ready',
       }
 
-    case '[Hotel] - Create hotel':
+    case 'hotel/createHotel':
       return {
         ...state,
         hotels: [...state.hotels, action.payload],
         isLoading: 'ready',
       }
 
-    case '[Hotel] - Update hotel':
+    case 'hotel/updateHotel':
       return {
         ...state,
         hotels: state.hotels.map(hotel => hotel.id === action.payload.id ? action.payload : hotel),
         isLoading: 'ready',
       }
 
-    case '[Hotel] - Toggle hotel-isActive':
+    case 'hotel/toggleActiveHotel':
       return {
         ...state,
         hotels: state.hotels.map(hotel => hotel.id === action.payload.id ? { ...hotel, active: !hotel.active }
           : hotel),
         isLoading: 'ready',
       }
-    case '[Hotel] - Clear state':
+    case 'hotel/handleClearState':
       return {
         ...state,
         hotel: HOTEL_INITIAL_STATE.hotel,
