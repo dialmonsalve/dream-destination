@@ -5,6 +5,7 @@ import RegisterPage from '../auth/public/pages/RegisterPage';
 import LoginPage from '../auth/public/pages/login';
 
 import HotelsPage from '../hotel/routes/HotelsPage';
+import DetailHotelPage from '../hotel/routes/DetailHotelPage';
 
 import HomePage from '../hotel/public/pages';
 import ExamplePage from '../hotel/public/pages/examplePage';
@@ -14,13 +15,14 @@ import ReservationsPage from '../reservation/routes/Reservations';
 
 import CreateHotelPage from '../hotel/private/pages/CreateHotelPage';
 import EditHotelPage from '../hotel/private/pages/EditHotelPage';
-import DetailHotelPage from '../hotel/private/pages/DetailHotelPage';
+
 import CreateRoomsPage from '../hotel/private/pages/CreateRoomsPage';
 
 import { PublicLayout } from '../hotel/public/layout/PublicLayout';
 import { PrivateLayout } from '../hotel/private/layout/PrivateLayout';
 import EditRoomPage from '../hotel/private/pages/EditRoomPage';
 import DetailRoomPage from '../hotel/private/pages/DetailRoomPage';
+import CreateReservation from '../reservation/private/pages/CreateReservation';
 
 
 const routes: RouteObject[] = [
@@ -50,7 +52,11 @@ const routes: RouteObject[] = [
             children: [
               {
                 index: true,
-                element: <DetailHotelPage />,
+                element: <DetailHotelPage isStaff={false} />,
+              },
+              {
+                path:'room/:roomId/reserve/create',
+                element: <CreateReservation />
               }
             ]
           }
@@ -107,7 +113,7 @@ const routes: RouteObject[] = [
             children: [
               {
                 index: true,
-                element: <DetailHotelPage />,
+                element: <DetailHotelPage isStaff />,
               },
               {
                 path: 'room/create',

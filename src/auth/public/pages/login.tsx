@@ -34,7 +34,7 @@ function LoginPage() {
     navigate('/create-account')
   }
   return (
-    <div className='login'>
+    <>
       <div className='login__container' >
         <h1 className='login__container--title'>Login and make your reservations</h1>
         <form className='login__container--form' onSubmit={handleSubmit} >
@@ -87,7 +87,7 @@ function LoginPage() {
           </div>
         </form>
       </div>
-    </div>
+    </>
   )
 }
 

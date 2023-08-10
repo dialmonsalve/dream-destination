@@ -2,42 +2,12 @@
 @use '../abstract/mixins' as m;
 
 .create-hotel {
-  display: flex;
-  height: 83vh;
-  overflow: auto;
-  align-items: flex-start;
-  padding: 2rem;
-
-  @include m.responsive(tab-land) {
-    max-height: 78.6vh;
-  }
-  @include m.responsive(tab-port) {
-    max-height: 69.5vh;
-  }
-  @include m.responsive(phone) {
-    background-color: v.$color-primary-darker;
-    max-height: 63.3vh;
-    padding: 0;
-  }
 
   &__container {
-    margin: 0 auto;
-    width: 36rem;
 
     @include m.responsive(phone) {
-      padding: 0 1rem;
-      margin: 3rem 0 0 2.5rem;
-    }
-
-    @include m.responsive(phone) {
-      max-width: 50rem;
       padding: 0 1.5rem;
       margin: 2rem 0 0 2.5rem;
-    }
-    
-    &--title {
-      text-align: center;
-      @include m.title-pages(v.$color-white);      
     }
   }
 
@@ -45,7 +15,6 @@
     &--rooms {
       @include m.form-columns-3();
       align-items: baseline;
-      box-shadow: none;
 
       @include m.responsive(tab-port) {
         @include m.form-columns-1();
@@ -62,7 +31,10 @@
     margin-bottom: 1rem;
 
     @include m.responsive(phone) {
-      box-shadow: none;
+      @include m.form-columns-1();
+      
+      width: 32rem;
+      padding: 0 1.5rem;
     }
   }
 }
@@ -73,7 +45,6 @@
   @include m.form();
 
   @include m.responsive(phone) {
-    box-shadow: none;
     margin-left: 2rem;
   }
 

@@ -1,10 +1,14 @@
 @use '../abstract/variables' as v;
+@use '../abstract/mixins' as m;
 
 .card {
   align-items: center;
-  background: linear-gradient(120deg, #747171 0%, #6f6c6c 50%, #585555 100%);
+  background: linear-gradient(
+    120deg, 
+    v.$color-primary-darker 0%,
+    v.$color-primary-dark 50%,
+    v.$color-primary-light 100%);
   border-radius: 1rem;
-  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,7 +22,7 @@
 
   &__head {
     margin-top: 1rem;
-    color: v.$color-primary-darker;
+    color: v.$color-white;
     font-size: v.$font-size + 1rem;
   }
 
@@ -28,28 +32,40 @@
     flex: 1;
     margin: 2rem;
 
-    &--img {}
-
-    &--city {
-      color: v.$color-primary-darker;
-      font-size: 2rem;
-      margin: 1rem 0;
+    &--img {
+     width: 26rem;
     }
 
+    &--city {
+      color: v.$color-white;
+      font-size: 2rem;
+      margin: 1rem 0;
+
+      @include m.responsive(phone){
+        color:white
+      }
+    }
     &--desc {
-      color: v.$color-primary-darker;
+      color: v.$color-white;
       font-size: 1.4rem;
       margin-bottom: 1rem;
       font-weight: 600;
+
+      @include m.responsive(phone){
+        color:white
+      }
     }
 
     &--room {
-      color: v.$color-primary-darker;
+      color: v.$color-white;
       font-size: 1.4rem;
       font-weight: 900;
+
+      @include m.responsive(phone){
+        color:white
+      }
     }
   }
-
   &__footer {
     margin-bottom: 3rem;
   }

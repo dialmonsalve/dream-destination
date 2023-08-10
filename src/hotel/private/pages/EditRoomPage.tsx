@@ -32,13 +32,13 @@ function EditRoomPage() {
 
     !existRoomInHotel ? <NotFoundPage /> :
 
-    <div className='create-room'>
+    <>
       <div className='create-room__container' >
-        <h1 className='create-room__container--title' >Edit room</h1>
-        <PrivateResumeHotelView classBase='create-room--info' id={Number(hotelId)!} city={hotel.city} name={hotel.name} isInfo={true} isCreating={false} />
+        <h1 className='private-container__title' >Edit room</h1>
+        <PrivateResumeHotelView classBase='create-edit-room__container--info' id={Number(hotelId)!} city={hotel.city} name={hotel.name} isInfo={true} isCreating={false} />
       </div>
 
-    </div>
+    </>
   )
 }
 

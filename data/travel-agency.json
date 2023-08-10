@@ -2,7 +2,7 @@
   "hotels": [
     {
       "id": 2,
-      "name": "tres",
+      "name": "Hotel A",
       "city": "Medellin",
       "description": "Abeauty hotel",
       "active": false,
@@ -43,13 +43,14 @@
         {
           "id": 53
         }
-      ]
+      ],
+      "hotelId": "2"
     },
     {
       "id": 3,
-      "name": "Hotel A",
-      "city": "Medellin",
-      "description": "string",
+      "name": "Hotel B",
+      "city": "Bogotá",
+      "description": "No description",
       "active": false,
       "rooms": [
         {
@@ -62,9 +63,9 @@
     },
     {
       "id": 4,
-      "name": "Hotel D",
-      "city": "Medellin",
-      "description": "string",
+      "name": "Hotel C",
+      "city": "Pasto",
+      "description": "Nice hotel",
       "active": true,
       "rooms": [
         {
@@ -92,9 +93,9 @@
     },
     {
       "id": 5,
-      "name": "Hotel A",
-      "city": "Medellin",
-      "description": "string",
+      "name": "Hotel D",
+      "city": "Bucaramanga",
+      "description": "A kind hotel",
       "active": true,
       "rooms": [
         {
@@ -109,7 +110,7 @@
       ]
     },
     {
-      "name": "Diego",
+      "name": "Hotel E",
       "city": "Panamá",
       "description": "",
       "active": true,
@@ -142,8 +143,8 @@
       "id": 36
     },
     {
-      "name": "Diego",
-      "city": "Panamá",
+      "name": "Hotel F",
+      "city": "Buenos Aires",
       "description": "Un lujoso hotel en la ciudad B",
       "active": true,
       "rooms": [
@@ -154,23 +155,23 @@
       "id": 61
     },
     {
-      "name": "Laptop Diamond M2",
-      "city": "Panamá",
+      "name": "Hotel G",
+      "city": "Curitiba",
       "description": "A Beauty hotel",
       "active": false,
       "rooms": [],
       "id": 62
     },
     {
-      "name": "Laptop Diamond M2",
-      "city": "Panamá",
+      "name": "Hotel H",
+      "city": "Punta cana",
       "description": "",
       "active": true,
       "rooms": [],
       "id": 63
     },
     {
-      "name": "Pepito",
+      "name": "Hotel I",
       "city": "Huantanamo",
       "description": "",
       "active": true,
@@ -178,7 +179,7 @@
       "id": 64
     },
     {
-      "name": "Laptop Diamond M2",
+      "name": "Hotel J",
       "city": "Panamá",
       "description": "Un lujoso hotel en la ciudad B",
       "active": true,
@@ -186,7 +187,7 @@
       "id": 65
     },
     {
-      "name": "Alejandro",
+      "name": "Hotel K",
       "city": "Ciudad B",
       "description": "A nice hotel in Medellin city",
       "active": true,
@@ -194,12 +195,40 @@
       "id": 66
     },
     {
-      "name": "Diego",
+      "name": "Hotel L",
       "city": "sdd",
       "description": "",
-      "active": false,
+      "active": true,
       "rooms": [],
       "id": 67
+    },
+    {
+      "name": "Hotel M",
+      "city": "Ciudad M",
+      "description": "",
+      "active": true,
+      "rooms": [
+        {
+          "id": 54
+        }
+      ],
+      "id": 68
+    },
+    {
+      "name": "Hotel M",
+      "city": "Ciudad B",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 69
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Medellin",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 70
     }
   ],
   "reservas": [],
@@ -500,7 +529,7 @@
       "taxes": 2,
       "description": "",
       "id": 23,
-      "isActive": true,
+      "isActive": false,
       "initialDate": 1702477440000,
       "finalDate": 1702944000000
     },
@@ -512,7 +541,7 @@
       "taxes": 3,
       "description": "",
       "id": 24,
-      "isActive": true,
+      "isActive": false,
       "initialDate": 0,
       "finalDate": 0
     },
@@ -524,7 +553,7 @@
       "taxes": 2,
       "description": "",
       "id": 26,
-      "isActive": true,
+      "isActive": false,
       "initialDate": 0,
       "finalDate": 0
     },
@@ -559,7 +588,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "",
-      "isActive": false,
+      "isActive": true,
       "id": 29,
       "initialDate": 0,
       "finalDate": 0
@@ -571,7 +600,7 @@
       "roomType": "SINGLE",
       "taxes": 1,
       "description": "A beautifull place",
-      "isActive": true,
+      "isActive": false,
       "id": 30,
       "initialDate": 0,
       "finalDate": 0
@@ -595,7 +624,7 @@
       "roomType": "SINGLE",
       "taxes": 65,
       "description": "Uhadiufjn adjhiue uidfh ñiauhndf  adnfñlkdamn kldsfokd jfoadsjfoi asdjoia ",
-      "isActive": false,
+      "isActive": true,
       "id": 32,
       "initialDate": 0,
       "finalDate": 0
@@ -607,7 +636,7 @@
       "roomType": "asda",
       "taxes": 50,
       "description": "20",
-      "isActive": true,
+      "isActive": false,
       "id": 33,
       "initialDate": 0,
       "finalDate": 0
@@ -851,6 +880,18 @@
       "initialDate": 0,
       "finalDate": 0,
       "id": 53
+    },
+    {
+      "basisCost": 1,
+      "capacity": 1,
+      "numberRoom": "A523",
+      "roomType": "single",
+      "taxes": 1,
+      "description": "",
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0,
+      "id": 54
     }
   ]
 }

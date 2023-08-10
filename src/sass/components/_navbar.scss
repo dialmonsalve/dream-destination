@@ -7,9 +7,8 @@
   background-color: v.$color-primary-darker;
 
   @include m.responsive(phone) {
-    border-bottom: 1px solid v.$color-white;
+    padding: 2rem 1rem;
   }
-
 
   &__nav {
     @include m.navbar();

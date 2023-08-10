@@ -1,36 +1,6 @@
 @use '../abstract/variables' as v;
 @use '../abstract/mixins' as m;
 
-.detail-hotel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  height: 78.6vh;
-  overflow: auto;
-
-  @include m.responsive(tab-port) {
-    margin-left: 4rem;
-    max-height: 69.6vh;
-    align-items: flex-start;
-  }
-
-  @include m.responsive(phone) {
-    margin-left: 3rem;
-    max-height: 44.8rem;
-  }
-
-  &__title {
-    @include m.title-pages( v.$color-primary-darker);
-
-    @include m.responsive(phone) {
-      align-self: center;
-    }
-  }
-
-  &__table {
-    margin: 2rem 0;
-    border-spacing: 0;
-    border: 1px solid black;
-  }
+.private-detail {
+  @include m.hotels-detail-page();
 }

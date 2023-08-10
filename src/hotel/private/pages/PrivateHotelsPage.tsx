@@ -25,13 +25,11 @@ export const PrivateHotelsPage = () => {
     toggleActiveHotel(id, active).then().catch(error => console.log(error))
   }
 
-
-
   return (
     isLoading === 'loading' ? <Spinner type='long-play' /> :
 
-      <div className='private-hotels'>
-        <h1 className='private-hotels__title' >Hotels</h1>
+      <>
+        <h1 className="private-container__title" >Hotels</h1>
         <div>
           <Button
             label='create'
@@ -99,6 +97,6 @@ export const PrivateHotelsPage = () => {
 
           </table>
         </div>
-      </div>
+      </>
   )
 }

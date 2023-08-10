@@ -2,9 +2,11 @@ interface InitialForm {
   [key: string]: string | number;
 }
 
-interface Reservation extends InitialForm {
-  reservationNumber: string;
-  client: number;
+export interface Reservation extends InitialForm {
+  reservationNumber?: string;
+  name: string;
+  lastName: string;
+  email: string;
   phone: string;
   hotelCity: string;
   hotelName: string;
@@ -12,7 +14,7 @@ interface Reservation extends InitialForm {
   initialDate: number;
   finalDate: number;
   totalDays: number;
-  contactEmergency: string;
+  emergencyContact: string;
   emergencyPhone: string
-  status: 'active' | 'cancel' | 'suspended' | 'finished'
+  status?: 'active' | 'cancel' | 'suspended' | 'finished'
 }

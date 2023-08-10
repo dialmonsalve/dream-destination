@@ -1,5 +1,5 @@
 interface ButtonProps {
-  backgroundColor?: 'blue' | 'red' | 'green' | 'primary-dark';
+  backgroundColor?: 'blue' | 'red' | 'green' | 'primary' | 'primary-dark';
   hasBackground?: boolean;
   isAnimated?: boolean;
   label: string;
@@ -7,7 +7,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   type?: 'button' | 'submit';
   color?: string
-  disabled?:boolean
+  disabled?: boolean
   onClick?: () => void;
 }
 
@@ -27,7 +27,7 @@ export const Button = ({
   const bg = `btn--${hasBackground ? backgroundColor : `outlined-${backgroundColor}`}`;
   const animated = isAnimated ? 'btn--animated' : '';
 
-  const isDisabled = disabled ? 'disabled': ''
+  const isDisabled = disabled ? 'disabled' : ''
 
   return (
     <button

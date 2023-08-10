@@ -25,7 +25,7 @@ function EditHotelPage() {
       then()
       .catch((error) => setError(true))
   }, [hotelId, getHotel]);
-  
+
   const handleCreateRoom = () => {
     if (hotelId === undefined) return;
     navigate(`/api/hotel/${hotelId}/rooms/create`)
@@ -33,7 +33,7 @@ function EditHotelPage() {
   }
 
   const formProps = {
-    id:hotelId,
+    id: hotelId,
     city: formState.city,
     description: formState.description,
     name: formState.name,
@@ -48,22 +48,21 @@ function EditHotelPage() {
     isLoading === 'loading' ? <Spinner type='long-play' /> :
 
       error ? <NotFoundPage /> :
-        <div className='create-hotel'>
-          <div className='create-hotel__container' >
-            <h1 className='create-hotel__container--title'>Edit Hotel</h1>
+        <div className='create-hotel__container'>
+          <h1 className="private-container__title">Edit Hotel</h1>
 
-            <CreateOrEditHotelForm
-              isCreate={false}
-              formProps={formProps}
-              formState={formState}
-            />
-            <Button
-              label='create rooms'
-              backgroundColor='blue'
-              onClick={handleCreateRoom}
-              margin='0 0 0 2rem'
-            />
-          </div>
+          <CreateOrEditHotelForm
+            isCreate={false}
+            formProps={formProps}
+            formState={formState}
+          />
+          <Button
+            label='create rooms'
+            backgroundColor='green'
+            onClick={handleCreateRoom}
+            margin='0 0 0 2rem'
+            size='small'
+          />
         </div>
   )
 }

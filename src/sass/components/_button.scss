@@ -49,6 +49,10 @@
     @include m.btnColor(v.$color-primary-darker);
   }
 
+  &--primary {
+    @include m.btnColor(v.$color-primary);
+  }
+
   &--outlined-blue {
     @include m.outlined(v.$color-blue);
   }
@@ -63,6 +67,10 @@
 
   &--outlined-primary-dark {
     @include m.outlined(v.$color-primary-darker);
+  }
+
+  &--outlined-primary {
+    @include m.outlined(v.$color-primary);
   }
 
   &--small {

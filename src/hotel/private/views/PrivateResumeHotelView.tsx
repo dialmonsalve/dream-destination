@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../../../ui';
@@ -19,7 +19,7 @@ export const PrivateResumeHotelView = ({ id, name, city, classBase,isCreating, i
   const navigate = useNavigate();
 
   const handleCreateRoom = () => {
-    navigate(`/api/hotel/${id}/rooms/create`)
+    navigate(`/api/hotel/${id}/room/create`)
   }
 
   return (

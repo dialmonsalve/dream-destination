@@ -70,7 +70,7 @@ function RegisterPage() {
 
   return (
 
-    <div className='create-account'>
+    <>
       <div className='create-account__container' >
         <h1 className='create-account__container--title'>Create account and make your reservations</h1>
         <form className='create-account__container--form' onSubmit={handleSubmit}>
@@ -233,7 +233,7 @@ function RegisterPage() {
           />
         </form>
       </div>
-    </div>
+    </>
   )
 }
 

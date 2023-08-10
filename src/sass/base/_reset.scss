@@ -31,46 +31,93 @@ html {
 
 body {
 	box-sizing: border-box;
-	background-color:rgba(131, 127, 127, 0.587);
 	overflow: auto;
-
 	margin: 0;
 	font-family: v.$font-family;
-  
+
 }
 
 .container {
+	background-color: rgba(131, 127, 127, 0.587);
 	display: flex;
 	flex-direction: column;
-	// overflow: hidden;
+	align-items: center;
+	padding: 4rem 0;
+
+	@include m.responsive(tab-port) {
+		padding: 4rem 8rem;
+	}
+	@include m.responsive(phone) {
+		background-color: v.$color-primary-darker;
+		padding: 4rem;
+	}
+}
+
+.private-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+	height: 86.8vh;
+	padding: 2rem 0;
+
+	@include m.responsive(tab-land) {
+		max-height: 78.2vh;
+	}
+
+	@include m.responsive(tab-port) {
+		max-height: 69.4vh;
+	}
+
+	@include m.responsive(phone) {
+		background-color: v.$color-primary-darker;
+		max-height: 63.2vh;
+	}
+
+	&__title {
+		@include m.title-pages(v.$color-primary-darker);
+		text-align: center;
+
+		@include m.responsive(phone) {
+			color: white;
+		}
+	}
+
+	&__subtitle {
+		color:v.$color-primary-darker;
+		margin-bottom: 2rem;
+		@include m.responsive(phone) {
+			color: white;
+		}
+	}
 }
 
 
 ::-webkit-scrollbar {
-  width: 15px;
+	width: 15px;
 
-  @include m.responsive(phone) {
-    width: 5px;
+	@include m.responsive(phone) {
+		width: 5px;
 		height: 5px;
-  }
+	}
 }
 
 ::-webkit-scrollbar-track {
-  background-color: white;
+	background-color: white;
 
 	@include m.responsive(phone) {
 		border-radius: 5px;
-  }
+	}
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: v.$color-primary-dark;
+	background-color: v.$color-primary-dark;
 
 	@include m.responsive(phone) {
 		border-radius: 5px;
-  }
+	}
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: v.$color-primary-darker;
+	background-color: v.$color-primary-darker;
 }

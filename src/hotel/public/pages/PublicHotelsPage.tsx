@@ -5,14 +5,13 @@ import { Button, FormControl } from '../../../ui';
 
 export const PublicHotelsPage = () => {
   return (
-    <div className='content-client'>
-      <div className='content-client__background'>
-        <h1 className='content-client__background--title' >Find your hotel</h1>
+    <>
+      <div className='container__hotel__background'>
+        <h1 className='container__hotel__background--title' >Find your hotel</h1>
 
-        <form className='content-client__background--form' action=''>
-      
+        <form className='container__hotel__background--form' action=''>      
             <FormControl
-              label='Which is your destination?'
+              label='Which is your destiny?'
               type='text'
               name='destiny'
             />
@@ -31,8 +30,6 @@ export const PublicHotelsPage = () => {
               type='number'
               name='rooms'
             />
-
-
           <Button
             label='search'
             size='medium'
@@ -45,11 +42,10 @@ export const PublicHotelsPage = () => {
 
       <div className='client-hotels' >
         <h2 className='client-hotels__title' >Hotels</h2>
-        <div className='client-hotels__cards' >
+        <div>
           <PublicHotelCard />
-
         </div>
       </div>
-    </div>
+    </>
   )
 }

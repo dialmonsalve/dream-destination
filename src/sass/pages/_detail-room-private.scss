@@ -36,7 +36,6 @@
 
     @include m.responsive(phone){
       margin-left: 4rem;
-      box-shadow:none;
     }
     
     &--labels {

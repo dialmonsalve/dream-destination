@@ -1,7 +1,7 @@
 @use '../abstract/variables' as v;
 @use '../abstract/mixins' as m;
 
-.public-reservation {
+.container__reservation {
   padding: 2rem 3rem;
 
   &__title {

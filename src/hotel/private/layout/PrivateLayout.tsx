@@ -20,7 +20,9 @@ export const PrivateLayout = () => {
           linkClassName='header__user--nav-link'
         />
       </Header>
-      <Outlet />
+      <main className='private-container'>
+        <Outlet />
+      </main>
     </>
 
   )

@@ -1,137 +1,77 @@
 @use '../abstract/variables' as v;
 @use '../abstract/mixins' as m;
 
-.create-room {
-  display: flex;
-  overflow: auto;
-  height: 81.5vh;
-  padding: 2rem;
-
-  @include m.responsive(tab-land) {
-    max-height: 78.5vh;
-  }
-
-  @include m.responsive(tab-port) {
-    max-height: 69.3vh;
-  }
-
-  @include m.responsive(phone) {
-    background-color: v.$color-primary-darker;
-    max-height: 63.3vh;
-    padding: 0rem;
-  }
-
+.create-edit-room {
   &__container {
-    margin: 3rem auto;
-    width: 50.4vw;
-    
 
-    @include m.responsive(tab-land) {
-      min-width: 62vw;
-    }
-
-    @include m.responsive(phone) {
-      min-width: 80vw;
-    }
-
-    &--title {
-      text-align: center;
-
-      @include m.title-pages(v.$color-white);
+    &--info {
+      @include m.form();
 
       @include m.responsive(tab-land) {
-        margin-left: 4rem;
-      }
-
-    }
-  }
-
-  &--info {
-    @include m.form();
-    max-width: 60vw;
-
-    @include m.responsive(tab-land) {
-      max-width: 75vw;
-      box-shadow: none;
-    }
-
-    @include m.responsive(phone) {
-      max-width: 80vw;
-      box-shadow: none;
-    }
-
-    &--title,
-    &--subtitle,
-    &--content {
-      color: white;
-      margin-bottom: 1.5rem;
-      font-weight: 100;
-    }
-
-    &--title {
-      font-size: v.$font-size + 2rem;
-    }
-
-    &--subtitle {
-      font-size: v.$font-size + 0.5rem;
-    }
-
-    &--content {
-      font-size: v.$font-size + 1rem;
-
-      span {
-        color: v.$color-primary;
-      }
-    }
-
-    &--title {
-      text-align: center;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: v.$color-primary-darker;
-      text-transform: uppercase;
-
-      @include m.responsive(tab-land) {
-        margin-left: 4rem;
+        // max-width: 75vw;
       }
 
       @include m.responsive(phone) {
-        color: v.$color-white;
-        margin-bottom: 0;
+        // max-width: 80vw;
+        // height: 48vh;
+      }
+
+      &--title,
+      &--subtitle,
+      &--content {
+        color: white;
+        margin-bottom: 1.5rem;
+        font-weight: 100;
+      }
+
+      &--title {
+        font-size: v.$font-size + 2rem;
+      }
+
+      &--subtitle {
+        font-size: v.$font-size + 0.5rem;
+      }
+
+      &--content {
+        font-size: v.$font-size + 1rem;
+
+        span {
+          color: v.$color-primary;
+        }
       }
     }
   }
 }
 
-.hotel-info {
-  @include m.form();
-  margin: 2rem auto;
-  padding: 4rem;
-  border-radius: 1rem;
-  overflow: auto;
-  max-height: 50vh;
+// .hotel-info {
+//   @include m.form();
+//   margin: 2rem auto;
+//   padding: 4rem;
+//   border-radius: 1rem;
+//   overflow: auto;
+//   max-height: 50vh;
 
-  &--title,
-  &--subtitle,
-  &--content {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-weight: 100;
-  }
+//   &--title,
+//   &--subtitle,
+//   &--content {
+//     color: white;
+//     margin-bottom: 1.5rem;
+//     font-weight: 100;
+//   }
 
-  &--title {
-    font-size: v.$font-size + 2rem;
-  }
+//   &--title {
+//     font-size: v.$font-size + 2rem;
+//   }
 
-  &--subtitle {
-    font-size: v.$font-size + 0.5rem;
-  }
+//   &--subtitle {
+//     font-size: v.$font-size + 0.5rem;
+//   }
 
-  &--content {
-    font-size: v.$font-size + 1rem;
+//   &--content {
+//     font-size: v.$font-size + 1rem;
 
-    span {
-      color: v.$color-primary;
-    }
-  }
-}
+//     span {
+//       color: v.$color-primary;
+//     }
+//   }
+// }

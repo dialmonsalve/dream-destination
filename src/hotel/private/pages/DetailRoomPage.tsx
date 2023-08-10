@@ -92,8 +92,8 @@ function DetailRoomPage() {
             </div>
 
             <div className="detail-room__container--labels">
-              <label className="detail-room__container--labels-title">Enabled</label>
-              <label className="detail-room__container--labels-content" >{room.isActive ? 'enabled' : 'disabled'}</label>
+              <label className="detail-room__container--labels-title">Status</label>
+              <label className="detail-room__container--labels-content" >{room.isActive ? 'available ' : 'occupied '}</label>
             </div>
             <div className="detail-room__container--labels">
               <label className="detail-room__container--labels-title">Init date</label>

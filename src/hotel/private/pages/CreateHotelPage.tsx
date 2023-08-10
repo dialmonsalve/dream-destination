@@ -61,9 +61,9 @@ function CreateHotelPage() {
     ]);
   };
   return (
-    <div className='create-hotel'>
+    <>
       <div className='create-hotel__container' >
-        <h1 className='create-hotel__container--title'>Create Hotel</h1>
+      <h1 className='private-container__title' >Create Hotel</h1>
 
         <CreateOrEditHotelForm
           isCreate={true}
@@ -73,9 +73,7 @@ function CreateHotelPage() {
         />
         {components.map((component) => component)}
       </div>
-      
-
-    </div>
+    </>
   )
 }
 export default CreateHotelPage;

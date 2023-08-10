@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
 import { AnchorTag } from '../../../ui';
-import { Footer,  Navbar, Header } from '../components';
+import { Footer, Navbar, Header } from '../components';
 
 export const PublicLayout = () => {
-  
+
   return (
-    <div className=''>
+    <>
       <Header
         isClient={true}
       >
@@ -49,8 +49,12 @@ export const PublicLayout = () => {
       </Header>
 
       <Navbar />
-      <Outlet />
+
+      <main className='container' >
+        <Outlet />
+      </main>
+
       <Footer />
-    </div>
+    </>
   )
 }

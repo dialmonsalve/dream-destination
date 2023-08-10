@@ -1,4 +1,4 @@
-import {  FocusEvent  } from 'react';
+import { FocusEvent } from 'react';
 
 interface FormControlProps {
   label: string;
@@ -8,9 +8,10 @@ interface FormControlProps {
   defaultValue?: string | number | readonly string[] | undefined;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
   onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+  disabled?: boolean
 }
 
-export const FormControl = ({ label, type, name, value, defaultValue, onBlur, onChange }: FormControlProps) => {
+export const FormControl = ({ label, type, name, value, defaultValue, onBlur, onChange, disabled = false }: FormControlProps) => {
   const handleFocus = (e: FocusEvent<HTMLInputElement, Element>) => {
     e.target.style.borderBottom = `3px solid #6aff00`;
   };
@@ -27,6 +28,7 @@ export const FormControl = ({ label, type, name, value, defaultValue, onBlur, on
         value={value}
         defaultValue={defaultValue}
         onChange={onChange}
+        disabled={disabled}
       />
     </div>
   )
