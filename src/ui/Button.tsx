@@ -9,6 +9,7 @@ interface ButtonProps {
   color?: string
   disabled?: boolean
   onClick?: () => void;
+  width?:string;
 }
 
 export const Button = ({
@@ -21,6 +22,7 @@ export const Button = ({
   type = 'button',
   color,
   disabled,
+  width,
   ...props
 }: ButtonProps) => {
 
@@ -33,7 +35,7 @@ export const Button = ({
     <button
       type={type}
       className={`btn ${bg} btn--${size} ${animated} ${isDisabled}`}
-      style={{ margin, color }}
+      style={{ margin, color, width}}
       disabled={disabled}
       {...props}
     >

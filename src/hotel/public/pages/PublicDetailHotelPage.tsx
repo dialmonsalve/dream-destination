@@ -6,6 +6,8 @@ import { convertDate } from "../../../helpers/convertDate";
 import { CardDetailHotel } from "../../components/CardDetailHotel";
 
 
+
+
 interface CardProps {
   hotel: Hotel;
   handleClearState: () => void;
@@ -16,6 +18,7 @@ interface CardProps {
 export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState }: CardProps) => {
 
   const navigate = useNavigate();
+
 
   const handleBack = () => {
     navigate(-1)
@@ -30,7 +33,7 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
     navigate(`/hotel/${hotelId}/room/${id}`)
   }
 
-  const handleCreateReservation = (roomId:number) => {
+  const handleCreateReservation = (roomId: number) => {
     navigate(`/hotel/${hotelId}/room/${roomId}/reserve/create`)
   }
 
@@ -41,9 +44,8 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
         label='back'
         backgroundColor='red'
         onClick={handleBack}
-        margin="1.5rem 0 0 0"
+        margin="1.5rem 0"
       />
-
       {
         hotel.rooms?.length === 0 ? <h2 className='h2'>No rooms available</h2> :
 
@@ -77,7 +79,7 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
                             label='reserve'
                             size='small'
                             backgroundColor='primary-dark'
-                          onClick={() => handleCreateReservation(room.id!)}
+                            onClick={() => handleCreateReservation(room.id!)}
                           /></td>
                           <td><Button
                             label='detail'

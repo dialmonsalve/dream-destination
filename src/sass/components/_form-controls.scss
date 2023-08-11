@@ -61,3 +61,10 @@
     margin-left: 0;
   }
 }
+
+.input-disabled {
+  background-color:v.$color-primary-darker;
+  color: rgb(219, 209, 209);
+  border: 1px solid v.$color-primary;
+  outline: none;
+}

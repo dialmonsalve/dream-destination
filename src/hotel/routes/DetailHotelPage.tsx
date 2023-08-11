@@ -15,8 +15,8 @@ function DetailHotelPage({ isStaff }: HotelDetailPageProps) {
 
   const [error, setError] = useState(false);
   const { hotelId } = useParams();
-  const { hotel, isLoading, getHotel, handleClearState } = useHotel();
-  const { rooms } = useRoom();
+  const { hotel,  getHotel, handleClearState } = useHotel();
+  const { rooms, isLoading } = useRoom();
 
   useEffect(() => {
     if (hotelId === undefined) return;

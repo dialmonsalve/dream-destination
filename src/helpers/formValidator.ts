@@ -6,7 +6,6 @@ export const formValidator = (): ValidatorReturn => {
   function getErrors<T extends InitialForm>(formState: T, objValidations: ValidationSchema) {
     let formCheckedValues = {} as ErrorMessage<T>;
 
-
     for (const fieldRules of Object.keys(objValidations)) {
 
       if (Object.prototype.hasOwnProperty.call(formState, fieldRules)) {
@@ -14,7 +13,7 @@ export const formValidator = (): ValidatorReturn => {
         const fieldValidator = objValidations[fieldRules];
 
         if (fieldRules in formState) {
-          const fieldValue = fieldValidator.validate(formState[fieldRules] as string);
+          const fieldValue = fieldValidator.validate(formState[fieldRules] as string, formState);
 
           if (fieldValue.length) {
             formCheckedValues = {
@@ -36,7 +35,7 @@ export const formValidator = (): ValidatorReturn => {
     email(): typeof validator {
       const defaultMessage = 'It must be a valid Email'
       validator.rules.push({
-        test: (value: string) => {
+        test: (value) => {
           const emailRegex = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
           return emailRegex.test(value);
         },
@@ -44,30 +43,58 @@ export const formValidator = (): ValidatorReturn => {
       });
       return validator;
     },
+    greaterThanToday(message: string): typeof validator {
+      const ONE_DAY = 24 * 60 * 60 * 1000
+      validator.rules.push({
+        test: (value) => value && new Date(value).getTime() + ONE_DAY > Date.now(),
+        message,
+      })
+      return validator;
+    },
+    dateGreaterThan(field: string, message: string): typeof validator {
+
+      validator.rules.push({
+        test: (value, formState) => {
+          return value && new Date(value).getTime() >= new Date(formState[field]).getTime()
+        },
+        message,
+      })
+      return validator;
+    },
+    isValidPhone(): typeof validator {
+      validator.rules.push({
+        test: (value) => {
+          const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+          return phoneRegex.test(value);
+        },
+        message: 'It must be a valid Number phone',
+      });
+      return validator;
+    },
     max(length: number, message: string): typeof validator {
       validator.rules.push({
-        test: (value: string) => value && value.length <= length,
+        test: (value) => value && value.length <= length,
         message,
       });
       return validator;
     },
     min(length: number, message: string): typeof validator {
       validator.rules.push({
-        test: (value: string) => value && value.length >= length,
+        test: (value) => value && value.length >= length,
         message,
       });
       return validator;
     },
     required(message: string): typeof validator {
       validator.rules.push({
-        test: (value: string) => typeof value === 'string' && value && value.trim().length > 0 || typeof value === 'number' && value && value > 0,
+        test: (value) => typeof value === 'string' && value && value.trim().length > 0 || typeof value === 'number' && value && value > 0,
         message,
       });
       return validator;
     },
     positiveNumber(message: string): typeof validator {
       validator.rules.push({
-        test: (value: string) => {
+        test: (value) => {
           const numberValue = parseFloat(value);
           return !isNaN(numberValue) && numberValue > 0;
         },
@@ -78,7 +105,7 @@ export const formValidator = (): ValidatorReturn => {
     string(): typeof validator {
       const defaultMessage = 'Field must be a string';
       validator.rules.push({
-        test: (value: string) => typeof value === 'string',
+        test: (value) => typeof value === 'string',
         message: defaultMessage,
       });
       return validator;
@@ -87,7 +114,7 @@ export const formValidator = (): ValidatorReturn => {
       const defaultMessage = 'Field must be a number';
       const numberRegex = /^\d+$/;
       validator.rules.push({
-        test: (value: string) => numberRegex.test(value),
+        test: (value) => numberRegex.test(value),
         message: defaultMessage,
       });
       return validator;
@@ -95,18 +122,18 @@ export const formValidator = (): ValidatorReturn => {
     password(regex: string, message: string): typeof validator {
       const regExpObject = new RegExp(regex)
       validator.rules.push({
-        test: (value: string) => {
+        test: (value) => {
           return regExpObject.test(value);
         },
         message,
       });
       return validator;
     },
-    validate(value: string): string[] {
+    validate(value: string, formState: InitialForm): string[] {
       const errors = [];
 
       for (const rule of validator.rules) {
-        if (!rule.test(value)) {
+        if (!rule.test(value, formState)) {
           errors.push(rule.message);
         }
       }
@@ -115,6 +142,9 @@ export const formValidator = (): ValidatorReturn => {
   };
   return {
     email: validator.email.bind(validator),
+    dateGreaterThan: validator.dateGreaterThan.bind(validator),
+    greaterThanToday: validator.greaterThanToday.bind(validator),
+    isValidPhone: validator.isValidPhone.bind(validator),
     max: validator.max.bind(validator),
     min: validator.min.bind(validator),
     number: validator.number.bind(validator),

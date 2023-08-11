@@ -541,7 +541,7 @@
       "taxes": 3,
       "description": "",
       "id": 24,
-      "isActive": false,
+      "isActive": true,
       "initialDate": 0,
       "finalDate": 0
     },
@@ -564,7 +564,7 @@
       "roomType": "SINGLE",
       "taxes": 3,
       "description": "",
-      "isActive": true,
+      "isActive": false,
       "id": 27,
       "initialDate": 0,
       "finalDate": 0

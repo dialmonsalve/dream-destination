@@ -9,8 +9,11 @@ export type ErrorMessage<T extends InitialForm> = { [K in keyof T]: string[] };
 
 export interface Validator {
   rules: ValidationRule[];
-  validate(value: string): string[];
+  validate(value: string , formsState: InitialForm): string[];
+  dateGreaterThan<T extends InitialForm>(field: keyof T, message: string): Validator;
   email(): Validator;
+  greaterThanToday(message: string): Validator;
+  isValidPhone():Validator
   max(length: number, message: string): Validator;
   min(length: number, message: string): Validator;
   number(): Validator;
@@ -21,7 +24,7 @@ export interface Validator {
 }
 
 export interface ValidationRule {
-  test: (value: string ) => boolean | string;
+  test: (value: string, formsState: InitialForm) => boolean | string;
   message: string;
 }
 

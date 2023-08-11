@@ -18,9 +18,9 @@ export const FormControl = ({ label, type, name, value, defaultValue, onBlur, on
 
   return (
     <div className='form-control'>
-      <label className='form-control--label' htmlFor=''>{label}</label>
+      <label className={`form-control--label`}>{label}</label>
       <input
-        className='form-control--input'
+        className={`form-control--input ${disabled ? 'input-disabled': ''}`}
         type={type}
         name={name}
         onFocus={handleFocus}
