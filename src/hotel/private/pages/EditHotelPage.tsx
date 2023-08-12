@@ -28,7 +28,7 @@ function EditHotelPage() {
 
   const handleCreateRoom = () => {
     if (hotelId === undefined) return;
-    navigate(`/api/hotel/${hotelId}/rooms/create`)
+    navigate(`/api/hotel/${hotelId}/room/create`)
     handleClearState();
   }
 

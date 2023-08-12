@@ -11,3 +11,15 @@
     width: 35rem;
   }
 }
+
+.totalPaid {
+  @include m.form();
+  color: v.$color-white;
+  margin-top: 1rem;
+  align-self: flex-end;
+  font-size: v.$font-size + 0.6rem;
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+  text-transform: uppercase;
+}

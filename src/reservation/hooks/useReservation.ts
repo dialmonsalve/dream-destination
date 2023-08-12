@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { HotelContext } from '../../../context/hotels';
+import { ReservationContext } from '../../context/reservations';
 
 
-export const useHotel = () => {
+export const useReservation = () => {
 
-  const context = useContext(HotelContext)
+  const context = useContext(ReservationContext)
   
   if(context === undefined) throw new Error('Context is not used inside the parent components')
 

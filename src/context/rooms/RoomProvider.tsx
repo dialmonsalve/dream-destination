@@ -1,7 +1,8 @@
 import { ReactNode, useCallback, useEffect, useReducer } from 'react';
 import { ROOM_INITIAL_STATE, RoomContext, roomReducer } from './';
 import { roomsApi } from '../../api/hotelsApi';
-import { Room } from '../../types';
+import { Reservation, Room } from '../../types';
+import { useReservation } from '../../reservation/hooks/useReservation';
 
 export interface Props {
   children: ReactNode;
@@ -11,6 +12,7 @@ export interface Props {
 export const RoomProvider = ({ children }: Props) => {
 
   const [state, dispatch] = useReducer(roomReducer, ROOM_INITIAL_STATE);
+  const { createReservation } = useReservation();
 
   useEffect(() => {
     getRooms().then(data => {
@@ -77,6 +79,31 @@ export const RoomProvider = ({ children }: Props) => {
 
   }
 
+  const updateRoomWithReservation = async (roomId: number, newReservation: Reservation) => {
+
+    try {
+      const createdReservation = await createReservation(newReservation);
+
+      const { initialDate, finalDate } = createdReservation;
+
+      const updatedRoom: Room = {
+        ...state.room,
+        initialDate,
+        finalDate,
+        statusRoom: 'occupied'
+      };
+
+      await roomsApi.patch(`/${roomId}`, updatedRoom);
+
+      dispatch({ type: 'room/updateRoom', payload: updatedRoom });
+
+
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
 
   return (
     <RoomContext.Provider value={{
@@ -85,7 +112,8 @@ export const RoomProvider = ({ children }: Props) => {
       getRoom,
       createRoom,
       updateRoom,
-      toggleActiveRoom
+      toggleActiveRoom,
+      updateRoomWithReservation
     }}>
       {children}
     </RoomContext.Provider>

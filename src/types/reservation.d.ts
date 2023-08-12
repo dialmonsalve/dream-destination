@@ -8,13 +8,15 @@ export interface Reservation extends InitialForm {
   lastName: string;
   email: string;
   phone: string;
-  hotelCity: string;
-  hotelName: string;
-  numberRoom: string;
-  initialDate:string | number;
-  finalDate:string | number;
+  hotelId: number;
+  roomId: number;
+  initialDate: string | number;
+  finalDate: string | number;
   totalDays?: number;
   emergencyContact: string;
   emergencyPhone: string
   status?: 'active' | 'cancel' | 'suspended' | 'finished'
+  price: number;
+  tax: number;
+  totalPaid: number
 }

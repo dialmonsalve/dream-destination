@@ -29,11 +29,10 @@
   &__form {
     @include m.form();
     margin-bottom: 1rem;
+    width: 32rem;
 
     @include m.responsive(phone) {
       @include m.form-columns-1();
-      
-      width: 32rem;
       padding: 0 1.5rem;
     }
   }

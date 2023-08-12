@@ -12,7 +12,7 @@ function DetailRoomPage() {
   const navigate = useNavigate()
   const { hotel, getHotel } = useHotel();
   const { isLoading, room, getRoom } = useRoom();
-
+  const existRoomInHotel = hotel.rooms?.some(room => room.id === Number(roomId));
 
   useEffect(() => {
     if (hotelId === undefined) return;
@@ -28,11 +28,11 @@ function DetailRoomPage() {
       .catch(error => setError(true))
   }, [roomId, getRoom]);
 
-  const handleBack = ()=>{
+  const handleBack = () => {
     navigate(-1)
   }
 
-  const handleEditRoom = () =>{
+  const handleEditRoom = () => {
     if (hotelId === undefined || roomId === undefined) {
       return <NotFoundPage />
     }
@@ -42,6 +42,8 @@ function DetailRoomPage() {
 
   return (
     isLoading === 'loading' ? <Spinner type='long-play' /> :
+
+    !existRoomInHotel ? <NotFoundPage /> :
 
       error ? <NotFoundPage /> :
         <div className="detail-room" >
@@ -105,17 +107,17 @@ function DetailRoomPage() {
               <label className="detail-room__container--labels-content" >03/01/2023</label>
             </div>
 
-          <Button
-            label="back"
-            margin="1rem 4rem"
-            backgroundColor="red"
-            onClick={handleBack}
-          />
-          <Button
-            label="edit room"
-            margin="1rem 4rem"
-            onClick={handleEditRoom}
-          />
+            <Button
+              label="back"
+              margin="1rem 4rem"
+              backgroundColor="red"
+              onClick={handleBack}
+            />
+            <Button
+              label="edit room"
+              margin="1rem 4rem"
+              onClick={handleEditRoom}
+            />
           </div>
         </div>
 

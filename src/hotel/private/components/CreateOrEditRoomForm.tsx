@@ -64,11 +64,12 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
           capacity: Number(capacity),
           numberRoom,
           roomType,
-          taxes: Number(taxes),
+          taxes:  parseFloat((taxes / 100).toFixed(2)),
           description,
           isActive: true,
           initialDate: 0,
           finalDate: 0,
+          statusRoom:'free',
         }
         try {
           updateHotelWithRoom(+hotelId, newRoom).then().catch(error => console.log(error));

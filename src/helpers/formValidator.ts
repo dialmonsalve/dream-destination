@@ -44,9 +44,11 @@ export const formValidator = (): ValidatorReturn => {
       return validator;
     },
     greaterThanToday(message: string): typeof validator {
-      const ONE_DAY = 24 * 60 * 60 * 1000
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+      const isToday = now.getTime();      
       validator.rules.push({
-        test: (value) => value && new Date(value).getTime() + ONE_DAY > Date.now(),
+        test: (value) => value && new Date(value).getTime()  > isToday,
         message,
       })
       return validator;

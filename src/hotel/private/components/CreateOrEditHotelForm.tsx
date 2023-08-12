@@ -135,7 +135,7 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
           type='submit'
         />
         <Button
-          margin='1rem 0'
+          margin='1rem 0.5rem'
           label='back'
           backgroundColor='red'
           onClick={handleBack}
