@@ -28,7 +28,7 @@ function EditHotelPage() {
 
   const handleCreateRoom = () => {
     if (hotelId === undefined) return;
-    navigate(`/api/hotel/${hotelId}/room/create`)
+    navigate(`/api/hotels/${hotelId}/rooms/create`)
     handleClearState();
   }
 
@@ -44,8 +44,11 @@ function EditHotelPage() {
     areFieldsValid
   }
 
+  if(isLoading === 'loading'){
+    return <Spinner type='half-circle' />
+  }
+
   return (
-    isLoading === 'loading' ? <Spinner type='long-play' /> :
 
       error ? <NotFoundPage /> :
         <div className='create-hotel__container'>

@@ -1,14 +1,16 @@
 @forward '../abstract/animations';
 
 .container-spinner {
-  position: relative;
+  position: absolute;
   left: 50%;
+  top:50%;
+
 
   &__needle {
     background-position: center center;
     background-repeat: no-repeat;
     padding: 2rem;
-    position: absolute;
+    position: relative;
     background-image: url('/animations/spinner-frame.svg');
     background-size: 1rem;
     left: 2.5%;
@@ -19,10 +21,9 @@
     background-repeat: no-repeat;
     padding: 3.1rem;
     background-size: 6rem;
-    position: absolute;
+    position: relative;
     top: 1.1rem;
     animation: spin 1.5s linear infinite 0.5s;
-
   }
 
   &__half-spinner {
@@ -30,7 +31,7 @@
     background-repeat: no-repeat;
     padding: 2.5rem;
     background-size: 5rem;
-    position: absolute;
+    position: relative;
     top: 1.8rem;
     animation: left-right .8s linear infinite 0.5s;
   }

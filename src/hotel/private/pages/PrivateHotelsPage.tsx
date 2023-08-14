@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useHotel } from '../hooks/useHotel';
 import { Button, Spinner } from '../../../ui';
+import { TableContent, Table, Td } from '../../../ui/Table';
 
 export const PrivateHotelsPage = () => {
 
@@ -10,25 +11,28 @@ export const PrivateHotelsPage = () => {
   const { hotels, isLoading, toggleActiveHotel } = useHotel()
 
   const handleCreateHotel = () => {
-    navigate('/api/hotel/create')
+    navigate('/api/hotels/create')
   }
 
   const handleEditHotel = (id: number) => {
-    navigate(`/api/hotel/edit/${id}`)
+    navigate(`/api/hotels/edit/${id}`)
   }
 
   const handleDetailHotel = (id: number) => {
-    navigate(`/api/hotel/${id}`)
+    navigate(`/api/hotels/${id}`)
   }
 
   const handleDeleteHotel = (id: number, active: boolean) => {
     toggleActiveHotel(id, active).then().catch(error => console.log(error))
   }
 
-  return (
-    isLoading === 'loading' ? <Spinner type='long-play' /> :
+  if(isLoading === 'loading'){
+    return <Spinner type='half-circle' />
+  }
 
-      <>
+
+  return (
+    <>
         <h1 className="private-container__title" >Hotels</h1>
         <div>
           <Button
@@ -39,64 +43,58 @@ export const PrivateHotelsPage = () => {
             onClick={handleCreateHotel}
           />
         </div>
-        <div className='private-hotels__container-table' >
-          <table className='private-hotels__container-table--table' >
 
-            <thead>
-              <tr>
-                <th>name</th>
-                <th>city</th>
-                <th>total rooms</th>
-                <th colSpan={3} >Actions</th>
-                <th>status</th>
-              </tr>
-            </thead>
-            <tbody>
+        <Table>
+          <TableContent type='header' columns={`repeat(3, 1fr) 3fr 1fr`}>
+            <Td >name</Td>
+            <Td >city</Td>
+            <Td >total rooms</Td>
+            <Td >Actions</Td>
+            <Td >status</Td>
+          </TableContent>
+          {
+            hotels.map(hotel => (
+              <TableContent type='row' key={hotel.id} columns={`repeat(7, 1fr)`} >
+                <Td >{hotel.name}</Td>
+                <Td >{hotel.city}</Td>
+                <Td >{hotel.rooms?.length.toString()}</Td>
 
-              {
-                hotels.map(hotel => (
+                <Td > <Button
+                  backgroundColor='blue'
+                  size='toTable'
+                  label='edit'
+                  onClick={() => handleEditHotel(hotel.id!)}
 
-                  <tr key={hotel.id} >
-                    <td>{hotel.name}</td>
-                    <td>{hotel.city}</td>
-                    <td>{hotel.rooms?.length}</td>
-                    <td><Button
-                      backgroundColor='blue'
-                      size='small'
-                      label='edit'
-                      onClick={() => handleEditHotel(hotel.id!)}
-                    /></td>
-                    <td><Button
-                      backgroundColor='green'
-                      size='small'
-                      label='detail'
-                      onClick={() => handleDetailHotel(hotel.id!)}
-                    /></td>
-                    {
-                      hotel.active ?
-                        <td><Button
-                          backgroundColor='red'
-                          size='small'
-                          label='delete'
-                          onClick={() => handleDeleteHotel(hotel.id!, false)}
-                        /></td>
-                        :
-                        <td>
-                          <Button
-                            backgroundColor='primary-dark'
-                            size='small'
-                            label='activate'
-                            onClick={() => handleDeleteHotel(hotel.id!, true)}
-                          /></td>
-                    }
-                    <td>{hotel.active ? 'active' : 'inactive'}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
+                /></Td>
+                <Td ><Button
+                  backgroundColor='green'
+                  size='toTable'
+                  label='detail'
+                  onClick={() => handleDetailHotel(hotel.id!)}
 
-          </table>
-        </div>
+                /></Td>
+                {
+                  hotel.active ?
+                    <Td > <Button
+                      backgroundColor='red'
+                      size='toTable'
+                      label='delete'
+                      onClick={() => handleDeleteHotel(hotel.id!, false)}
+
+                    /></Td>
+                    :
+                    <Td > <Button
+                      backgroundColor='primary-dark'
+                      size='toTable'
+                      label='activate'
+                      onClick={() => handleDeleteHotel(hotel.id!, true)}
+
+                    /></Td>
+                }
+                <Td >{hotel.active ? 'active' : 'inactive'}</Td>
+              </TableContent>
+            ))}
+        </Table>
       </>
   )
 }

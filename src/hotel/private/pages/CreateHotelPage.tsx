@@ -60,6 +60,11 @@ function CreateHotelPage() {
 
     ]);
   };
+
+  if(isLoading === 'loading'){
+    return <Spinner type='half-circle' />
+  }
+
   return (
     <>
       <div className='create-hotel__container' >

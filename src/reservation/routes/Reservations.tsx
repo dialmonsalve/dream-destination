@@ -1,4 +1,4 @@
-import { PrivateSummaryReservation } from '../private/views/PrivateSummaryReservation';
+import { PrivateSummaryReservation } from '../private/page/PrivateSummaryReservation';
 import { PublicSummaryReservation } from '../public/views/PublicSummaryReservation';
 
 

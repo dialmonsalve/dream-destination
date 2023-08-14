@@ -1,7 +1,7 @@
 
 const ExamplePage = () => {
   return (
-    <div>PAGE EXAMPLE</div>
+    <h1 className="container__title" >PAGE EXAMPLE</h1>
   )
 }
 

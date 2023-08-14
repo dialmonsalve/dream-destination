@@ -205,26 +205,3 @@
     color: $color-phone;
   }
 }
-
-//! Pages
-@mixin hotels-detail-page() {
-
-  &__container-table {
-    border: 1px solid black;
-    overflow: auto;
-    max-height: 60vh;
-    margin-left: 4rem;
-    background-color: v.$color-white;
-    margin-bottom: 1rem;
-
-    @include responsive(phone) {
-      width: 90%;
-    }
-    
-    &--table {
-      border-spacing: 0;
-      border: 1px solid v.$color-white;
-      background-color: v.$color-white;
-    }
-  }
-}

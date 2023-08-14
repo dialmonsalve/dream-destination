@@ -32,12 +32,162 @@
       "rooms": [
         {
           "id": 1
+        },
+        {
+          "id": 4
         }
       ],
-      "id": 1
+      "id": 1,
+      "hotelId": "1"
+    },
+    {
+      "name": "Diego",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 2
+    },
+    {
+      "name": "Hotel C",
+      "city": "City c",
+      "description": "",
+      "active": true,
+      "rooms": [
+        {
+          "id": 2
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Hotel D",
+      "city": "City B",
+      "description": "",
+      "active": true,
+      "rooms": [
+        {
+          "id": 3
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 5
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Medellin",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 6
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 7
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Ciudad B",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 8
+    },
+    {
+      "name": "Diego",
+      "city": "Ciudad B",
+      "description": "",
+      "active": false,
+      "rooms": [],
+      "id": 9
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 10
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 11
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 12
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 13
+    },
+    {
+      "name": "Laptop Diamond M2",
+      "city": "Panamá",
+      "description": "",
+      "active": true,
+      "rooms": [],
+      "id": 14
     }
   ],
   "reservation": [
+    {
+      "clientName": "client",
+      "lastName": "Peterson",
+      "email": "correo@correo.com",
+      "phone": "56789",
+      "hotelId": 1,
+      "roomId": 1,
+      "initialDate": 1692316800000,
+      "finalDate": 1692748800000,
+      "emergencyContact": "client2",
+      "emergencyPhone": "565656",
+      "price": 1800,
+      "tax": 0.06,
+      "totalPaid": 11448,
+      "totalDays": 6,
+      "id": 1
+    },
+    {
+      "clientName": "client",
+      "lastName": "Peterson",
+      "email": "correo@correo.com",
+      "phone": "56789",
+      "hotelId": 3,
+      "roomId": 2,
+      "initialDate": 1692230400000,
+      "finalDate": 1692662400000,
+      "emergencyContact": "client2",
+      "emergencyPhone": "565656",
+      "price": 1500,
+      "tax": 0.15,
+      "totalPaid": 10349.999999999998,
+      "totalDays": 6,
+      "id": 2
+    }
   ],
   "rooms": [
     {
@@ -48,10 +198,49 @@
       "taxes": 0.06,
       "description": "",
       "isActive": true,
+      "initialDate": 1692316800000,
+      "finalDate": 1692748800000,
+      "statusRoom": "occupied",
+      "id": 1
+    },
+    {
+      "basisCost": 1500,
+      "capacity": 2,
+      "numberRoom": "AZ523",
+      "roomType": "double",
+      "taxes": 0.15,
+      "description": "",
+      "isActive": true,
+      "initialDate": 1692230400000,
+      "finalDate": 1692662400000,
+      "statusRoom": "occupied",
+      "id": 2
+    },
+    {
+      "basisCost": 980,
+      "capacity": 2,
+      "numberRoom": "A523",
+      "roomType": "suite",
+      "taxes": 0.12,
+      "description": "",
+      "isActive": true,
       "initialDate": 0,
       "finalDate": 0,
       "statusRoom": "free",
-      "id": 1
+      "id": 3
+    },
+    {
+      "basisCost": 520,
+      "capacity": 2,
+      "numberRoom": "Z500",
+      "roomType": "single",
+      "taxes": 0.12,
+      "description": "",
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0,
+      "statusRoom": "free",
+      "id": 4
     }
   ]
 }

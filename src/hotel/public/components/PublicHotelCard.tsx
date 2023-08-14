@@ -11,7 +11,7 @@ export const PublicHotelCard = () => {
 
   const handleReservation = (hotelId: number | undefined) => {
     if (!hotelId) return
-    navigate(`/hotel/${hotelId}`)
+    navigate(`/hotels/${hotelId}`)
   }
 
   return (

@@ -94,7 +94,7 @@ export const CreateOrEditRoomForm = ({ isCreating, formProps, formState }: Creat
   }
 
   const handleDetailHotel = () => {
-    navigate(`/api/hotel/${hotelId}`)
+    navigate(`/api/hotels/${hotelId}`)
   }
 
   return (

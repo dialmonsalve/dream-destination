@@ -4,6 +4,7 @@ import NotFoundPage from "./notFoundPage";
 import { Button } from "../../../ui";
 import { convertDate } from "../../../helpers/convertDate";
 import { CardDetailHotel } from "../../components/CardDetailHotel";
+import { Table, TableContent, Td } from "../../../ui/Table";
 
 
 
@@ -30,12 +31,13 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
   }
 
   const handleDetailRoom = (id: number) => {
-    navigate(`/hotel/${hotelId}/room/${id}`)
+    navigate(`/hotels/${hotelId}/rooms/${id}`)
   }
 
   const handleCreateReservation = (roomId: number) => {
-    navigate(`/hotel/${hotelId}/room/${roomId}/reserve/create`)
+    navigate(`/hotels/${hotelId}/rooms/${roomId}/reserve/create`)
   }
+
 
   return (
     <>
@@ -49,56 +51,49 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
       {
         hotel.rooms?.length === 0 ? <h2 className='h2'>No rooms available</h2> :
 
-          <table className='detail-hotel__table' >
-            <thead>
-              <tr>
-                <th>Number room</th>
-                <th>Room type</th>
-                <th>Basic Cost</th>
-                <th>Taxes</th>
-                <th>Capacity</th>
-                <th >Detail</th>
-                <th >Actions</th>
-              </tr>
-            </thead>
+          <Table >
+            <TableContent type='header' columns={`repeat(7, 1fr)`}>
+              <Td>Number room</Td>
+              <Td>Room type</Td>
+              <Td>Basic Cost</Td>
+              <Td>Taxes</Td>
+              <Td>Capacity</Td>
+              <Td >Reserve</Td>
+              <Td >Detail</Td>
+            </TableContent>
 
-            <tbody>
-              {
-                hotel.rooms?.map(hotelRoom => (
+            {
+              hotel.rooms?.map(hotelRoom => (
 
-                  rooms.map(room => hotelRoom.id === room.id && room.isActive && (
-                    <tr key={room.id} >
-                      {
-                        <>
-                          <td  >{room.numberRoom}</td>
-                          <td  >{room.roomType}</td>
-                          <td  >{room.basisCost}</td>
-                          <td  >{room.taxes}</td>
-                          <td  >{room.capacity}</td>
-                          <td><Button
-                            label='reserve'
-                            size='small'
-                            backgroundColor='primary-dark'
-                            onClick={() => handleCreateReservation(room.id!)}
-                          /></td>
-                          <td><Button
-                            label='detail'
-                            size='small'
-                            backgroundColor='green'
-                          // onClick={() => handleDetailRoom(room.id!)}
-                          /></td>
-                        </>
-                      }
-                    </tr>
-                  ))
+                rooms.map(room => hotelRoom.id === room.id && room.isActive && (
+                  <TableContent type='row' columns={`repeat(7, 1fr)`} key={room.id} >
+                    {
+                      <>
+                        <Td  >{room.numberRoom}</Td>
+                        <Td  >{room.roomType}</Td>
+                        <Td  >${`${room.basisCost}`}</Td>
+                        <Td  >{`${room.taxes * 100}`}%</Td>
+                        <Td  > {`${room.capacity}`}</Td>
+                        <Button
+                          label='reserve'
+                          size='toTable'
+                          backgroundColor='primary-dark'
+                          onClick={() => handleCreateReservation(room.id!)}
+                        />
+                        <Button
+                          label='detail'
+                          size='toTable'
+                          backgroundColor='green'
+                        // onClick={() => handleDetailRoom(room.id!)}
+                        />
+                      </>
+                    }
+                  </TableContent>
                 ))
-              }
-            </tbody>
-          </table>
+              ))
+            }
+          </Table>
       }
-      <div>
-
-      </div>
     </>
   )
 }

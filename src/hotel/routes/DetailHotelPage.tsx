@@ -26,10 +26,12 @@ function DetailHotelPage({ isStaff }: HotelDetailPageProps) {
       .catch(error => setError(true))
   }, [hotelId, getHotel]);
 
+  if(isLoading === 'loading'){
+    return <Spinner type='half-circle' />
+  }
+
   return (
     <>
-      {isLoading === 'loading' && <Spinner type='long-play' />}
-
       {error && <NotFoundPage />}
 
       {isStaff

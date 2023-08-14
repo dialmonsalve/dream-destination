@@ -23,12 +23,13 @@ function EditRoomPage() {
     if (roomId === undefined) return;
     getRoom(roomId).then().catch(e => console.log(e)
     )
-  }, [roomId, getRoom])
+  }, [roomId, getRoom]);
 
+  if(isLoading === 'loading'){
+    return <Spinner type='half-circle' />
+  }
 
   return (
-
-    isLoading === 'loading' ? <Spinner type="long-play" />:
 
     !existRoomInHotel ? <NotFoundPage /> :
 

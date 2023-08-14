@@ -17,7 +17,7 @@ export const Spinner = ({ type='half-circle' }: Props) => {
 
         {
           type === 'half-circle' &&
-          (<div className='container-spinner__half-spinner'> </div>)
+          ( <div className='container-spinner__half-spinner'> </div>)
         }
       </div>
     </>

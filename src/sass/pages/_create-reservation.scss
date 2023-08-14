@@ -19,7 +19,22 @@
   align-self: flex-end;
   font-size: v.$font-size + 0.6rem;
   display: flex;
-  width: 35%;
+  width: 55rem;
   justify-content: space-between;
-  text-transform: uppercase;
+  font-weight: 300;
+  color: v.$color-primary;
+
+  @include m.responsive(phone){
+    font-size: v.$font-size + 0.2rem;
+    width: 40rem;
+    margin-top: 0;
+    border: 1px solid white;
+    
+  }
+
+  & span {
+    font-weight: 700;
+    color: white;
+    
+  }
 }

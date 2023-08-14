@@ -15,7 +15,7 @@ export const CardDetailHotel = ({ hotel }: CardDetailHotelProps) => {
 
   return (
     <>
-      <h1 className='detail-hotel__title' >Detail hotel: {hotel.name}</h1>
+      <h1 className="container__title" >Detail hotel</h1>
       <div className='card'>
 
         <CardHead >

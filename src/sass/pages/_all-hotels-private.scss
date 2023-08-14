@@ -1,7 +1,0 @@
-@use '../abstract/variables' as v;
-@use '../abstract/mixins' as m;
-
-.private-hotels {
-  @include m.hotels-detail-page();
-}
-

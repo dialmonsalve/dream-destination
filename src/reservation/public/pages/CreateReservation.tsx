@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useHotel } from "../../../hotel/private/hooks/useHotel"
 import { useRoom } from "../../../hotel/private/hooks/useRoom";
 import { useEffect } from "react";
@@ -31,6 +31,7 @@ const CreateReservation = () => {
   const { roomId, hotelId } = useParams();
   const { formState, handleFieldChange, handleBlur, areFieldsValid, isFormSubmitted, isTouched, handleResetForm } = useForm(newReservation);
   const existRoomInHotel = hotel.rooms?.some(room => room.id === Number(roomId));
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (hotelId === undefined) return;
@@ -68,7 +69,7 @@ const CreateReservation = () => {
         emergencyPhone: formState.emergencyPhone,
         price: room.basisCost,
         tax: room.taxes,
-        totalPaid: room.basisCost * (1 + room.taxes) * isInTotalDays,
+        totalPaid: Number((room.basisCost * (1 + room.taxes) * isInTotalDays).toFixed(2)),
         totalDays: isInTotalDays
       }
       updateRoomWithReservation(Number(room.id), newReservation).then().catch(e => console.log(e))
@@ -76,13 +77,19 @@ const CreateReservation = () => {
     }
   }
 
+  const handleBack = () =>{
+    navigate(-1)
+  }
+
+  if(isLoading === 'loading'){
+    return <Spinner type="half-circle" />
+  }
+
   if(room.statusRoom === 'occupied'){
     return <NotFoundPage />
   }
 
   return (
-
-    isLoading === 'loading' ? <Spinner type='long-play' /> :
 
       !existRoomInHotel ? <NotFoundPage /> :
         <>
@@ -254,14 +261,15 @@ const CreateReservation = () => {
               label="back"
               backgroundColor="red"
               margin="0.5rem 1rem 0 1rem"
+              onClick={handleBack}
             />
           </form>
 
           <div className="totalPaid">
-            <label >price x day: ${room.basisCost}</label>
-            <label >tax: {room.taxes * 100}%</label>
+            <label >Price x day: <span>${room.basisCost}</span></label>
+            <label >Taxes: <span>{room.taxes * 100}%</span></label>
             {/* <label >days: {isInTotalDays} day(s)</label> */}
-            <label >Total: ${room.basisCost * (1 + room.taxes) * isInTotalDays}</label>
+            <label >Total: <span>$ {(room.basisCost * (1 + room.taxes) * isInTotalDays).toFixed(2)}</span></label>
           </div>
         </>
 

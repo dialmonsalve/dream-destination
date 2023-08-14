@@ -43,13 +43,23 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding: 4rem 0;
+	overflow: auto;
 
 	@include m.responsive(tab-port) {
-		padding: 4rem 8rem;
+		padding: 4rem 0rem;
 	}
 	@include m.responsive(phone) {
 		background-color: v.$color-primary-darker;
-		padding: 4rem;
+		padding: 4rem 0;
+	}
+
+	&__title {
+		@include m.title-pages(v.$color-primary-darker);
+		text-align: center;
+
+		@include m.responsive(phone) {
+			color: white;
+		}
 	}
 }
 
@@ -59,7 +69,7 @@ body {
 	align-items: center;
 	overflow: auto;
 	height: 83vh;
-	padding: 2rem 0;
+	padding: 2rem 4rem;
 
 	@include m.responsive(tab-land) {
 		max-height: 78.2vh;
@@ -72,6 +82,7 @@ body {
 	@include m.responsive(phone) {
 		background-color: v.$color-primary-darker;
 		max-height: 63.2vh;
+		padding: 2rem 0;
 	}
 
 	&__title {

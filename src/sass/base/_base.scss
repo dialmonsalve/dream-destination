@@ -49,31 +49,3 @@ select {
 .active {
 	background-color: v.$color-primary-light;
 }
-
-th {
-	color: white;
-	background-color: rgb(61, 54, 54);
-	text-transform: uppercase;
-	padding: 1rem 2rem;
-}
-
-tr {
-	height: 4rem;
-	&:hover {
-		background-color: rgba(148, 148, 148, 0.502);
-	}
-	
-	@include m.responsive(phone) {		
-		&:nth-child(even) {
-			background-color: rgb(197, 193, 193);
-		}		
-	}
-}
-
-td {
-	padding: 1rem 2rem;
-	font-size: 1.3rem;
-	text-transform: uppercase;
-	text-align: center;
-	color: v.$color-primary-darker;
-}

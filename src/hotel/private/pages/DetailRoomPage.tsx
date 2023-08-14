@@ -36,13 +36,15 @@ function DetailRoomPage() {
     if (hotelId === undefined || roomId === undefined) {
       return <NotFoundPage />
     }
-    navigate(`/api/hotel/${hotelId}/room/edit/${roomId}`)
+    navigate(`/api/hotels/${hotelId}/rooms/edit/${roomId}`)
   }
 
+  if(isLoading === 'loading'){
+    return <Spinner type='half-circle' />
+  }
 
   return (
-    isLoading === 'loading' ? <Spinner type='long-play' /> :
-
+   
     !existRoomInHotel ? <NotFoundPage /> :
 
       error ? <NotFoundPage /> :

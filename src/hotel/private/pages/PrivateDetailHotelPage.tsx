@@ -4,6 +4,7 @@ import { useRoom } from "../hooks/useRoom";
 import NotFoundPage from "../../public/pages/notFoundPage";
 import { Button } from "../../../ui";
 import { convertDate } from "../../../helpers/convertDate";
+import { TableContent, Table, Td } from "../../../ui/Table";
 
 interface CardProps {
   hotel: Hotel;
@@ -27,7 +28,7 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
 
   const handleCreateRoom = () => {
     if (hotelId === undefined) return;
-    navigate(`/api/hotel/${hotelId}/room/create`)
+    navigate(`/api/hotels/${hotelId}/rooms/create`)
     handleClearState();
   }
 
@@ -39,11 +40,11 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
     if (Number(hotelId) !== hotel.id) {
       return <NotFoundPage />
     }
-    navigate(`/api/hotel/${hotelId}/room/edit/${roomId}`)
+    navigate(`/api/hotels/${hotelId}/rooms/edit/${roomId}`)
   }
 
   const handleDetailRoom = (roomId: number) => {
-    navigate(`/api/hotel/${hotelId}/room/${roomId}`)
+    navigate(`/api/hotels/${hotelId}/rooms/${roomId}`)
   }
 
   const handleDeleteRoom = (roomId: number, isActive: boolean) => {
@@ -56,82 +57,82 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
       <h2 className="private-container__subtitle" >City: {hotel.city}</h2>
       {
         hotel.rooms?.length === 0 ? <h2 className='h2'>There's no rooms create yet</h2> :
-          <div className='private-detail__container-table' >
-            <table className='private-detail__container-table--table' >
-              <thead>
-                <tr>
-                  <th>Number room</th>
-                  <th>Room type</th>
-                  <th>Basic Cost</th>
-                  <th>Taxes</th>
-                  <th>Capacity</th>
-                  <th colSpan={3} >Actions</th>
-                  <th>Status</th>
-                  <th>date reservation</th>
-                </tr>
-              </thead>
 
-              <tbody>
-                {
-                  hotel.rooms?.map(hotelRoom => (
 
-                    rooms.map(room => hotelRoom.id === room.id && (
-                      <tr key={room.id} >
-                        <td  >{room.numberRoom}</td>
-                        <td  >{room.roomType}</td>
-                        <td  >{room.basisCost}</td>
-                        <td  >{room.taxes}</td>
+          <Table>
+            <TableContent type="header" columns={`repeat(5, 1fr) 3fr repeat(2, 1fr)`} >
+              <Td >Number room</Td>
+              <Td >Room type</Td>
+              <Td >Basic Cost</Td>
+              <Td >Taxes</Td>
+              <Td >Capacity</Td>
+              <Td >Actions</Td>
+              <Td >Status</Td>
+              <Td >date reservation</Td>
+            </TableContent>
 
-                        <td  >{room.capacity}</td>
-                        <td><Button
-                          label='detail'
-                          size='small'
-                          backgroundColor='green'
-                          onClick={() => handleDetailRoom(room.id!)}
-                        /></td>
-                        <td><Button
-                          label='edit'
-                          size='small'
-                          backgroundColor='blue'
-                          onClick={() => handleEditRoom(room.id!)}
-                        /></td>
-                        {
-                          room.isActive
-                            ?
-                            <td><Button
-                              label='delete'
-                              size='small'
-                              backgroundColor='red'
-                              onClick={() => handleDeleteRoom(room.id!, false)}
-                            /></td>
-                            :
-                            <td><Button
-                              label='activate'
-                              size='small'
-                              backgroundColor='primary-dark'
-                              onClick={() => handleDeleteRoom(room.id!, true)}
-                            /></td>
-                        }
-                        <td  >{room.isActive ? 'active' : 'inactive'}</td>
+            {
+              hotel.rooms?.map(hotelRoom => (
+                rooms.map(room => hotelRoom.id === room.id && (
 
-                        {
-                          room.finalDate! - room.initialDate! > 0 ?
-                            <td> {`${convertDate(room.initialDate!)}  -  ${convertDate(room.finalDate!)}`} </td>
-                            : <td>free</td>
-                        }
-                      </tr>
-                    ))
-                  ))
-                }
-              </tbody>
-            </table>
-          </div>
+                  <TableContent type="row" key={room.id} columns={`repeat(10, 1fr)`} >
+                    <Td  >{room.numberRoom}</Td>
+                    <Td  >{room.roomType}</Td>
+                    <Td  >${`${room.basisCost}`}</Td>
+                    <Td  >{`${room.taxes * 100}`}%</Td>
+
+                    <Td  >{`${room.capacity}`} person</Td>
+                    <Td  > <Button
+                      label='detail'
+                      size='toTable'
+                      backgroundColor='green'
+                      onClick={() => handleDetailRoom(room.id!)}
+
+                    /></Td>
+                    <Td  ><Button
+                      label='edit'
+                      size='toTable'
+                      backgroundColor='blue'
+                      onClick={() => handleEditRoom(room.id!)}
+
+                    /></Td>
+                    {
+                      room.isActive
+                        ?
+                        <Td  ><Button
+                          label='delete'
+                          size='toTable'
+                          backgroundColor='red'
+                          onClick={() => handleDeleteRoom(room.id!, false)}
+
+                        /></Td>
+                        :
+                        <Td  > <Button
+                          label='activate'
+                          size='toTable'
+                          backgroundColor='primary-dark'
+                          onClick={() => handleDeleteRoom(room.id!, true)}
+
+                        /></Td>
+                    }
+                    <Td  >{room.isActive ? 'active' : 'inactive'}</Td>
+
+                    {
+                      Number(room.finalDate) - Number(room.initialDate) > 0
+                        ? <Td> {`${convertDate(Number(room.initialDate))}  -  ${convertDate(Number(room.finalDate))}`} </Td>
+                        : <Td>free</Td>
+                    }
+                  </TableContent>
+                ))
+              ))
+            }
+          </Table>
       }
       <div>
         <Button
           label='create rooms'
           backgroundColor='blue'
-          margin='0 1rem 1rem 0'
+          margin='1rem 1rem 1rem 0'
           onClick={handleCreateRoom}
         />
         <Button

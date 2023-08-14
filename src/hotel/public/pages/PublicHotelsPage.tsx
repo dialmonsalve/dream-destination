@@ -7,7 +7,7 @@ export const PublicHotelsPage = () => {
   return (
     <>
       <div className='container__hotel__background'>
-        <h1 className='container__hotel__background--title' >Find your hotel</h1>
+        <h1 className="container__title" >Find your hotel</h1>
 
         <form className='container__hotel__background--form' action=''>      
             <FormControl
