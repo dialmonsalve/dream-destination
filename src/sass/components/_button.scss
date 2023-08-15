@@ -87,16 +87,6 @@
     font-size: 2.2rem;
     padding: 1.2rem 1.7rem;
   }
-
-  &--toTable {
-    font-size: 1rem;
-    padding: .6rem 0.7rem;
-
-    @include m.responsive(phone) {
-      padding: .4rem 0.1rem;
-      width: 7.2rem;
-    }
-  }
 }
 
 .disabled {

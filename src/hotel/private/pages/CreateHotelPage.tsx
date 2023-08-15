@@ -15,7 +15,7 @@ const hotel: Hotel = {
   description: ''
 }
 
-function CreateHotelPage() {
+export function Component() {
 
   const {
     formState,
@@ -61,14 +61,14 @@ function CreateHotelPage() {
     ]);
   };
 
-  if(isLoading === 'loading'){
+  if (isLoading === 'loading') {
     return <Spinner type='half-circle' />
   }
 
   return (
     <>
       <div className='create-hotel__container' >
-      <h1 className='private-container__title' >Create Hotel</h1>
+        <h1 className='private-container__title' >Create Hotel</h1>
 
         <CreateOrEditHotelForm
           isCreate={true}
@@ -81,4 +81,4 @@ function CreateHotelPage() {
     </>
   )
 }
-export default CreateHotelPage;
+Component.displayName = "CreateHotelPage";

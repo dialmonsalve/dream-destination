@@ -67,10 +67,10 @@ export const RoomProvider = ({ children }: Props) => {
     }
   }
 
-  const toggleActiveRoom = async (roomId: string | number, isActive: boolean): Promise<void> => {
+  const toggleActiveRoom = async (roomId: string | number, statusRoom: string): Promise<void> => {
 
     try {
-      const { data } = await roomsApi.patch<Room>(`/${roomId}`, { isActive });
+      const { data } = await roomsApi.patch<Room>(`/${roomId}`, { statusRoom });
       if (data.id === undefined) return;
       dispatch({ type: 'room/toggleActiveRoom', payload: data });
     } catch (error) {

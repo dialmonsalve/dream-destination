@@ -2,72 +2,59 @@
 @use '../abstract/mixins' as m;
 
 .table {
-  border: 1px solid black;
-  border-radius: 1rem 1rem 0 0;
   overflow: auto;
-  
-  
-  @include m.responsive(tab-port) {
-    // align-self: flex-start;
+ 
+  & > table{
+    border-collapse: collapse;
 
   }
+
   @include m.responsive(phone) {
     margin-left: 4rem;
-    // width: 100rem;
-    // max-width: 60rem;
-    border: 1px solid v.$color-white;
     align-self: flex-start;
   }
 
-  &__header {
-
-    align-items: center;
+  &__header {    
     background-color: v.$color-gray;
-    color: v.$color-white;
-    display: grid;
     font-size: v.$font-size;
-    justify-items: center;
-    padding: 1rem 0;
     position: sticky;
-    text-align: center;
     text-transform: uppercase;
-    
     top: 0;
     z-index: 1;
-    
-    @include m.responsive(phone) {
-      align-self: flex-start;
-      background-color: v.$color-white;
-      color: v.$color-primary-darker;
+
+    &--titles {
+      color: white;
+
+      @include m.responsive(phone) {
+        color: v.$color-primary-darker;
+        background-color: white;
+      }
     }
   }
 
   &__row {
-    align-items: center;
-    display: grid;
     font-size: v.$font-size;
-    justify-items: center;
     text-transform: uppercase;
     border: 1px solid v.$color-gray-light;
-    text-align: center;
-    padding: 0.6rem 0;
 
     @include m.responsive(phone) {
       color: v.$color-white;
-      border: 1px solid v.$color-white;   
+      border: 1px solid v.$color-white;
     }
 
     &:hover {
       background-color: v.$color-gray-light;
       color: v.$color-white;
     }
-
   }
+
   &__td {
+    padding: 1.5rem 1rem;
+    width: 12rem;
+    
+
     @include m.responsive(phone) {
       font-size: v.$font-size - 0.2rem;
-      width: 9.1rem;
     }
-
   }
 }

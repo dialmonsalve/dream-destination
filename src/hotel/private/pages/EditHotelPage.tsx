@@ -9,7 +9,7 @@ import { Button, Spinner } from '../../../ui';
 
 import { CreateOrEditHotelForm } from '../components/CreateOrEditHotelForm';
 
-function EditHotelPage() {
+export function Component() {
 
   const [error, setError] = useState(false);
   const { hotelId } = useParams();
@@ -70,4 +70,4 @@ function EditHotelPage() {
   )
 }
 
-export default EditHotelPage
+Component.displayName = "EditHotelPage";

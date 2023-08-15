@@ -6,7 +6,7 @@ import { useRoom } from "../hooks/useRoom";
 import { PrivateResumeHotelView } from "../views/PrivateResumeHotelView";
 import { Spinner } from "../../../ui";
 
-function EditRoomPage() {
+export function Component() {
 
   const { hotel, getHotel, isLoading } = useHotel();
   const { getRoom } = useRoom()
@@ -43,4 +43,4 @@ function EditRoomPage() {
   )
 }
 
-export default EditRoomPage
+Component.displayName =  "EditRoomPage"

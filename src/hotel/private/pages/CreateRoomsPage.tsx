@@ -5,7 +5,7 @@ import { useHotel } from '../hooks/useHotel';
 
 import { PrivateResumeHotelView } from '../views/PrivateResumeHotelView';
 
-function CreateRoomsPage() {
+export function Component() {
 
   const { hotelId } = useParams();
   const { hotel, getHotel } = useHotel()
@@ -28,4 +28,4 @@ function CreateRoomsPage() {
   )
 }
 
-export default CreateRoomsPage
+Component.displayName =  'CreateRoomsPage'

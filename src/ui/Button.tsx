@@ -4,7 +4,7 @@ interface ButtonProps {
   isAnimated?: boolean;
   label: string;
   margin?: string
-  size?: 'small' | 'medium' | 'large' | 'toTable';
+  size?: 'small' | 'medium' | 'large';
   type?: 'button' | 'submit';
   color?: string
   disabled?: boolean

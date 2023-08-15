@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import NotFoundPage from "../../public/pages/notFoundPage";
 import { Button, Spinner } from "../../../ui";
 import { useHotel } from "../hooks/useHotel";
+import { convertDate } from "../../../helpers/convertDate";
 
-function DetailRoomPage() {
+export function Component() {
 
   const [error, setError] = useState(false);
   const { hotelId, roomId } = useParams();
@@ -39,12 +40,12 @@ function DetailRoomPage() {
     navigate(`/api/hotels/${hotelId}/rooms/edit/${roomId}`)
   }
 
-  if(isLoading === 'loading'){
+  if (isLoading === 'loading') {
     return <Spinner type='half-circle' />
   }
 
   return (
-   
+
     !existRoomInHotel ? <NotFoundPage /> :
 
       error ? <NotFoundPage /> :
@@ -77,12 +78,12 @@ function DetailRoomPage() {
 
             <div className="detail-room__container--labels">
               <label className="detail-room__container--labels-title">Basis cost</label>
-              <label className="detail-room__container--labels-content">{room.basisCost}</label>
+              <label className="detail-room__container--labels-content">$ {room.basisCost}</label>
             </div>
 
             <div className="detail-room__container--labels">
               <label className="detail-room__container--labels-title">Taxes</label>
-              <label className="detail-room__container--labels-content" >{room.taxes}</label>
+              <label className="detail-room__container--labels-content" >{room.taxes * 100} %</label>
             </div>
 
             <div className="detail-room__container--labels">
@@ -101,12 +102,12 @@ function DetailRoomPage() {
             </div>
             <div className="detail-room__container--labels">
               <label className="detail-room__container--labels-title">Init date</label>
-              <label className="detail-room__container--labels-content" >25/12/2022</label>
+              <label className="detail-room__container--labels-content" >{convertDate(Number(room.initialDate))}</label>
             </div>
 
             <div className="detail-room__container--labels">
               <label className="detail-room__container--labels-title">finish date</label>
-              <label className="detail-room__container--labels-content" >03/01/2023</label>
+              <label className="detail-room__container--labels-content" >{convertDate(Number(room.finalDate))}</label>
             </div>
 
             <Button
@@ -127,4 +128,4 @@ function DetailRoomPage() {
 
 }
 
-export default DetailRoomPage
+Component.displayName =  "DetailRoomPage"

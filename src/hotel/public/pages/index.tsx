@@ -1,6 +1,6 @@
 
 
-function HomePage() {
+export function Component() {
 
 
   return (
@@ -8,4 +8,4 @@ function HomePage() {
   )
 }
 
-export default HomePage;
+Component.displayName = "HomePage";

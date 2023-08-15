@@ -34,6 +34,8 @@ interface FormProps {
 
 
 export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent, formState }: CreateOrEditHotelProps) => {
+ 
+
 
   const {
     city, description, isFormSubmitted, isTouched, name, id,
@@ -128,18 +130,18 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
         onChange={handleFieldChange}
         onBlur={handleBlur}
       />
-        <Button
-          margin='2rem 0 0'
-          label={`${title} hotel`}
-          disabled={!!errors}
-          type='submit'
-        />
-        <Button
-          margin='1rem 0.5rem'
-          label='back'
-          backgroundColor='red'
-          onClick={handleBack}
-        />
+      <Button
+        margin='2rem 0 0'
+        label={`${title} hotel`}
+        disabled={!!errors}
+        type='submit'
+      />
+      <Button
+        margin='1rem 0.5rem'
+        label='back'
+        backgroundColor='red'
+        onClick={handleBack}
+      />
     </form>
   )
 }

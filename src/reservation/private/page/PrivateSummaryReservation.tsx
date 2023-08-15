@@ -1,48 +1,60 @@
-import { Table, TableContent, Td } from "../../../ui/Table"
+import { useHotel } from "../../../hotel/private/hooks/useHotel";
+import { Row, Table, TableHeader, Td } from "../../../ui/Table"
+import { useReservation } from "../../hooks/useReservation"
+import { useRoom } from "../../../hotel/private/hooks/useRoom";
+import { convertDate } from "../../../helpers/convertDate";
+import { Button, Spinner } from "../../../ui";
 
 export const PrivateSummaryReservation = () => {
+
+  const { reservations, isLoading } = useReservation();
+  const { hotels } = useHotel();
+  const { rooms  } = useRoom();
+
+  if(isLoading === 'loading'){
+    return <Spinner type="half-circle" />
+  }
+
+  const getHotelCity = (reservationId: number) => hotels.find(hotel => Number(hotel.id) === Number(reservationId))?.city
+
+  const getNumberRoom = (reservationId: number) => rooms.find(room => Number(room.id) === Number(reservationId))?.numberRoom;
+ 
   return (
     <>
       <h1 className='private-container__title' >Reservations</h1>
       <Table >
-
-        <TableContent type="header" columns="repeat(10, 1fr)" >
-          <Td>Reservation No</Td>
-          <Td>client</Td>
-          <Td>phone</Td>
-          <Td>Hotel city</Td>
-          <Td>Room</Td>
-          <Td>Initial date</Td>
-          <Td>Final date</Td>
-          <Td>total days</Td>
-          <Td>Emergencia name</Td>
-          <Td>phone</Td>
-        </TableContent>
-
-        <TableContent type="row" columns="repeat(10, 1fr)">
-          <Td>sdfasdfsdaf</Td>
-          <Td>Jhon Doe</Td>
-          <Td>320859595</Td>
-          <Td>Juarez</Td>
-          <Td>204</Td>
-          <Td>05/01/2022</Td>
-          <Td>10/01/2022</Td>
-          <Td>5</Td>
-          <Td>Pepe el toto</Td>
-          <Td>6589595</Td>
-        </TableContent>
-        <TableContent type="row" columns="repeat(10, 1fr)">
-          <Td>2806565</Td>
-          <Td>Jhon Doe</Td>
-          <Td>320859595</Td>
-          <Td>Juarez</Td>
-          <Td>204</Td>
-          <Td>05/01/2022</Td>
-          <Td>10/01/2022</Td>
-          <Td>5</Td>
-          <Td>Pepe el toto</Td>
-          <Td>6589595</Td>
-        </TableContent>
+        <TableHeader>
+          <Td textAlign="center" >Reservation No</Td>
+          <Td textAlign="center" >client</Td>
+          <Td textAlign="center" >phone</Td>
+          <Td textAlign="center" >Hotel city</Td>
+          <Td textAlign="center" >Room</Td>
+          <Td textAlign="center" >Initial date</Td>
+          <Td textAlign="center" >Final date</Td>
+          <Td textAlign="center" >total days</Td>
+          <Td textAlign="center" >Emergencia name</Td>
+          <Td textAlign="center" >phone</Td>
+          <Td textAlign="center" >Actions</Td>
+        </TableHeader>
+        <tbody>
+          {
+            reservations.map(reservation => (
+              <Row key={reservation.id} >
+                <Td textAlign="center" >{reservation.id}</Td>
+                <Td>{reservation.clientName} {reservation.lastName} </Td>
+                <Td>{reservation.phone}</Td>
+                <Td>{getHotelCity(reservation.hotelId)}</Td>
+                <Td textAlign="center">{getNumberRoom(reservation.hotelId)}</Td>
+                <Td>{convertDate(Number(reservation.initialDate))}</Td>
+                <Td>{convertDate(Number(reservation.finalDate))}</Td>
+                <Td textAlign="center" >{reservation.totalDays}</Td>
+                <Td>{reservation.emergencyContact}</Td>
+                <Td>{reservation.emergencyPhone}</Td>
+                <Td><Button label="detail" size="small" backgroundColor="green"  /></Td>
+              </Row>
+            ))
+          }
+        </tbody>
       </Table>
     </>
   )

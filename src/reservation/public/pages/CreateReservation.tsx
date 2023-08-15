@@ -24,7 +24,7 @@ const newReservation: Reservation = {
   totalPaid: 0,
 }
 
-const CreateReservation = () => {
+export function Component () {
 
   const { hotel, getHotel } = useHotel();
   const { isLoading, room, getRoom, updateRoomWithReservation } = useRoom();
@@ -276,4 +276,4 @@ const CreateReservation = () => {
   )
 }
 
-export default CreateReservation
+Component.displayName = "CreateReservation"

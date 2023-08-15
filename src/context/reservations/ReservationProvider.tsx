@@ -9,7 +9,6 @@ export interface Props {
 
 export const ReservationProvider = ({ children }: Props) => {
 
-
   const [state, dispatch] = useReducer(reservationReducer, RESERVATION_INITIAL_STATE);
 
   useEffect(() => {

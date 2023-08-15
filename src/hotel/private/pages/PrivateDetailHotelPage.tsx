@@ -4,7 +4,7 @@ import { useRoom } from "../hooks/useRoom";
 import NotFoundPage from "../../public/pages/notFoundPage";
 import { Button } from "../../../ui";
 import { convertDate } from "../../../helpers/convertDate";
-import { TableContent, Table, Td } from "../../../ui/Table";
+import { TableHeader, Row, Table, Td } from "../../../ui/Table";
 
 interface CardProps {
   hotel: Hotel;
@@ -47,8 +47,8 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
     navigate(`/api/hotels/${hotelId}/rooms/${roomId}`)
   }
 
-  const handleDeleteRoom = (roomId: number, isActive: boolean) => {
-    toggleActiveRoom(roomId, isActive).then().catch(error => console.log(error))
+  const handleDeleteRoom = (roomId: number, statusRoom: string) => {
+    toggleActiveRoom(roomId, statusRoom).then().catch(error => console.log(error))
   }
 
   return (
@@ -60,72 +60,73 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
 
 
           <Table>
-            <TableContent type="header" columns={`repeat(5, 1fr) 3fr repeat(2, 1fr)`} >
+            <TableHeader >
               <Td >Number room</Td>
               <Td >Room type</Td>
               <Td >Basic Cost</Td>
-              <Td >Taxes</Td>
-              <Td >Capacity</Td>
-              <Td >Actions</Td>
+              <Td textAlign='center' >Taxes</Td>
+              <Td textAlign='center'>Capacity</Td>
+              <Td colSpan={3} textAlign='center' >Actions</Td>
               <Td >Status</Td>
               <Td >date reservation</Td>
-            </TableContent>
-
+            </TableHeader>
+            <tbody>
             {
               hotel.rooms?.map(hotelRoom => (
                 rooms.map(room => hotelRoom.id === room.id && (
 
-                  <TableContent type="row" key={room.id} columns={`repeat(10, 1fr)`} >
+                  <Row key={room.id} >
                     <Td  >{room.numberRoom}</Td>
                     <Td  >{room.roomType}</Td>
                     <Td  >${`${room.basisCost}`}</Td>
-                    <Td  >{`${room.taxes * 100}`}%</Td>
+                    <Td textAlign='center'  >{`${room.taxes * 100}`}%</Td>
 
-                    <Td  >{`${room.capacity}`} person</Td>
+                    <Td textAlign='center'   >{`${room.capacity}`} person</Td>
                     <Td  > <Button
                       label='detail'
-                      size='toTable'
+                      size='small'
                       backgroundColor='green'
                       onClick={() => handleDetailRoom(room.id!)}
 
                     /></Td>
                     <Td  ><Button
                       label='edit'
-                      size='toTable'
+                      size='small'
                       backgroundColor='blue'
                       onClick={() => handleEditRoom(room.id!)}
 
                     /></Td>
                     {
-                      room.isActive
+                      room.statusRoom === 'active'
                         ?
                         <Td  ><Button
                           label='delete'
-                          size='toTable'
+                          size='small'
                           backgroundColor='red'
-                          onClick={() => handleDeleteRoom(room.id!, false)}
+                          onClick={() => handleDeleteRoom(room.id!, 'active')}
 
                         /></Td>
                         :
                         <Td  > <Button
                           label='activate'
-                          size='toTable'
+                          size='small'
                           backgroundColor='primary-dark'
-                          onClick={() => handleDeleteRoom(room.id!, true)}
+                          onClick={() => handleDeleteRoom(room.id!, 'inactive')}
 
                         /></Td>
                     }
-                    <Td  >{room.isActive ? 'active' : 'inactive'}</Td>
+                    <Td  >{room.statusRoom}</Td>
 
                     {
                       Number(room.finalDate) - Number(room.initialDate) > 0
                         ? <Td> {`${convertDate(Number(room.initialDate))}  -  ${convertDate(Number(room.finalDate))}`} </Td>
-                        : <Td>free</Td>
+                        : <Td>No reservation</Td>
                     }
-                  </TableContent>
+                  </Row>
                 ))
               ))
             }
+            </tbody>
           </Table>
       }
       <div>

@@ -4,7 +4,7 @@ import NotFoundPage from "./notFoundPage";
 import { Button } from "../../../ui";
 import { convertDate } from "../../../helpers/convertDate";
 import { CardDetailHotel } from "../../components/CardDetailHotel";
-import { Table, TableContent, Td } from "../../../ui/Table";
+import { Table, TableHeader, Row, Td } from "../../../ui/Table";
 
 
 
@@ -38,7 +38,6 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
     navigate(`/hotels/${hotelId}/rooms/${roomId}/reserve/create`)
   }
 
-
   return (
     <>
       <CardDetailHotel hotel={hotel} />
@@ -52,46 +51,48 @@ export const PublicDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState 
         hotel.rooms?.length === 0 ? <h2 className='h2'>No rooms available</h2> :
 
           <Table >
-            <TableContent type='header' columns={`repeat(7, 1fr)`}>
+            <TableHeader >
               <Td>Number room</Td>
               <Td>Room type</Td>
-              <Td>Basic Cost</Td>
-              <Td>Taxes</Td>
-              <Td>Capacity</Td>
+              <Td textAlign="center" >Basic Cost</Td>
+              <Td textAlign="center" >Taxes</Td>
+              <Td textAlign="center" >Capacity</Td>
               <Td >Reserve</Td>
               <Td >Detail</Td>
-            </TableContent>
+            </TableHeader>
 
-            {
-              hotel.rooms?.map(hotelRoom => (
+            <tbody>
+              {
+                hotel.rooms?.map(hotelRoom => (
 
-                rooms.map(room => hotelRoom.id === room.id && room.isActive && (
-                  <TableContent type='row' columns={`repeat(7, 1fr)`} key={room.id} >
-                    {
-                      <>
-                        <Td  >{room.numberRoom}</Td>
-                        <Td  >{room.roomType}</Td>
-                        <Td  >${`${room.basisCost}`}</Td>
-                        <Td  >{`${room.taxes * 100}`}%</Td>
-                        <Td  > {`${room.capacity}`}</Td>
-                        <Button
-                          label='reserve'
-                          size='toTable'
-                          backgroundColor='primary-dark'
-                          onClick={() => handleCreateReservation(room.id!)}
-                        />
-                        <Button
-                          label='detail'
-                          size='toTable'
-                          backgroundColor='green'
-                        // onClick={() => handleDetailRoom(room.id!)}
-                        />
-                      </>
-                    }
-                  </TableContent>
+                  rooms.map(room => hotelRoom.id === room.id && room.isActive && room.statusRoom !== 'occupied' && (
+                    <Row key={room.id} >
+                      {
+                        <>
+                          <Td  >{room.numberRoom}</Td>
+                          <Td  >{room.roomType}</Td>
+                          <Td textAlign="center" >${`${room.basisCost}`}</Td>
+                          <Td textAlign="center" >{`${room.taxes * 100}`}%</Td>
+                          <Td textAlign="center" > {`${room.capacity}`}</Td>
+                          <Td><Button
+                            label='reserve'
+                            size='small'
+                            backgroundColor='primary-dark'
+                            onClick={() => handleCreateReservation(room.id!)}
+                          /></Td>
+                          <Td  > <Button
+                            label='detail'
+                            size='small'
+                            backgroundColor='green'
+                          // onClick={() => handleDetailRoom(room.id!)}
+                          /></Td>
+                        </>
+                      }
+                    </Row>
+                  ))
                 ))
-              ))
-            }
+              }
+            </tbody>
           </Table>
       }
     </>

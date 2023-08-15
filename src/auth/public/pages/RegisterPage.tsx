@@ -20,7 +20,7 @@ const newAccountForm: NewUser = {
   phone: '',
 }
 
-function RegisterPage() {
+export function Component() {
 
   const { newClientValidationSchema } = validationSchema();
   const { formState, isFormSubmitted, isTouched,
@@ -238,4 +238,4 @@ function RegisterPage() {
 }
 
 
-export default RegisterPage;
+Component.displayName = 'RegisterPage';

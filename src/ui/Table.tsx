@@ -9,42 +9,64 @@ export const Table = ({ children }: TableProps) => {
 
   return (
     <div className="table"  >
-      {children}
+      <table>
+        {children}
+      </table>
     </div>
   )
-
 }
-
 
 interface TableContentProps {
   children: ReactNode | ReactNode[],
-  columns: string,
-  type: 'header' | 'row'
 }
 
-export const TableContent = ({ children, columns, type }: TableContentProps) => {
+// export const TableContent = ({ children, columns, type }: TableContentProps) => {
 
-  const style = {
-    gridTemplateColumns: columns
-  }
+//   const style = {
+//     gridTemplateColumns: columns
+//   }
+
+//   return (
+//     <div className={`table__${type}`} style={style} >
+//       {children}
+//     </div>
+//   )
+// }
+
+
+
+
+export const TableHeader = ({ children }: TableContentProps) => {
 
   return (
-    <div className={`table__${type}`} style={style} >
-      {children}
-    </div>
+    <thead className={`table__header`} >
+      <tr className={`table__header--titles`} >
+        {children}
+      </tr>
+    </thead>
   )
 }
 
+
+export const Row = ({ children }: TableContentProps) => {
+
+  return (
+    <tr className={`table__row`} >
+      {children}
+    </tr>
+  )
+}
 
 interface TdProps {
-  children?: string | string[] | ReactNode
+  children?: string | string[] | ReactNode;
+  colSpan?: number
+  textAlign?: 'start' | 'end' | 'left' | 'right' | 'center' | 'justify' | 'match-parent'
 }
-export const Td = ({ children }: TdProps) => {
+export const Td = ({ children, textAlign, colSpan}: TdProps) => {
 
   return (
-    <div className="table__td" >
+    <td className="table__td" colSpan={colSpan} style={{ textAlign }}>
       {children}
-    </div>
+    </td>
   )
 }
-

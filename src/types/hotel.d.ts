@@ -17,12 +17,12 @@ export interface Room extends InitialForm {
   roomType: string;
   basisCost: number;
   taxes: number;
-  isActive?: boolean;
+  // isActive?: boolean;
   capacity: number;
   description?: string;
   initialDate?: number  | string;
   finalDate?: number | string;
-  statusRoom?: 'occupied' | 'free' |'cleaning'
+  statusRoom?: 'occupied' | 'free' |'cleaning' | 'active'| ' inactive'
 }
 
 interface NewRoomForHotel extends Hotel {

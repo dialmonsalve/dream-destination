@@ -28,13 +28,16 @@
       "name": "Hotel A",
       "city": "City A",
       "description": "A beauty hotel in City A",
-      "active": true,
+      "active": false,
       "rooms": [
         {
           "id": 1
         },
         {
           "id": 4
+        },
+        {
+          "id": 7
         }
       ],
       "id": 1,
@@ -45,7 +48,11 @@
       "city": "Panamá",
       "description": "",
       "active": true,
-      "rooms": [],
+      "rooms": [
+        {
+          "id": 6
+        }
+      ],
       "id": 2
     },
     {
@@ -108,7 +115,7 @@
       "name": "Diego",
       "city": "Ciudad B",
       "description": "",
-      "active": false,
+      "active": true,
       "rooms": [],
       "id": 9
     },
@@ -187,6 +194,23 @@
       "totalPaid": 10349.999999999998,
       "totalDays": 6,
       "id": 2
+    },
+    {
+      "clientName": "Pepe",
+      "lastName": "el toro",
+      "email": "pepe@eltoro.com.co",
+      "phone": "9585756525",
+      "hotelId": 1,
+      "roomId": 4,
+      "initialDate": 1692748800000,
+      "finalDate": 1694131200000,
+      "emergencyContact": "Lola Loles",
+      "emergencyPhone": "523656565",
+      "price": 520,
+      "tax": 0.12,
+      "totalPaid": 9900.8,
+      "totalDays": 17,
+      "id": 3
     }
   ],
   "rooms": [
@@ -197,10 +221,10 @@
       "roomType": "single",
       "taxes": 0.06,
       "description": "",
-      "isActive": true,
+      "isActive": false,
       "initialDate": 1692316800000,
       "finalDate": 1692748800000,
-      "statusRoom": "occupied",
+      "statusRoom": "inactive",
       "id": 1
     },
     {
@@ -237,10 +261,36 @@
       "taxes": 0.12,
       "description": "",
       "isActive": true,
+      "initialDate": 1692748800000,
+      "finalDate": 1694131200000,
+      "statusRoom": "inactive",
+      "id": 4
+    },
+    {
+      "basisCost": 2800,
+      "capacity": 1,
+      "numberRoom": "j6000",
+      "roomType": "single",
+      "taxes": 0.12,
+      "description": "",
+      "isActive": true,
       "initialDate": 0,
       "finalDate": 0,
       "statusRoom": "free",
-      "id": 4
+      "id": 6
+    },
+    {
+      "basisCost": 2800,
+      "capacity": 2,
+      "numberRoom": "J5000",
+      "roomType": "suite",
+      "taxes": 0.16,
+      "description": "",
+      "isActive": true,
+      "initialDate": 0,
+      "finalDate": 0,
+      "statusRoom": "inactive",
+      "id": 7
     }
   ]
 }

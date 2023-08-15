@@ -11,7 +11,7 @@ const loginForm: LoginUser = {
   password: ''
 }
 
-function LoginPage() {
+export function Component() {
 
   const { loginValidationSchema } = validationSchema();
   const { formState, isFormSubmitted, isTouched, handleFieldChange, areFieldsValid, handleBlur } = useForm(loginForm)
@@ -91,4 +91,4 @@ function LoginPage() {
   )
 }
 
-export default LoginPage;
+Component.displayName = "LoginPage";
