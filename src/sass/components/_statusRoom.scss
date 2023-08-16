@@ -1,0 +1,42 @@
+@use '../abstract/variables' as v;
+
+.change-status-room {
+  padding-top: 5rem;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.527);
+  width: 100%;
+  height: 100%;
+
+  >h2 {
+    color:v.$color-white;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+  }
+
+  > form {
+    background-color:v.$color-primary-dark;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 60rem;
+    justify-items: center;
+    row-gap: 2rem;
+    border-radius: 1rem;
+  } 
+
+  &--controls {
+    grid-column: 1 /3;
+    justify-self: stretch;
+
+  }
+}
+
+.hide {
+  display: none;
+}

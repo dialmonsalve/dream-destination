@@ -15,9 +15,11 @@ export function Component() {
   const { hotelId } = useParams();
   const navigate = useNavigate();
 
-  const { hotel, isLoading, handleClearState, getHotel } = useHotel();
+  const { hotel, isLoading, handleClearState, getHotel, } = useHotel();
   const { formState, isFormSubmitted, isTouched,
     handleBlur, handleFieldChange, areFieldsValid } = useForm(hotel);
+
+    console.log(isLoading);
 
   useEffect(() => {
     if (hotelId === undefined) return;
@@ -27,9 +29,9 @@ export function Component() {
   }, [hotelId, getHotel]);
 
   const handleCreateRoom = () => {
+    handleClearState();
     if (hotelId === undefined) return;
     navigate(`/api/hotels/${hotelId}/rooms/create`)
-    handleClearState();
   }
 
   const formProps = {
@@ -43,6 +45,7 @@ export function Component() {
     handleFieldChange,
     areFieldsValid
   }
+  
 
   if(isLoading === 'loading'){
     return <Spinner type='half-circle' />

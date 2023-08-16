@@ -5,6 +5,8 @@ import NotFoundPage from "../../public/pages/notFoundPage";
 import { Button } from "../../../ui";
 import { convertDate } from "../../../helpers/convertDate";
 import { TableHeader, Row, Table, Td } from "../../../ui/Table";
+import { ReactNode, useState } from "react";
+import { FormEditStatusRoom } from "../../components/FormEditStatusRoom";
 
 interface CardProps {
   hotel: Hotel;
@@ -15,8 +17,9 @@ interface CardProps {
 
 export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState }: CardProps) => {
 
+  const [components, setComponents] = useState<ReactNode[]>([])
   const navigate = useNavigate();
-  const { toggleActiveRoom } = useRoom()
+  const { handleToggleModal, cleanStatus } = useRoom();
 
   const { description } = hotel;
   if (description === undefined) return;
@@ -47,8 +50,18 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
     navigate(`/api/hotels/${hotelId}/rooms/${roomId}`)
   }
 
-  const handleDeleteRoom = (roomId: number, statusRoom: string) => {
-    toggleActiveRoom(roomId, statusRoom).then().catch(error => console.log(error))
+  const changeStatusForm = (roomId: number, numberRoom: string) => {
+
+    handleToggleModal();
+    cleanStatus();
+
+    setComponents((prevComponents) => [
+      <FormEditStatusRoom
+        key={prevComponents.length}
+        roomId={roomId}
+        numberRoom={numberRoom}
+      />
+    ]);
   }
 
   return (
@@ -71,61 +84,48 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
               <Td >date reservation</Td>
             </TableHeader>
             <tbody>
-            {
-              hotel.rooms?.map(hotelRoom => (
-                rooms.map(room => hotelRoom.id === room.id && (
+              {
+                hotel.rooms?.map(hotelRoom => (
+                  rooms.map(room => hotelRoom.id === room.id && (
 
-                  <Row key={room.id} >
-                    <Td  >{room.numberRoom}</Td>
-                    <Td  >{room.roomType}</Td>
-                    <Td  >${`${room.basisCost}`}</Td>
-                    <Td textAlign='center'  >{`${room.taxes * 100}`}%</Td>
+                    <Row key={room.id} >
+                      <Td  >{room.numberRoom}</Td>
+                      <Td  >{room.roomType}</Td>
+                      <Td  >${`${room.basisCost}`}</Td>
+                      <Td textAlign='center'  >{`${room.taxes * 100}`}%</Td>
 
-                    <Td textAlign='center'   >{`${room.capacity}`} person</Td>
-                    <Td  > <Button
-                      label='detail'
-                      size='small'
-                      backgroundColor='green'
-                      onClick={() => handleDetailRoom(room.id!)}
+                      <Td textAlign='center'   >{`${room.capacity}`} person</Td>
+                      <Td  > <Button
+                        label='detail'
+                        size='small'
+                        backgroundColor='green'
+                        onClick={() => handleDetailRoom(room.id!)}
 
-                    /></Td>
-                    <Td  ><Button
-                      label='edit'
-                      size='small'
-                      backgroundColor='blue'
-                      onClick={() => handleEditRoom(room.id!)}
+                      /></Td>
+                      <Td  ><Button
+                        label='edit'
+                        size='small'
+                        backgroundColor='blue'
+                        onClick={() => handleEditRoom(room.id!)}
 
-                    /></Td>
-                    {
-                      room.statusRoom === 'active'
-                        ?
-                        <Td  ><Button
-                          label='delete'
-                          size='small'
-                          backgroundColor='red'
-                          onClick={() => handleDeleteRoom(room.id!, 'active')}
+                      /></Td>
+                      <Td  > <Button
+                        label='status'
+                        size='small'
+                        backgroundColor='primary-dark'
+                        onClick={() => changeStatusForm(room.id!, room.numberRoom)}
+                      /></Td>
+                      <Td  >{room.statusRoom}</Td>
 
-                        /></Td>
-                        :
-                        <Td  > <Button
-                          label='activate'
-                          size='small'
-                          backgroundColor='primary-dark'
-                          onClick={() => handleDeleteRoom(room.id!, 'inactive')}
-
-                        /></Td>
-                    }
-                    <Td  >{room.statusRoom}</Td>
-
-                    {
-                      Number(room.finalDate) - Number(room.initialDate) > 0
-                        ? <Td> {`${convertDate(Number(room.initialDate))}  -  ${convertDate(Number(room.finalDate))}`} </Td>
-                        : <Td>No reservation</Td>
-                    }
-                  </Row>
+                      {
+                        Number(room.finalDate) - Number(room.initialDate) > 0
+                          ? <Td> {`${convertDate(Number(room.initialDate))}  -  ${convertDate(Number(room.finalDate))}`} </Td>
+                          : <Td>No reservation</Td>
+                      }
+                    </Row>
+                  ))
                 ))
-              ))
-            }
+              }
             </tbody>
           </Table>
       }
@@ -142,6 +142,7 @@ export const PrivateDetailHotelPage = ({ hotel, rooms, hotelId, handleClearState
           onClick={handleBack}
         />
       </div>
+      {components.map((component) => component)}
 
     </>
   )

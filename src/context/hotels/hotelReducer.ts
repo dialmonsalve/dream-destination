@@ -66,7 +66,8 @@ export const hotelReducer = (state: HotelState, action: HotelActionType): HotelS
     case 'hotel/handleClearState':
       return {
         ...state,
-        hotel: HOTEL_INITIAL_STATE.hotel,
+        ...HOTEL_INITIAL_STATE.hotel,
+        isLoading:state.isLoading
       }
 
     default:

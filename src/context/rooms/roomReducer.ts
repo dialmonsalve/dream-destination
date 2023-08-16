@@ -1,15 +1,17 @@
-import { Room } from '../../types';
+import { Room, StatusRoom } from '../../types';
 
 export interface RoomState {
   rooms: Room[]
   isLoading: 'loading' | 'ready' | 'error';
   room: Room
+  showModal: boolean
 }
 
 export const ROOM_INITIAL_STATE: RoomState = {
   isLoading: 'loading',
   rooms: [],
-  room: {} as Room
+  room: {} as Room,
+  showModal: false
 }
 
 type RoomActionType =
@@ -18,7 +20,9 @@ type RoomActionType =
   | { type: 'room/getRoom', payload: Room }
   | { type: 'room/createRoom', payload: Room }
   | { type: 'room/updateRoom', payload: Room }
-  | { type: 'room/toggleActiveRoom', payload: Room }
+  | { type: 'room/changeStatusRoom', payload: Room }
+  | { type: 'room/toggleShowModal' }
+  | { type: 'room/cleanStatus' }
 
 export const roomReducer = (state: RoomState, action: RoomActionType): RoomState => {
 
@@ -49,10 +53,21 @@ export const roomReducer = (state: RoomState, action: RoomActionType): RoomState
         isLoading: 'ready',
       }
 
-    case 'room/toggleActiveRoom':
+    case 'room/changeStatusRoom':
       return {
         ...state,
-        rooms: state.rooms.map(room => room.id === action.payload.id ? { ...room, isActive: !room.isActive } : room),
+        rooms: state.rooms.map(room => room.id === action.payload.id ? { ...room, statusRoom: action.payload.statusRoom } : room),
+        isLoading: 'ready',
+      }
+    case 'room/toggleShowModal':
+      return {
+        ...state,
+        showModal: !state.showModal
+      }
+    case 'room/cleanStatus':
+      return {
+        ...state,
+        room: { ...ROOM_INITIAL_STATE.room, statusRoom: 'active' },
         isLoading: 'ready',
       }
 

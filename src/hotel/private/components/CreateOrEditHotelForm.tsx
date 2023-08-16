@@ -34,15 +34,13 @@ interface FormProps {
 
 
 export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent, formState }: CreateOrEditHotelProps) => {
- 
-
-
+  
   const {
     city, description, isFormSubmitted, isTouched, name, id,
     areFieldsValid, handleFieldChange, handleBlur, handleResetForm } = formProps;
-
-  const { createHotel, updateHotel, handleClearState } = useHotel();
-  const navigate = useNavigate();
+    
+    const { createHotel, updateHotel, handleClearState } = useHotel();
+    const navigate = useNavigate();
 
   const { newHotelValidationSchema } = validationSchema();
   const errors = formValidator().getErrors(formState, newHotelValidationSchema);
@@ -88,6 +86,7 @@ export const CreateOrEditHotelForm = ({ isCreate, formProps, handleAddComponent,
     handleClearState()
     navigate(-1)
   }
+  
 
   return (
     <form className='create-edit-hotel__form' onSubmit={handleSubmit} >

@@ -67,12 +67,12 @@ export const RoomProvider = ({ children }: Props) => {
     }
   }
 
-  const toggleActiveRoom = async (roomId: string | number, statusRoom: string): Promise<void> => {
+  const changeStatusRoom = async (roomId: string | number, statusRoom: string): Promise<void> => {
 
     try {
       const { data } = await roomsApi.patch<Room>(`/${roomId}`, { statusRoom });
       if (data.id === undefined) return;
-      dispatch({ type: 'room/toggleActiveRoom', payload: data });
+      dispatch({ type: 'room/changeStatusRoom', payload: data });
     } catch (error) {
       console.log(error);
     }
@@ -104,6 +104,13 @@ export const RoomProvider = ({ children }: Props) => {
     }
   }
 
+  const handleToggleModal = () => {
+    dispatch({ type: 'room/toggleShowModal' })
+  }
+
+  const cleanStatus = () => {
+    dispatch({ type: 'room/cleanStatus'})
+  }
 
   return (
     <RoomContext.Provider value={{
@@ -112,8 +119,10 @@ export const RoomProvider = ({ children }: Props) => {
       getRoom,
       createRoom,
       updateRoom,
-      toggleActiveRoom,
-      updateRoomWithReservation
+      changeStatusRoom,
+      updateRoomWithReservation,
+      handleToggleModal,
+      cleanStatus
     }}>
       {children}
     </RoomContext.Provider>
